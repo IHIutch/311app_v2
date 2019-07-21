@@ -1,0 +1,8 @@
+@import "theme/variables"; // For writing variables
+@import "theme/bootstrap-overrides"; // For overriding bootstrap default variables and styles
+
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
+
+@import "theme/functions.scss"; // For writing scss functions or hooking into bootstrap functions
+@import "theme/custom.scss"; // Custom scss for this project

@@ -1,5 +1,5 @@
 {
-  "name": "311app_v2",
+  "name": "311_v2",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -8,7 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.0.0-rc.26",
     "core-js": "^2.6.5",
+    "firebase": "^6.3.1",
     "register-service-worker": "^1.6.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3"
@@ -16,14 +19,16 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
-    "@vue/cli-plugin-pwa": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "@vue/eslint-config-prettier": "^4.0.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "lint-staged": "^8.1.5",
+    "husky": "^3.0.1",
+    "lint-staged": "^9.2.0",
     "node-sass": "^4.9.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
   },
@@ -50,12 +55,14 @@
     "> 1%",
     "last 2 versions"
   ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "vue-cli-service lint",
+    "*.{js,vue,scss,json,md,html}": [
+      "pretty-quick",
       "git add"
     ]
   }
