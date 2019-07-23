@@ -1,5 +1,5 @@
 <template>
-  <b-container class="container">
+  <b-container>
     <b-row>
       <b-col cols="12">
         <b-row>
@@ -14,7 +14,7 @@
             <div class="mb-2">
               <div class="d-inline-block mr-5">
                 <a class="border rounded d-inline-block p-1" href="#"
-                  >Report ID: {{ report.id }}
+                  >Report ID: {{ $route.params.id }}
                 </a>
               </div>
               <div class="d-inline-block">
@@ -104,15 +104,19 @@
 </template>
 
 <script>
+import { db } from "../firebase";
+
 export default {
   name: "ReportPage",
   data() {
     return {
-      reports: []
+      report: []
     };
   },
-  firebase: {
-    reports: db.ref("issues")
+  created() {
+    db.ref("issues/" + this.$route.params.id).once("value", snapshot => {
+      this.report = snapshot.val();
+    });
   }
 };
 </script>
