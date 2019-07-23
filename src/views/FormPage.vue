@@ -10,12 +10,12 @@
     <b-row>
       <b-col cols="8" offset="2">
         <div class="p-4 bg-white rounded shadow-sm mb-4">
-          <b-form>
+          <b-form @submit.prevent="addIssue()">
             <b-row>
               <b-col cols="12">
                 <b-form-group label="What is the type?">
                   <b-form-select
-                    v-model="type"
+                    v-model="issue.type"
                     :options="types"
                     @change="filterSubtypes()"
                   >
@@ -29,7 +29,10 @@
               </b-col>
               <b-col cols="12">
                 <b-form-group label="What is the subtype?">
-                  <b-form-select v-model="subtype" :options="filteredSubtypes">
+                  <b-form-select
+                    v-model="issue.subtype"
+                    :options="filteredSubtypes"
+                  >
                     <template slot="first">
                       <option :value="null" disabled
                         >-- Please select an subtype --</option
@@ -43,7 +46,6 @@
                   <b-input
                     type="search"
                     v-model="search"
-                    id="autocomplete"
                     placeholder="123 Main Street..."
                   />
                 </b-form-group>
@@ -55,7 +57,7 @@
                   </b-form-checkbox>
                   <b-input
                     type="email"
-                    v-model="email"
+                    v-model="issue.email"
                     placeholder="johndoe@email.com"
                     required
                   />
@@ -90,7 +92,7 @@
                 <b-form-group label="Additional Comments">
                   <b-textarea
                     class="form-control"
-                    v-model="comments"
+                    v-model="issue.comments"
                     rows="4"
                     placeholder="Comments..."
                     no-resize
@@ -98,7 +100,7 @@
                 </b-form-group>
               </b-col>
               <b-col cols="12">
-                <b-button variant="primary">Submit</b-button>
+                <b-button type="submit" variant="primary">Submit</b-button>
               </b-col>
             </b-row>
           </b-form>
@@ -109,15 +111,20 @@
 </template>
 
 <script>
+import { db } from "../firebase";
+
 export default {
   name: "FormPage",
   data() {
     return {
-      type: null,
-      subtype: null,
-      comments: null,
+      issue: {
+        type: null,
+        subtype: null,
+        comments: null,
+        email: null,
+        createdAt: ""
+      },
       anonymous: null,
-      email: null,
       search: null,
       file: null,
       filePreview: [],
@@ -730,10 +737,16 @@ export default {
       var self = this;
       self.filteredSubtypes = [];
       Object.keys(self.subtypes).forEach(idx => {
-        if (self.subtypes[idx].parentType == self.type) {
+        if (self.subtypes[idx].parentType == self.issue.type) {
           self.filteredSubtypes.push(self.subtypes[idx]);
         }
       });
+    },
+    addIssue() {
+      var moment = require("moment");
+      this.issue.createdAt = moment().format();
+      db.ref("issues").push(this.issue);
+      this.issue = [];
     }
   }
 };
