@@ -1,5 +1,8 @@
 import firebase from "firebase";
 
 export const db = firebase
-  .initializeApp({ databaseURL: "https://buffalo-311.firebaseio.com" })
-  .database();
+  .initializeApp({ projectId: "buffalo-311" })
+  .firestore();
+
+const { TimeStamp, GeoPoint } = firebase.firestore;
+export { TimeStamp, GeoPoint };
