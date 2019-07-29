@@ -15,10 +15,10 @@ import "@/assets/scss/main.scss";
 import "@/registerServiceWorker";
 
 // Initialize Sentry (Live error tracking)
-Sentry.init({
-  dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230",
-  integrations: [new Integrations.Vue({ Vue, attachProps: true })]
-});
+// Sentry.init({
+//   dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230",
+//   integrations: [new Integrations.Vue({ Vue, attachProps: true })]
+// });
 
 Vue.use(firestorePlugin);
 Vue.use(BootstrapVue);
