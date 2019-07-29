@@ -14,11 +14,7 @@
             <b-row>
               <b-col cols="12">
                 <b-form-group label="What is the type?">
-                  <b-form-select
-                    v-model="issue.type"
-                    :options="types"
-                    @change="filterSubtypes()"
-                  >
+                  <b-form-select v-model="issue.type" :options="types">
                     <template slot="first">
                       <option :value="null" disabled
                         >-- Please select an type --</option
@@ -122,13 +118,17 @@ export default {
         subtype: null,
         comments: null,
         email: null,
+        streetNumber: null,
+        streetName: null,
+        zipCode: null,
+        city: null,
+        state: null,
         createdAt: ""
       },
       anonymous: null,
       search: null,
       file: null,
       filePreview: [],
-      filteredSubtypes: [],
       types: {
         adjudicationOrdinanceViolation: {
           text: "Adjudication - Ordinance Violation"
@@ -721,7 +721,18 @@ export default {
       }
     };
   },
-  computed: {},
+  computed: {
+    filteredSubtypes() {
+      var self = this;
+      var tempObject = {};
+      Object.keys(self.subtypes).forEach(idx => {
+        if (self.subtypes[idx].parentType == self.issue.type) {
+          tempObject[idx] = self.subtypes[idx];
+        }
+      });
+      return tempObject;
+    }
+  },
   methods: {
     onFileChange(e) {
       var self = this;
@@ -733,19 +744,10 @@ export default {
     removeFile(idx) {
       this.filePreview.splice(idx);
     },
-    filterSubtypes() {
-      var self = this;
-      self.filteredSubtypes = [];
-      Object.keys(self.subtypes).forEach(idx => {
-        if (self.subtypes[idx].parentType == self.issue.type) {
-          self.filteredSubtypes.push(self.subtypes[idx]);
-        }
-      });
-    },
     addIssue() {
       var moment = require("moment");
       this.issue.createdAt = moment().format();
-      db.ref("issues").push(this.issue);
+      db.collection("issues").add(this.issue);
       this.issue = [];
     }
   }

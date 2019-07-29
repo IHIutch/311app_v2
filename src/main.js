@@ -4,11 +4,11 @@ import Vue from "vue";
 import App from "@/App.vue";
 import router from "@/router";
 import BootstrapVue from "bootstrap-vue";
-import { rtdbPlugin } from "vuefire";
+import { firestorePlugin } from "vuefire";
 
 import "@/assets/scss/main.scss";
 
-Vue.use(rtdbPlugin);
+Vue.use(firestorePlugin);
 Vue.use(BootstrapVue);
 
 import "@/registerServiceWorker";
