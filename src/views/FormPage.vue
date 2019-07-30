@@ -10,7 +10,7 @@
     <b-row>
       <b-col cols="8" offset="2">
         <div class="p-4 bg-white rounded shadow-sm mb-4">
-          <b-form @submit.prevent="addIssue()">
+          <b-form @submit.prevent="saveIssue()">
             <b-row>
               <b-col cols="12">
                 <b-form-group label="What is the type?">
@@ -744,10 +744,22 @@ export default {
     removeFile(idx) {
       this.filePreview.splice(idx);
     },
-    addIssue() {
+    saveIssue() {
+      var self = this;
       var moment = require("moment");
-      this.issue.createdAt = moment().format();
-      db.collection("issues").add(this.issue);
+      self.issue.createdAt = moment().format();
+      db.collection("issues")
+        .add(self.issue)
+        .then(function(docRef) {
+          var issueId = docRef.id;
+          self.$router.push({
+            name: "ReportPage",
+            params: { issueId: issueId }
+          });
+        })
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
+        });
       this.issue = [];
     }
   }

@@ -14,7 +14,7 @@
             <div class="mb-2">
               <div class="d-inline-block mr-5">
                 <a class="border rounded d-inline-block p-1" href="#"
-                  >Report ID: {{ $route.params.id }}
+                  >Report ID: {{ $route.params.issueId }}
                 </a>
               </div>
               <div class="d-inline-block">
@@ -45,7 +45,7 @@
             <div>
               <div class="d-inline mr-4">
                 <b>Open Date:</b>
-                {{ report.openDate }}
+                {{ report.createdAt }}
               </div>
               <div class="d-inline">
                 <b>Closed Date:</b>
@@ -114,9 +114,12 @@ export default {
     };
   },
   created() {
-    db.ref("issues/" + this.$route.params.id).once("value", snapshot => {
-      this.report = snapshot.val();
-    });
+    db.collection("issues")
+      .doc(this.$route.params.issueId)
+      .get()
+      .then(snapshot => {
+        this.report = snapshot.data();
+      });
   }
 };
 </script>

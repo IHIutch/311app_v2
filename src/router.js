@@ -15,7 +15,7 @@ export default new Router({
       component: FormPage
     },
     {
-      path: "/report/:id",
+      path: "/report/:issueId",
       name: "ReportPage",
       component: ReportPage
     }
