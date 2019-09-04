@@ -1,0 +1,22 @@
+language: node_js
+node_js:
+  - "node"
+
+jobs:
+include:
+  - stage: Deploy
+    if: branch = master
+    cache: npm
+    script: npm run build
+    deploy:
+      provider: pages
+      local_dir: dist
+      target-branch: gh-pages
+      name: Travis Deployment Bot
+      skip_cleanup: true
+      github_token: $GITHUB_TOKEN
+      on:
+        branch: master
+
+notifications:
+  email: false
