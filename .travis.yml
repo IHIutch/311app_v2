@@ -16,6 +16,7 @@ jobs:
         name: Travis Deployment Bot
         skip_cleanup: true
         github_token: "$GITHUB_TOKEN"
+        fqdn: dev.buffalo311.rg
         on:
           branch: master
   notifications:
