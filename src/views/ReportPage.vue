@@ -4,7 +4,7 @@
       <b-col cols="12">
         <b-row>
           <b-col size="12" md="3" class="mb-4 mb-md-0">
-            <div class="p-2 border shadow rounded">
+            <div class="p-2 border shadow rounded bg-white">
               <div class="embed-responsive embed-responsive-1by1">
                 <div id="map" class="embed-responsive-item"></div>
               </div>
@@ -45,7 +45,7 @@
             <div>
               <div class="d-inline mr-4">
                 <b>Open Date:</b>
-                {{ report.createdAt }}
+                {{ report.createdAt | moment }}
               </div>
               <div class="d-inline">
                 <b>Closed Date:</b>
@@ -105,6 +105,7 @@
 
 <script>
 import { db } from "../firebase";
+import moment from "moment";
 
 export default {
   name: "ReportPage",
@@ -114,12 +115,21 @@ export default {
     };
   },
   created() {
+    var self = this;
     db.collection("issues")
       .doc(this.$route.params.issueId)
       .get()
-      .then(snapshot => {
-        this.report = snapshot.data();
+      .then(querySnapshot => {
+        // console.log(querySnapshot);
+        self.report = querySnapshot.data();
+        self.report["id"] = querySnapshot.id;
+        self.report.createdAt = self.report.createdAt.toDate();
       });
+  },
+  filters: {
+    moment(value) {
+      return moment(value).format("MM/DD/YY, hh:mmA");
+    }
   }
 };
 </script>

@@ -96,7 +96,16 @@
                 </b-form-group>
               </b-col>
               <b-col cols="12">
-                <b-button type="submit" variant="primary">Submit</b-button>
+                <b-button
+                  type="submit"
+                  variant="primary"
+                  :disabled="isSubmitting"
+                >
+                  <span v-if="isSubmitting">
+                    <b-spinner label="Submitting..." />
+                  </span>
+                  <span v-else>Submit</span>
+                </b-button>
               </b-col>
             </b-row>
           </b-form>
@@ -113,6 +122,7 @@ export default {
   name: "FormPage",
   data() {
     return {
+      isSubmitting: false,
       issue: {
         type: null,
         subtype: null,
@@ -232,491 +242,491 @@ export default {
       subtypes: {
         illegalDumping: {
           text: "Illegal Dumping",
-          parentType: "adjudicationOrdinanceViolation"
+          value: "adjudicationOrdinanceViolation"
         },
         otherAdjucationIssue: {
           text: "Other Adjudication Issue",
-          parentType: "adjudicationOrdinanceViolation"
+          value: "adjudicationOrdinanceViolation"
         },
         fairHousingIssue: {
           text: "Fair Housing Issue",
-          parentType: "administration"
+          value: "administration"
         },
-        animals: { text: "Animals", parentType: "animalShelter" },
+        animals: { text: "Animals", value: "animalShelter" },
         deadAnimalRemoval: {
           text: "Dead Animal Removal",
-          parentType: "animalShelter"
+          value: "animalShelter"
         },
         assessmentIssue: {
           text: "Assessment Issue",
-          parentType: "assessmentAndTaxation"
+          value: "assessmentAndTaxation"
         },
-        bfdSnowOnHydrant: { text: "BFD Snow on Hydrant", parentType: "bfd" },
-        fire: { text: "Fire", parentType: "bfd" },
-        hmhaIssue: { text: "BMHA Issue", parentType: "bmha" },
+        bfdSnowOnHydrant: { text: "BFD Snow on Hydrant", value: "bfd" },
+        fire: { text: "Fire", value: "bfd" },
+        hmhaIssue: { text: "BMHA Issue", value: "bmha" },
         basementFlooding: {
           text: "Basement Flooding",
-          parentType: "buffaloSewerAuthority"
+          value: "buffaloSewerAuthority"
         },
         rainBarrels: {
           text: "Rain Barrels",
-          parentType: "buffaloSewerAuthority"
+          value: "buffaloSewerAuthority"
         },
-        sewer: { text: "Sewer", parentType: "buffaloSewerAuthority" },
+        sewer: { text: "Sewer", value: "buffaloSewerAuthority" },
         streetFlooding: {
           text: "Street Flooding",
-          parentType: "buffaloSewerAuthority"
+          value: "buffaloSewerAuthority"
         },
         fireHydrantIssue: {
           text: "Fire Hydrant Issue",
-          parentType: "buffaloWaterAuthority"
+          value: "buffaloWaterAuthority"
         },
         waterIssue: {
           text: "Water Issue",
-          parentType: "buffaloWaterAuthority"
+          value: "buffaloWaterAuthority"
         },
         waterTested: {
           text: "Water Tested",
-          parentType: "buffaloWaterAuthority"
+          value: "buffaloWaterAuthority"
         },
         waterBillingMeter: {
           text: "Water Billing Meter",
-          parentType: "buffaloWaterAuthority"
+          value: "buffaloWaterAuthority"
         },
         buildingMaintenance: {
           text: "Building Maintenance",
-          parentType: "buildingsDivision"
+          value: "buildingsDivision"
         },
         cityhallCitycourtMaintenance: {
           text: "CityHall CityCourt Maintenance",
-          parentType: "buildingsDivision"
+          value: "buildingsDivision"
         },
         cityPropert: {
           text: "City Property",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
         obsceneOther: {
           text: "Obscene Other",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
         obscenePrivateProperty: {
           text: "Obscene Private Property",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
-        other: { text: "Other", parentType: "citizenServicesGraffiti" },
+        other: { text: "Other", value: "citizenServicesGraffiti" },
         parksCity: {
           text: "Parks City",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
         privateProperty: {
           text: "Private Property",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
         pwEngineering: {
           text: "PW Engineering",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
         pwTraffic: {
           text: "PW Traffic",
-          parentType: "citizenServicesGraffiti"
+          value: "citizenServicesGraffiti"
         },
         qrtIllegalDumpingOnViaduct: {
           text: "QRT Illegal Dumping on Viaduct",
-          parentType: "citizenServicesQuickResponseTeams"
+          value: "citizenServicesQuickResponseTeams"
         },
         qrtOtherIssue: {
           text: "QRT Other Issue",
-          parentType: "citizenServicesQuickResponseTeams"
+          value: "citizenServicesQuickResponseTeams"
         },
         qrtSnowRemoval: {
           text: "QRT Snow Removal",
-          parentType: "citizenServicesQuickResponseTeams"
+          value: "citizenServicesQuickResponseTeams"
         },
         snowRemovalBusStopShelter: {
           text: "Snow Removal Bus Stop Shelter",
-          parentType: "citizenServicesQuickResponseTeams"
+          value: "citizenServicesQuickResponseTeams"
         },
         saveOurStreetsProgram: {
           text: "Save Our Streets Program",
-          parentType: "citizenServicesSaveOurStreets"
+          value: "citizenServicesSaveOurStreets"
         },
         greatAmericanCleanup: {
           text: "Great American Clean-Up",
-          parentType: "citizenServicesCleanCity"
+          value: "citizenServicesCleanCity"
         },
         neighborhoodCleanup: {
           text: "Neighborhood CleanUp",
-          parentType: "citizenServicesCleanCity"
+          value: "citizenServicesCleanCity"
         },
         cityClerkIssue: {
           text: "City Clerk Issue",
-          parentType: "cityClerkIssue"
+          value: "cityClerkIssue"
         },
         cityParkTreeIssue: {
           text: "City Park Tree Issue",
-          parentType: "cityParks"
+          value: "cityParks"
         },
-        cityParks: { text: "City Parks", parentType: "cityParks" },
-        olmstedParks: { text: "Olmsted Parks", parentType: "cityParks" },
+        cityParks: { text: "City Parks", value: "cityParks" },
+        olmstedParks: { text: "Olmsted Parks", value: "cityParks" },
         poolsAndSplashpads: {
           text: "Pools and Splashpads",
-          parentType: "cityParks"
+          value: "cityParks"
         },
         recreationCenter: {
           text: "Recreation Center",
-          parentType: "cityParks"
+          value: "cityParks"
         },
-        cbo: { text: "CBO", parentType: "communityBasedOrgs" },
+        cbo: { text: "CBO", value: "communityBasedOrgs" },
         bridgeIssue: {
           text: "Bridge Issue",
-          parentType: "engineeringStreeRepairs"
+          value: "engineeringStreeRepairs"
         },
-        caveIn: { text: "Cave In", parentType: "engineeringStreeRepairs" },
+        caveIn: { text: "Cave In", value: "engineeringStreeRepairs" },
         curbMetalProtruding: {
           text: "Curb - Metal Protruding",
-          parentType: "engineeringStreeRepairs"
+          value: "engineeringStreeRepairs"
         },
-        curbs: { text: "Curbs", parentType: "engineeringStreeRepairs" },
+        curbs: { text: "Curbs", value: "engineeringStreeRepairs" },
         damagedStreetLightPole: {
           text: "Damaged Street Light Pole",
-          parentType: "engineeringStreeRepairs"
+          value: "engineeringStreeRepairs"
         },
         otherHoleInRoad: {
           text: "Other Hole in Road",
-          parentType: "engineeringStreeRepairs"
+          value: "engineeringStreeRepairs"
         },
-        paving: { text: "Paving", parentType: "engineeringStreeRepairs" },
-        potHole: { text: "Pot Hole", parentType: "engineeringStreeRepairs" },
+        paving: { text: "Paving", value: "engineeringStreeRepairs" },
+        potHole: { text: "Pot Hole", value: "engineeringStreeRepairs" },
         pwMissingManholeCover: {
           text: "PW Missing Manhole Cover",
-          parentType: "engineeringStreeRepairs"
+          value: "engineeringStreeRepairs"
         },
         pwOngoingContrstruction: {
           text: "PW Ongoing Construction",
-          parentType: "engineeringStreeRepairs"
+          value: "engineeringStreeRepairs"
         },
-        sidewalks: { text: "Sidewalks", parentType: "engineeringStreeRepairs" },
-        bikeRack: { text: "Bike Rack", parentType: "engineeringTraffic" },
+        sidewalks: { text: "Sidewalks", value: "engineeringStreeRepairs" },
+        bikeRack: { text: "Bike Rack", value: "engineeringTraffic" },
         pavementMarketLine: {
           text: "Pavement Marking Lines",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         pwNeighborhoodTrafficCalming: {
           text: "PW Neighborhood Traffic Calming",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         rightOfWayIssue: {
           text: "Right of Way Issue",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
-        signHazards: { text: "Sign Hazards", parentType: "engineeringTraffic" },
+        signHazards: { text: "Sign Hazards", value: "engineeringTraffic" },
         signMaintenance: {
           text: "Sign Maintenance",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         signalIssueDot: {
           text: "Signal Issue DoT",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         signalOtherIssue: {
           text: "Signal Other Issue",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         signalOutOrFlashing: {
           text: "Signal Out or Flashing",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         signalTimingIssueCity: {
           text: "Signal Timing Issue City",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         sneakersHanging: {
           text: "Sneakers Hanging",
-          parentType: "engineeringTraffic"
+          value: "engineeringTraffic"
         },
         fallenTreeBlockingRow: {
           text: "Fallen Tree Blocking RoW",
-          parentType: "forestry"
+          value: "forestry"
         },
         fallenTreeInspection: {
           text: "Fallen Tree Inspection",
-          parentType: "forestry"
+          value: "forestry"
         },
-        stumpRemoval: { text: "Stump Removal", parentType: "forestry" },
+        stumpRemoval: { text: "Stump Removal", value: "forestry" },
         stumpRemovalQualityIssue: {
           text: "Stump Removal Quality Issue",
-          parentType: "forestry"
+          value: "forestry"
         },
-        treeOther: { text: "Tree Other", parentType: "forestry" },
+        treeOther: { text: "Tree Other", value: "forestry" },
         treePlantingQualityIssue: {
           text: "Tree Planting Quality Issue",
-          parentType: "forestry"
+          value: "forestry"
         },
         treePlantingRequest: {
           text: "Tree Planting Request",
-          parentType: "forestry"
+          value: "forestry"
         },
-        treeRemoval: { text: "Tree Removal", parentType: "forestry" },
+        treeRemoval: { text: "Tree Removal", value: "forestry" },
         treeRemovalChallenge: {
           text: "Tree Removal Challenge",
-          parentType: "forestry"
+          value: "forestry"
         },
         treeRemovalPerInspector: {
           text: "Tree Removal per Inspector",
-          parentType: "forestry"
+          value: "forestry"
         },
         treeRemovalQualityIssue: {
           text: "Tree Removal Quality Issue",
-          parentType: "forestry"
+          value: "forestry"
         },
         treeTrimmingQualityIssue: {
           text: "Tree Trimming Quality Issue",
-          parentType: "forestry"
+          value: "forestry"
         },
         treeTrimmingRequest: {
           text: "Tree Trimming Request",
-          parentType: "forestry"
+          value: "forestry"
         },
         foilRecordsAssessmentAndTaxation: {
           text: "FOIL Records Assessment & Taxation",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsCityClerk: {
           text: "FOIL Records City Clerk",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsEdpis: {
           text: "FOIL Records EDPIS",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsFireDept: {
           text: "FOIL Records Fire Dept",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsHumanResources: {
           text: "FOIL Records Human Resources",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsLawDept: {
           text: "FOIL Records Law Dept",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsPoliceDept: {
           text: "FOIL Records Police Dept",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         foilRecordsRealEstate: {
           text: "FOIL Records Real Estate",
-          parentType: "freedomOfInformation"
+          value: "freedomOfInformation"
         },
         waterfrontIssue: {
           text: "Waterfront Issues",
-          parentType: "harborMaster"
+          value: "harborMaster"
         },
         abandonedVehicleInspection: {
           text: "Abandoned Vehicle Inspection",
-          parentType: "housing"
+          value: "housing"
         },
-        boardingRequest: { text: "Boarding request", parentType: "housing" },
-        electricalIssue: { text: "Electrical Issue", parentType: "housing" },
+        boardingRequest: { text: "Boarding request", value: "housing" },
+        electricalIssue: { text: "Electrical Issue", value: "housing" },
         fallenTreeInspection: {
           text: "Fallen Tree Inspection",
-          parentType: "housing"
+          value: "housing"
         },
         graffitiPrivateProperty: {
           text: "Graffiti Private Property",
-          parentType: "housing"
+          value: "housing"
         },
         housingViolations: {
           text: "housing Violations",
-          parentType: "housing"
+          value: "housing"
         },
         illegalDumpingPrivateProperty: {
           text: "Illegal Dumping Private Property",
-          parentType: "housing"
+          value: "housing"
         },
         leadPaintInspection: {
           text: "Lead Paint Inspection",
-          parentType: "housing"
+          value: "housing"
         },
         rentalRegistration: {
           text: "Rental Registration",
-          parentType: "housing"
+          value: "housing"
         },
         snowRemovalInspection: {
           text: "Snow Removal Inspection",
-          parentType: "housing"
+          value: "housing"
         },
         compensationAndBenefits: {
           text: "Compensation & Benefits",
-          parentType: "hr"
+          value: "hr"
         },
-        dogLicenseIssue: { text: "Dog License Issue", parentType: "licenses" },
+        dogLicenseIssue: { text: "Dog License Issue", value: "licenses" },
         buffaloTrafficViolations: {
           text: "Buffalo Traffic Violations",
-          parentType: "movingViolations"
+          value: "movingViolations"
         },
-        streetlights: { text: "Streetlights", parentType: "nationalGrid" },
-        ospOtherIssue: { text: "OSP Other Issue", parentType: "osp" },
+        streetlights: { text: "Streetlights", value: "nationalGrid" },
+        ospOtherIssue: { text: "OSP Other Issue", value: "osp" },
         abandonedVehicles: {
           text: "Abandoned Vehicles",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         parkingIssues: {
           text: "Parking Issues",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         pvbViolationsBureau: {
           text: "PVB Mobile App Issue",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         pvbMobileAppTicket: {
           text: "PVB Mobile App Ticket",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         pvbPayStation: {
           text: "PVB Pay Station",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         pvbSingleMeter: {
           text: "PVB Single Meter",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         vehicleBlockingSnowPlow: {
           text: "Vehicle Blocking Snow Plow",
-          parentType: "parkingViolationsBureau"
+          value: "parkingViolationsBureau"
         },
         engineeringOperational: {
           text: "Engineering Operational",
-          parentType: "personnel"
+          value: "personnel"
         },
         basketballHoopInRow: {
           text: "Basketball Hoop in RoW",
-          parentType: "police"
+          value: "police"
         },
-        policeIssue: { text: "Police Issue", parentType: "police" },
+        policeIssue: { text: "Police Issue", value: "police" },
         qualityofLifeIssue: {
           text: "Quality of Life Issue",
-          parentType: "police"
+          value: "police"
         },
-        snowRemoval: { text: "Snow Removal", parentType: "police" },
+        snowRemoval: { text: "Snow Removal", value: "police" },
         inremRealEstate: {
           text: "Inrem Real Estate",
-          parentType: "realEstate"
+          value: "realEstate"
         },
         ospIllegalDumping: {
           text: "OSP Illegal Dumping",
-          parentType: "realEstate"
+          value: "realEstate"
         },
-        pest: { text: "Pest", parentType: "rodentControl" },
-        rodents: { text: "Rodents", parentType: "rodentControl" },
-        electronicWaste: { text: "Electronic Waste", parentType: "sanitation" },
+        pest: { text: "Pest", value: "rodentControl" },
+        rodents: { text: "Rodents", value: "rodentControl" },
+        electronicWaste: { text: "Electronic Waste", value: "sanitation" },
         garbageMissedPicked: {
           text: "Garbage Missed Pick Up",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         illegalDumpingCurb: {
           text: "Illegal Dumping Curb",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         illegalDumpingStreet: {
           text: "Illegal Dumping Street",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         missedPickup2PieceLargeTrash: {
           text: "Missed Pickup 2 Piece Large Trash",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         parkGarbagePickup: {
           text: "Park Garbage Pickup",
-          parentType: "sanitation"
+          value: "sanitation"
         },
-        pickAndPay: { text: "Pick and Pay", parentType: "sanitation" },
+        pickAndPay: { text: "Pick and Pay", value: "sanitation" },
         recyclingEscalatedQuestions: {
           text: "Recycling - Escalated Questions",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         recyclingMissedPickUp: {
           text: "Recycling Missed Pick Up",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         recyclingToteAbandonPickup: {
           text: "Recycling Tote Abandon Pickup",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         recyclingToteCombo: {
           text: "Recycling Tote Combo",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         recyclingToteDeliver: {
           text: "Recycling Tote Deliver",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         recyclingTotePickup: {
           text: "Recycling Tote Pickup",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         recyclingToteReplace: {
           text: "Recycling Tote Replace",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         specialEventTotes: {
           text: "Special Event Totes",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         totesAbandonPickup: {
           text: "Totes Abandon Pickup",
-          parentType: "sanitation"
+          value: "sanitation"
         },
-        totesAudit: { text: "Totes Audit", parentType: "sanitation" },
-        totesCombo: { text: "Totes Combo", parentType: "sanitation" },
-        totesDeliver: { text: "Totes Deliver", parentType: "sanitation" },
-        totesPickup: { text: "Totes Pickup", parentType: "sanitation" },
-        totesReplace: { text: "Totes Replace", parentType: "sanitation" },
+        totesAudit: { text: "Totes Audit", value: "sanitation" },
+        totesCombo: { text: "Totes Combo", value: "sanitation" },
+        totesDeliver: { text: "Totes Deliver", value: "sanitation" },
+        totesPickup: { text: "Totes Pickup", value: "sanitation" },
+        totesReplace: { text: "Totes Replace", value: "sanitation" },
         totesReportOfRemovedBrokenTote: {
           text: "Totes Report of Removed Broken Tote",
-          parentType: "sanitation"
+          value: "sanitation"
         },
         trashOrdincanceViolation: {
           text: "Trash Ordinance Violation",
-          parentType: "sanitation"
+          value: "sanitation"
         },
-        userFee: { text: "User Fee", parentType: "sanitation" },
-        bulkTrash: { text: "Bulk Trash", parentType: "streets" },
-        christmasTree: { text: "Christmas Tree", parentType: "streets" },
+        userFee: { text: "User Fee", value: "sanitation" },
+        bulkTrash: { text: "Bulk Trash", value: "streets" },
+        christmasTree: { text: "Christmas Tree", value: "streets" },
         damageFromSnowRemoval: {
           text: "Damage from Snow Removal",
-          parentType: "streets"
+          value: "streets"
         },
-        excessTrash: { text: "Excess Trash", parentType: "streets" },
-        fridge: { text: "Fridge", parentType: "streets" },
+        excessTrash: { text: "Excess Trash", value: "streets" },
+        fridge: { text: "Fridge", value: "streets" },
         leavesLawnDebris: {
           text: "Leaves / Lawn Debris",
-          parentType: "streets"
+          value: "streets"
         },
-        pwVacantLot: { text: "PW Vacant Lot", parentType: "streets" },
-        streetSalting: { text: "Street Salting", parentType: "streets" },
+        pwVacantLot: { text: "PW Vacant Lot", value: "streets" },
+        streetSalting: { text: "Street Salting", value: "streets" },
         streetSnowPlowing: {
           text: "Street Snow Plowing",
-          parentType: "streets"
+          value: "streets"
         },
         streetSnowPlowingIssue: {
           text: "Street Snow Plowing Issue",
-          parentType: "streets"
+          value: "streets"
         },
-        sweeper: { text: "Sweeper", parentType: "streets" },
+        sweeper: { text: "Sweeper", value: "streets" },
         damageFromStreetWorker: {
           text: "Damage from Street Worker",
-          parentType: "streetsSanitation"
+          value: "streetsSanitation"
         },
-        taxationIssue: { text: "Taxation Issue", parentType: "taxation" },
+        taxationIssue: { text: "Taxation Issue", value: "taxation" },
         telecommunications: {
           text: "Telecommunications",
-          parentType: "telecommunications"
+          value: "telecommunications"
         },
         youthBureauIssue: {
           text: "Youth Bureau Issue",
-          parentType: "youthBureau"
+          value: "youthBureau"
         }
       }
     };
@@ -726,7 +736,7 @@ export default {
       var self = this;
       var tempObject = {};
       Object.keys(self.subtypes).forEach(idx => {
-        if (self.subtypes[idx].parentType == self.issue.type) {
+        if (self.subtypes[idx].value == self.issue.type) {
           tempObject[idx] = self.subtypes[idx];
         }
       });
@@ -745,22 +755,20 @@ export default {
       this.filePreview.splice(idx);
     },
     saveIssue() {
+      this.isSubmitting = true;
+      this.issue.createdAt = new Date();
       var self = this;
-      var moment = require("moment");
-      self.issue.createdAt = moment().format();
       db.collection("issues")
         .add(self.issue)
         .then(function(docRef) {
-          var issueId = docRef.id;
           self.$router.push({
             name: "ReportPage",
-            params: { issueId: issueId }
+            params: { issueId: docRef.id }
           });
         })
         .catch(function(error) {
-          console.error("Error adding document: ", error);
+          alert("Error adding document: ", error);
         });
-      this.issue = [];
     }
   }
 };

@@ -2,17 +2,23 @@ import Vue from "vue";
 import Router from "vue-router";
 import FormPage from "./views/FormPage";
 import ReportPage from "./views/ReportPage";
+import ReportsListPage from "./views/ReportsListPage";
 
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
+  mode: "hash",
   base: process.env.BASE_URL,
   routes: [
     {
       path: "/",
       name: "FormPage",
       component: FormPage
+    },
+    {
+      path: "/reports",
+      name: "reportsListPage",
+      component: ReportsListPage
     },
     {
       path: "/report/:issueId",
