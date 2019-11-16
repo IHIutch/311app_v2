@@ -859,6 +859,9 @@ export default {
             // Bias to Buffalo's Coords
             lat: 42.88023,
             lng: -78.878738
+            // Use a User's coords
+            // lat: position.coords.latitude,
+            // lng: position.coords.longitude
           };
           var circle = new google.maps.Circle({
             center: geolocation,

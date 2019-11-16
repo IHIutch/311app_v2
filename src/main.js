@@ -10,7 +10,7 @@ import * as Integrations from "@sentry/integrations";
 import "@/assets/scss/main.scss";
 
 // Enable PWA
-import "@/registerServiceWorker";
+import "./registerServiceWorker";
 
 // Initialize Sentry (Live error tracking)
 // Sentry.init({
