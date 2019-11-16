@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Router from "vue-router";
 import FormPage from "./views/FormPage";
+import Test from "./views/Test";
 import ReportPage from "./views/ReportPage";
 import ReportsListPage from "./views/ReportsListPage";
 
@@ -14,6 +15,11 @@ export default new Router({
       path: "/",
       name: "FormPage",
       component: FormPage
+    },
+    {
+      path: "/test",
+      name: "Test",
+      component: Test
     },
     {
       path: "/reports",

@@ -8,9 +8,9 @@
       </b-col>
     </b-row>
     <b-row>
-      <b-col cols="8" offset="2">
+      <b-col cols="12" md="8" offset-md="2">
         <div class="p-4 bg-white rounded shadow-sm mb-4">
-          <b-form @submit.prevent="saveIssue()">
+          <b-form @submit.prevent="saveIssue()" autocomplete="off">
             <b-row>
               <b-col cols="12">
                 <b-form-group label="What is the type?">
@@ -38,13 +38,39 @@
                 </b-form-group>
               </b-col>
               <b-col cols="12">
-                <b-form-group label="What is the location of the issue?">
-                  <b-input
-                    type="search"
-                    v-model="search"
-                    placeholder="123 Main Street..."
-                  />
-                </b-form-group>
+                <b-tabs content-class="mt-3">
+                  <b-tab title="Use My Location" active>
+                    <b-input
+                      type="search"
+                      :value="getLngLat"
+                      placeholder="Get Coords"
+                      readonly
+                    />
+                    <div>
+                      <b-button @click="getMyLocation()">
+                        <span v-if="findingLocation">
+                          <b-spinner label="Submitting..." />
+                        </span>
+                        <span v-else>Use My Location</span>
+                      </b-button>
+                    </div>
+                  </b-tab>
+                  <b-tab title="Use Address">
+                    <div>
+                      <b-form-group label="What is the location of the issue?">
+                        <b-input
+                          autocomplete="off"
+                          id="autocompleteInput"
+                          type="search"
+                          v-model="search"
+                          placeholder="123 Main Street..."
+                          @keyup="geocode()"
+                        />
+                      </b-form-group>
+                    </div>
+                  </b-tab>
+                  <b-tab title="Use Map"><p>I'm a disabled tab!</p></b-tab>
+                </b-tabs>
               </b-col>
               <b-col cols="12">
                 <b-form-group label="What is your email?">
@@ -79,7 +105,7 @@
                   >
                     <b-img thumbnail fluid :src="filePreview[index]" />
                     <b-button variant="danger" @click="removeFile(index)"
-                      >Delete</b-button
+                      >Remove</b-button
                     >
                   </b-col>
                 </b-form-row>
@@ -116,13 +142,17 @@
 </template>
 
 <script>
-import { db } from "../firebase";
+import { db } from "@/js/firebase";
 
 export default {
   name: "FormPage",
   data() {
     return {
+      address: {},
+      autocomplete: null,
+      location: {},
       isSubmitting: false,
+      findingLocation: false,
       issue: {
         type: null,
         subtype: null,
@@ -136,7 +166,7 @@ export default {
         createdAt: ""
       },
       anonymous: null,
-      search: null,
+      search: "",
       file: null,
       filePreview: [],
       types: {
@@ -731,6 +761,17 @@ export default {
       }
     };
   },
+  mounted() {
+    this.autocomplete = new google.maps.places.Autocomplete(
+      document.getElementById("autocompleteInput"),
+      { types: ["geocode"] }
+    );
+    this.autocomplete.setFields(["address_component", "geometry"]);
+    var self = this;
+    this.autocomplete.addListener("place_changed", function() {
+      self.assignAddressValues();
+    });
+  },
   computed: {
     filteredSubtypes() {
       var self = this;
@@ -741,9 +782,23 @@ export default {
         }
       });
       return tempObject;
+    },
+    getLngLat() {
+      return this.location.lat && this.location.lng
+        ? this.location.lat + ", " + this.location.lng
+        : "";
     }
   },
   methods: {
+    assignAddressValues() {
+      var place = this.autocomplete.getPlace();
+      for (var i = 0; i < place.address_components.length; i++) {
+        var key = place.address_components[i].types[0];
+        this.address[key] = place.address_components[i].long_name;
+        this.address["lat"] = place.geometry.location.lat();
+        this.address["lng"] = place.geometry.location.lng();
+      }
+    },
     onFileChange(e) {
       var self = this;
       var files = e.target.files;
@@ -769,6 +824,49 @@ export default {
         .catch(function(error) {
           alert("Error adding document: ", error);
         });
+    },
+    getMyLocation() {
+      this.findingLocation = true;
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.location = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+            accuracy: position.coords.accuracy
+          };
+          this.findingLocation = false;
+        },
+        error => {
+          alert(`ERROR(${error.code}): ${error.message}`);
+          this.findingLocation = false;
+        }
+      );
+    },
+    geocode() {
+      // var autocomplete = googleMaps.placesAutoComplete({
+      //   sessionToken: googleMaps.autocompleteSessionToken(),
+      //   input: this.search,
+      //   types: ["address"],
+      //   location: [42.8864, -78.8784],
+      //   radius: 1000,
+      //   strictbounds: true
+      // });
+      // let place = autocomplete.getPlace();
+      // console.log(place);
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          var geolocation = {
+            // Bias to Buffalo's Coords
+            lat: 42.88023,
+            lng: -78.878738
+          };
+          var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: 1000
+          });
+          this.autocomplete.setBounds(circle.getBounds());
+        });
+      }
     }
   }
 };
