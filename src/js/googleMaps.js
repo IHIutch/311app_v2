@@ -1,3 +1,3 @@
 export const googleMaps = require("@google/maps").createClient({
-  key: "AIzaSyCDo-JEJCQ5rWz4_0q6icQlZRGt_xPGFSY"
+  key: env.process.GOOGLE_MAPS_API_KEY
 });
