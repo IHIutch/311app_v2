@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@google/maps": "^1.0.2",
-    "@sentry/browser": "^5.9.0",
+    "@sentry/browser": "^5.10.2",
     "@sentry/integrations": "^5.8.0",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.1.0",
