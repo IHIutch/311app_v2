@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="date in dates">
+    <div v-for="(date, idx) in dates" :key="idx">
       Issue: #{{ date.case_ref }}, Duration: {{ date.diff }}, Open Date:
       {{ date.open_date }}, Close Date: {{ date.closed_date }}
     </div>
