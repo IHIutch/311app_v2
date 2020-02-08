@@ -1,0 +1,777 @@
+[
+  {
+    "value": "illegalDumping",
+    "text": "Illegal Dumping",
+    "type": "adjudicationOrdinanceViolation"
+  },
+  {
+    "value": "otherAdjucationIssue",
+    "text": "Other Adjudication Issue",
+    "type": "adjudicationOrdinanceViolation"
+  },
+  {
+    "value": "fairHousingIssue",
+    "text": "Fair Housing Issue",
+    "type": "administration"
+  },
+  {
+    "value": "animals",
+    "text": "Animals",
+    "type": "animalShelter"
+  },
+  {
+    "value": "deadAnimalRemoval",
+    "text": "Dead Animal Removal",
+    "type": "animalShelter"
+  },
+  {
+    "value": "assessmentIssue",
+    "text": "Assessment Issue",
+    "type": "assessmentAndTaxation"
+  },
+  {
+    "value": "bfdSnowOnHydrant",
+    "text": "BFD Snow on Hydrant",
+    "type": "bfd"
+  },
+  {
+    "value": "fire",
+    "text": "Fire",
+    "type": "bfd"
+  },
+  {
+    "value": "hmhaIssue",
+    "text": "BMHA Issue",
+    "type": "bmha"
+  },
+  {
+    "value": "basementFlooding",
+    "text": "Basement Flooding",
+    "type": "buffaloSewerAuthority"
+  },
+  {
+    "value": "rainBarrels",
+    "text": "Rain Barrels",
+    "type": "buffaloSewerAuthority"
+  },
+  {
+    "value": "sewer",
+    "text": "Sewer",
+    "type": "buffaloSewerAuthority"
+  },
+  {
+    "value": "streetFlooding",
+    "text": "Street Flooding",
+    "type": "buffaloSewerAuthority"
+  },
+  {
+    "value": "fireHydrantIssue",
+    "text": "Fire Hydrant Issue",
+    "type": "buffaloWaterAuthority"
+  },
+  {
+    "value": "waterIssue",
+    "text": "Water Issue",
+    "type": "buffaloWaterAuthority"
+  },
+  {
+    "value": "waterTested",
+    "text": "Water Tested",
+    "type": "buffaloWaterAuthority"
+  },
+  {
+    "value": "waterBillingMeter",
+    "text": "Water Billing Meter",
+    "type": "buffaloWaterAuthority"
+  },
+  {
+    "value": "buildingMaintenance",
+    "text": "Building Maintenance",
+    "type": "buildingsDivision"
+  },
+  {
+    "value": "cityhallCitycourtMaintenance",
+    "text": "CityHall CityCourt Maintenance",
+    "type": "buildingsDivision"
+  },
+  {
+    "value": "cityPropert",
+    "text": "City Property",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "obsceneOther",
+    "text": "Obscene Other",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "obscenePrivateProperty",
+    "text": "Obscene Private Property",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "other",
+    "text": "Other",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "parksCity",
+    "text": "Parks City",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "privateProperty",
+    "text": "Private Property",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "pwEngineering",
+    "text": "PW Engineering",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "pwTraffic",
+    "text": "PW Traffic",
+    "type": "citizenServicesGraffiti"
+  },
+  {
+    "value": "qrtIllegalDumpingOnViaduct",
+    "text": "QRT Illegal Dumping on Viaduct",
+    "type": "citizenServicesQuickResponseTeams"
+  },
+  {
+    "value": "qrtOtherIssue",
+    "text": "QRT Other Issue",
+    "type": "citizenServicesQuickResponseTeams"
+  },
+  {
+    "value": "qrtSnowRemoval",
+    "text": "QRT Snow Removal",
+    "type": "citizenServicesQuickResponseTeams"
+  },
+  {
+    "value": "snowRemovalBusStopShelter",
+    "text": "Snow Removal Bus Stop Shelter",
+    "type": "citizenServicesQuickResponseTeams"
+  },
+  {
+    "value": "saveOurStreetsProgram",
+    "text": "Save Our Streets Program",
+    "type": "citizenServicesSaveOurStreets"
+  },
+  {
+    "value": "greatAmericanCleanup",
+    "text": "Great American Clean-Up",
+    "type": "citizenServicesCleanCity"
+  },
+  {
+    "value": "neighborhoodCleanup",
+    "text": "Neighborhood CleanUp",
+    "type": "citizenServicesCleanCity"
+  },
+  {
+    "value": "cityClerkIssue",
+    "text": "City Clerk Issue",
+    "type": "cityClerkIssue"
+  },
+  {
+    "value": "cityParkTreeIssue",
+    "text": "City Park Tree Issue",
+    "type": "cityParks"
+  },
+  {
+    "value": "cityParks",
+    "text": "City Parks",
+    "type": "cityParks"
+  },
+  {
+    "value": "olmstedParks",
+    "text": "Olmsted Parks",
+    "type": "cityParks"
+  },
+  {
+    "value": "poolsAndSplashpads",
+    "text": "Pools and Splashpads",
+    "type": "cityParks"
+  },
+  {
+    "value": "recreationCenter",
+    "text": "Recreation Center",
+    "type": "cityParks"
+  },
+  {
+    "value": "cbo",
+    "text": "CBO",
+    "type": "communityBasedOrgs"
+  },
+  {
+    "value": "bridgeIssue",
+    "text": "Bridge Issue",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "caveIn",
+    "text": "Cave In",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "curbMetalProtruding",
+    "text": "Curb - Metal Protruding",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "curbs",
+    "text": "Curbs",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "damagedStreetLightPole",
+    "text": "Damaged Street Light Pole",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "otherHoleInRoad",
+    "text": "Other Hole in Road",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "paving",
+    "text": "Paving",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "potHole",
+    "text": "Pot Hole",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "pwMissingManholeCover",
+    "text": "PW Missing Manhole Cover",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "pwOngoingContrstruction",
+    "text": "PW Ongoing Construction",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "sidewalks",
+    "text": "Sidewalks",
+    "type": "engineeringStreeRepairs"
+  },
+  {
+    "value": "bikeRack",
+    "text": "Bike Rack",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "pavementMarketLine",
+    "text": "Pavement Marking Lines",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "pwNeighborhoodTrafficCalming",
+    "text": "PW Neighborhood Traffic Calming",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "rightOfWayIssue",
+    "text": "Right of Way Issue",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "signHazards",
+    "text": "Sign Hazards",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "signMaintenance",
+    "text": "Sign Maintenance",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "signalIssueDot",
+    "text": "Signal Issue DoT",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "signalOtherIssue",
+    "text": "Signal Other Issue",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "signalOutOrFlashing",
+    "text": "Signal Out or Flashing",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "signalTimingIssueCity",
+    "text": "Signal Timing Issue City",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "sneakersHanging",
+    "text": "Sneakers Hanging",
+    "type": "engineeringTraffic"
+  },
+  {
+    "value": "fallenTreeBlockingRow",
+    "text": "Fallen Tree Blocking RoW",
+    "type": "forestry"
+  },
+  {
+    "value": "fallenTreeInspection",
+    "text": "Fallen Tree Inspection",
+    "type": "forestry"
+  },
+  {
+    "value": "stumpRemoval",
+    "text": "Stump Removal",
+    "type": "forestry"
+  },
+  {
+    "value": "stumpRemovalQualityIssue",
+    "text": "Stump Removal Quality Issue",
+    "type": "forestry"
+  },
+  {
+    "value": "treeOther",
+    "text": "Tree Other",
+    "type": "forestry"
+  },
+  {
+    "value": "treePlantingQualityIssue",
+    "text": "Tree Planting Quality Issue",
+    "type": "forestry"
+  },
+  {
+    "value": "treePlantingRequest",
+    "text": "Tree Planting Request",
+    "type": "forestry"
+  },
+  {
+    "value": "treeRemoval",
+    "text": "Tree Removal",
+    "type": "forestry"
+  },
+  {
+    "value": "treeRemovalChallenge",
+    "text": "Tree Removal Challenge",
+    "type": "forestry"
+  },
+  {
+    "value": "treeRemovalPerInspector",
+    "text": "Tree Removal per Inspector",
+    "type": "forestry"
+  },
+  {
+    "value": "treeRemovalQualityIssue",
+    "text": "Tree Removal Quality Issue",
+    "type": "forestry"
+  },
+  {
+    "value": "treeTrimmingQualityIssue",
+    "text": "Tree Trimming Quality Issue",
+    "type": "forestry"
+  },
+  {
+    "value": "treeTrimmingRequest",
+    "text": "Tree Trimming Request",
+    "type": "forestry"
+  },
+  {
+    "value": "foilRecordsAssessmentAndTaxation",
+    "text": "FOIL Records Assessment & Taxation",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsCityClerk",
+    "text": "FOIL Records City Clerk",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsEdpis",
+    "text": "FOIL Records EDPIS",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsFireDept",
+    "text": "FOIL Records Fire Dept",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsHumanResources",
+    "text": "FOIL Records Human Resources",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsLawDept",
+    "text": "FOIL Records Law Dept",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsPoliceDept",
+    "text": "FOIL Records Police Dept",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "foilRecordsRealEstate",
+    "text": "FOIL Records Real Estate",
+    "type": "freedomOfInformation"
+  },
+  {
+    "value": "waterfrontIssue",
+    "text": "Waterfront Issues",
+    "type": "harborMaster"
+  },
+  {
+    "value": "abandonedVehicleInspection",
+    "text": "Abandoned Vehicle Inspection",
+    "type": "housing"
+  },
+  {
+    "value": "boardingRequest",
+    "text": "Boarding request",
+    "type": "housing"
+  },
+  {
+    "value": "electricalIssue",
+    "text": "Electrical Issue",
+    "type": "housing"
+  },
+  {
+    "value": "fallenTreeInspection",
+    "text": "Fallen Tree Inspection",
+    "type": "housing"
+  },
+  {
+    "value": "graffitiPrivateProperty",
+    "text": "Graffiti Private Property",
+    "type": "housing"
+  },
+  {
+    "value": "housingViolations",
+    "text": "housing Violations",
+    "type": "housing"
+  },
+  {
+    "value": "illegalDumpingPrivateProperty",
+    "text": "Illegal Dumping Private Property",
+    "type": "housing"
+  },
+  {
+    "value": "leadPaintInspection",
+    "text": "Lead Paint Inspection",
+    "type": "housing"
+  },
+  {
+    "value": "rentalRegistration",
+    "text": "Rental Registration",
+    "type": "housing"
+  },
+  {
+    "value": "snowRemovalInspection",
+    "text": "Snow Removal Inspection",
+    "type": "housing"
+  },
+  {
+    "value": "compensationAndBenefits",
+    "text": "Compensation & Benefits",
+    "type": "hr"
+  },
+  {
+    "value": "dogLicenseIssue",
+    "text": "Dog License Issue",
+    "type": "licenses"
+  },
+  {
+    "value": "buffaloTrafficViolations",
+    "text": "Buffalo Traffic Violations",
+    "type": "movingViolations"
+  },
+  {
+    "value": "streetlights",
+    "text": "Streetlights",
+    "type": "nationalGrid"
+  },
+  {
+    "value": "ospOtherIssue",
+    "text": "OSP Other Issue",
+    "type": "osp"
+  },
+  {
+    "value": "abandonedVehicles",
+    "text": "Abandoned Vehicles",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "parkingIssues",
+    "text": "Parking Issues",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "pvbViolationsBureau",
+    "text": "PVB Mobile App Issue",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "pvbMobileAppTicket",
+    "text": "PVB Mobile App Ticket",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "pvbPayStation",
+    "text": "PVB Pay Station",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "pvbSingleMeter",
+    "text": "PVB Single Meter",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "vehicleBlockingSnowPlow",
+    "text": "Vehicle Blocking Snow Plow",
+    "type": "parkingViolationsBureau"
+  },
+  {
+    "value": "engineeringOperational",
+    "text": "Engineering Operational",
+    "type": "personnel"
+  },
+  {
+    "value": "basketballHoopInRow",
+    "text": "Basketball Hoop in RoW",
+    "type": "police"
+  },
+  {
+    "value": "policeIssue",
+    "text": "Police Issue",
+    "type": "police"
+  },
+  {
+    "value": "qualityofLifeIssue",
+    "text": "Quality of Life Issue",
+    "type": "police"
+  },
+  {
+    "value": "snowRemoval",
+    "text": "Snow Removal",
+    "type": "police"
+  },
+  {
+    "value": "inremRealEstate",
+    "text": "Inrem Real Estate",
+    "type": "realEstate"
+  },
+  {
+    "value": "ospIllegalDumping",
+    "text": "OSP Illegal Dumping",
+    "type": "realEstate"
+  },
+  {
+    "value": "pest",
+    "text": "Pest",
+    "type": "rodentControl"
+  },
+  {
+    "value": "rodents",
+    "text": "Rodents",
+    "type": "rodentControl"
+  },
+  {
+    "value": "electronicWaste",
+    "text": "Electronic Waste",
+    "type": "sanitation"
+  },
+  {
+    "value": "garbageMissedPicked",
+    "text": "Garbage Missed Pick Up",
+    "type": "sanitation"
+  },
+  {
+    "value": "illegalDumpingCurb",
+    "text": "Illegal Dumping Curb",
+    "type": "sanitation"
+  },
+  {
+    "value": "illegalDumpingStreet",
+    "text": "Illegal Dumping Street",
+    "type": "sanitation"
+  },
+  {
+    "value": "missedPickup2PieceLargeTrash",
+    "text": "Missed Pickup 2 Piece Large Trash",
+    "type": "sanitation"
+  },
+  {
+    "value": "parkGarbagePickup",
+    "text": "Park Garbage Pickup",
+    "type": "sanitation"
+  },
+  {
+    "value": "pickAndPay",
+    "text": "Pick and Pay",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingEscalatedQuestions",
+    "text": "Recycling - Escalated Questions",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingMissedPickUp",
+    "text": "Recycling Missed Pick Up",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingToteAbandonPickup",
+    "text": "Recycling Tote Abandon Pickup",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingToteCombo",
+    "text": "Recycling Tote Combo",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingToteDeliver",
+    "text": "Recycling Tote Deliver",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingTotePickup",
+    "text": "Recycling Tote Pickup",
+    "type": "sanitation"
+  },
+  {
+    "value": "recyclingToteReplace",
+    "text": "Recycling Tote Replace",
+    "type": "sanitation"
+  },
+  {
+    "value": "specialEventTotes",
+    "text": "Special Event Totes",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesAbandonPickup",
+    "text": "Totes Abandon Pickup",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesAudit",
+    "text": "Totes Audit",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesCombo",
+    "text": "Totes Combo",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesDeliver",
+    "text": "Totes Deliver",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesPickup",
+    "text": "Totes Pickup",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesReplace",
+    "text": "Totes Replace",
+    "type": "sanitation"
+  },
+  {
+    "value": "totesReportOfRemovedBrokenTote",
+    "text": "Totes Report of Removed Broken Tote",
+    "type": "sanitation"
+  },
+  {
+    "value": "trashOrdincanceViolation",
+    "text": "Trash Ordinance Violation",
+    "type": "sanitation"
+  },
+  {
+    "value": "userFee",
+    "text": "User Fee",
+    "type": "sanitation"
+  },
+  {
+    "value": "bulkTrash",
+    "text": "Bulk Trash",
+    "type": "streets"
+  },
+  {
+    "value": "christmasTree",
+    "text": "Christmas Tree",
+    "type": "streets"
+  },
+  {
+    "value": "damageFromSnowRemoval",
+    "text": "Damage from Snow Removal",
+    "type": "streets"
+  },
+  {
+    "value": "excessTrash",
+    "text": "Excess Trash",
+    "type": "streets"
+  },
+  {
+    "value": "fridge",
+    "text": "Fridge",
+    "type": "streets"
+  },
+  {
+    "value": "leavesLawnDebris",
+    "text": "Leaves / Lawn Debris",
+    "type": "streets"
+  },
+  {
+    "value": "pwVacantLot",
+    "text": "PW Vacant Lot",
+    "type": "streets"
+  },
+  {
+    "value": "streetSalting",
+    "text": "Street Salting",
+    "type": "streets"
+  },
+  {
+    "value": "streetSnowPlowing",
+    "text": "Street Snow Plowing",
+    "type": "streets"
+  },
+  {
+    "value": "streetSnowPlowingIssue",
+    "text": "Street Snow Plowing Issue",
+    "type": "streets"
+  },
+  {
+    "value": "sweeper",
+    "text": "Sweeper",
+    "type": "streets"
+  },
+  {
+    "value": "damageFromStreetWorker",
+    "text": "Damage from Street Worker",
+    "type": "streetsSanitation"
+  },
+  {
+    "value": "taxationIssue",
+    "text": "Taxation Issue",
+    "type": "taxation"
+  },
+  {
+    "value": "telecommunications",
+    "text": "Telecommunications",
+    "type": "telecommunications"
+  },
+  {
+    "value": "youthBureauIssue",
+    "text": "Youth Bureau Issue",
+    "type": "youthBureau"
+  }
+]
