@@ -16,6 +16,7 @@
     "core-js": "^2.6.11",
     "dayjs": "^1.8.23",
     "firebase": "^7.13.0",
+    "leaflet": "^1.6.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
     "vue-router": "^3.1.6",
@@ -36,7 +37,8 @@
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
     "sass-loader": "^7.3.1",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vue2-leaflet": "^2.5.2"
   },
   "eslintConfig": {
     "root": true,
