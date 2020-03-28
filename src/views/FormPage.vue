@@ -144,7 +144,7 @@
 </template>
 
 <script>
-import { db } from "@/js/firebase";
+import { db } from "@/modules/firebase";
 import typesJSON from "@/data/types.json";
 import subtypesJSON from "@/data/subtypes.json";
 import NavigatorGeolocationInput from "@/components/NavigatorGeolocationInput";

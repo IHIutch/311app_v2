@@ -104,7 +104,7 @@
 </template>
 
 <script>
-import { db } from "@/js/firebase";
+import { db } from "@/modules/firebase";
 import moment from "moment";
 
 export default {
