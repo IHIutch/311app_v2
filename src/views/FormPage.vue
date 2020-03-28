@@ -96,10 +96,22 @@
                   v-for="(preview, index) in filePreview"
                   :key="index"
                 >
-                  <b-img thumbnail fluid :src="filePreview[index]" />
-                  <b-button variant="danger" @click="removeFile(index)"
-                    >Remove</b-button
-                  >
+                  <div class="embed-responsive embed-responsive-1by1">
+                    <b-img
+                      rounded
+                      :src="filePreview[index]"
+                      class="fit-cover embed-responsive-item border"
+                    />
+                    <div class="position-absolute top-0 right-0 pt-2 pr-2">
+                      <button
+                        type="button"
+                        class="btn rounded-circle bg-black h-6 w-6 p-0 d-flex align-items-center justify-content-center"
+                        @click="removeFile(index)"
+                      >
+                        <x-icon size="1x" class="text-white"></x-icon>
+                      </button>
+                    </div>
+                  </div>
                 </b-col>
               </b-form-row>
               <b-form-group label="Additional Comments">
@@ -138,13 +150,15 @@ import subtypesJSON from "@/data/subtypes.json";
 import NavigatorGeolocationInput from "@/components/NavigatorGeolocationInput";
 import AddressGeocodeInput from "@/components/AddressGeocodeInput";
 import GoogleMapInput from "@/components/GoogleMapInput";
+import { XIcon } from "vue-feather-icons";
 
 export default {
   name: "FormPage",
   components: {
     NavigatorGeolocationInput,
     AddressGeocodeInput,
-    GoogleMapInput
+    GoogleMapInput,
+    XIcon
   },
   data() {
     return {
@@ -188,7 +202,7 @@ export default {
       });
     },
     removeFile(idx) {
-      this.filePreview.splice(idx);
+      this.filePreview.splice(idx, 1);
     },
     saveIssue() {
       this.isSubmitting = true;

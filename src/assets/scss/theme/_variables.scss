@@ -1,0 +1,62 @@
+$black: #000000;
+$white: #ffffff;
+$theme-colors: (
+  "black": $black,
+  "white": $white
+);
+
+$object-fit: (cover, contain);
+
+// Used for margins, padding
+$rem: 1rem;
+$spacers: (
+  0: 0,
+  1: $rem * 0.25,
+  2: $rem * 0.5,
+  3: $rem * 0.75,
+  4: $rem * 1,
+  5: $rem * 1.25,
+  6: $rem * 1.5,
+  8: $rem * 2,
+  10: $rem * 2.5,
+  12: $rem * 3,
+  16: $rem * 4,
+  20: $rem * 5,
+  24: $rem * 6,
+  32: $rem * 8,
+  40: $rem * 10,
+  48: $rem * 12
+);
+
+// Used for widths, heights, max-widths, max-heights, etc
+$sizes: (
+  "auto": auto,
+  0: 0,
+  1: $rem * 0.25,
+  2: $rem * 0.5,
+  3: $rem * 0.75,
+  4: $rem * 1,
+  5: $rem * 1.25,
+  6: $rem * 1.5,
+  8: $rem * 2,
+  10: $rem * 2.5,
+  12: $rem * 3,
+  16: $rem * 4,
+  20: $rem * 5,
+  24: $rem * 6,
+  32: $rem * 8,
+  48: $rem * 12
+);
+
+$font-sizes: (
+  xs: $rem * 0.75,
+  sm: $rem * 0.875,
+  base: $rem * 1,
+  lg: $rem * 1.125,
+  xl: $rem * 1.25,
+  2xl: $rem * 1.5,
+  3xl: $rem * 1.875,
+  4xl: $rem * 2.25,
+  5xl: $rem * 3,
+  6xl: $rem * 4
+);
