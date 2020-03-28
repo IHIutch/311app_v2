@@ -13,8 +13,10 @@
         v-if="point.lat && point.lng"
         :key="idx"
         :lat-lng="[point.lat, point.lng]"
-        :radius="8"
-        :weight="0"
+        :radius="4"
+        :fillOpacity="1"
+        :weight="10"
+        color="#0000EE40"
         fillColor="#0000EE"
         @click="pointClick(point)"
       />
