@@ -23,7 +23,7 @@ export default new Router({
     },
     {
       path: "/reports",
-      name: "reportsListPage",
+      name: "ReportsListPage",
       component: ReportsListPage
     },
     {
