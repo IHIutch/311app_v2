@@ -41,24 +41,26 @@
             </div>
             <div class="p-4 border-bottom">
               <h2 class="h4">Select the Location</h2>
-              <b-tabs content-class="mt-3" justified lazy>
-                <b-tab
-                  active
-                  title="Use My Location"
-                  @click="setLocationType('byCurrentLocation')"
-                >
-                  <NavigatorGeolocationInput :location.sync="location" />
-                </b-tab>
-                <b-tab
-                  title="Use Address"
-                  @click="setLocationType('byAddress')"
-                >
-                  <AddressGeocodeInput :location.sync="location" />
-                </b-tab>
-                <b-tab title="Use Map" @click="setLocationType('byMap')">
-                  <GoogleMapInput :location.sync="location" />
-                </b-tab>
-              </b-tabs>
+              <b-card no-body>
+                <b-tabs content-class="mt-3" card justified lazy>
+                  <b-tab
+                    active
+                    title="Use My Location"
+                    @click="setLocationType('byCurrentLocation')"
+                  >
+                    <NavigatorGeolocationInput :location.sync="location" />
+                  </b-tab>
+                  <b-tab
+                    title="Use Address"
+                    @click="setLocationType('byAddress')"
+                  >
+                    <AddressGeocodeInput :location.sync="location" />
+                  </b-tab>
+                  <b-tab title="Use Map" @click="setLocationType('byMap')">
+                    <GoogleMapInput :location.sync="location" />
+                  </b-tab>
+                </b-tabs>
+              </b-card>
             </div>
             <div class="p-4 border-bottom">
               <h2 class="h4">Add Your Email</h2>
