@@ -28,6 +28,7 @@
               </b-form-group>
               <b-form-group label="What is the subtype?">
                 <b-form-select
+                  :disabled="!filteredSubtypes.length"
                   v-model="issue.subtype"
                   :options="filteredSubtypes"
                 >
