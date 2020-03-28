@@ -45,31 +45,18 @@
                 <b-tabs content-class="mt-3" justified lazy>
                   <b-tab
                     active
-                    value="test"
                     title="Use My Location"
-                    @click="
-                      resetLocation();
-                      setLocationType('byCurrentLocation');
-                    "
+                    @click="setLocationType('byCurrentLocation')"
                   >
                     <NavigatorGeolocationInput :location.sync="location" />
                   </b-tab>
                   <b-tab
                     title="Use Address"
-                    @click="
-                      resetLocation();
-                      setLocationType('byAddress');
-                    "
+                    @click="setLocationType('byAddress')"
                   >
                     <AddressGeocodeInput :location.sync="location" />
                   </b-tab>
-                  <b-tab
-                    title="Use Map"
-                    @click="
-                      resetLocation();
-                      setLocationType('byMap');
-                    "
-                  >
+                  <b-tab title="Use Map" @click="setLocationType('byMap')">
                     <GoogleMapInput :location.sync="location" />
                   </b-tab>
                 </b-tabs>
@@ -170,11 +157,10 @@ export default {
         streetNumber: null,
         streetName: null,
         zipCode: null,
-        city: null,
-        state: null,
+        neighborhood: null,
+        locationType: "byCurrentLocation",
         dateCreated: ""
       },
-      locationType: "byCurrentLocation",
       anonymous: null,
       file: null,
       filePreview: [],
@@ -204,25 +190,25 @@ export default {
     },
     saveIssue() {
       this.isSubmitting = true;
+      this.issue.lat = this.location.lat;
+      this.issue.lng = this.location.lng;
       this.issue.dateCreated = new Date();
       var self = this;
       db.collection("issues")
         .add(self.issue)
-        .then(function(docRef) {
+        .then(docRef => {
           self.$router.push({
             name: "ReportPage",
             params: { issueId: docRef.id }
           });
         })
-        .catch(function(error) {
+        .catch(error => {
           alert("Error adding document: ", error);
         });
     },
-    resetLocation() {
-      this.location = {};
-    },
     setLocationType(value) {
-      // this.locationType = value;
+      this.location = {};
+      this.issue.locationType = value;
     }
   }
 };
