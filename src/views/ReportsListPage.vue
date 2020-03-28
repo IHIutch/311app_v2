@@ -120,6 +120,7 @@ export default {
         this.issues = querySnapshot.docs.map(doc => {
           var obj = doc.data();
           obj["id"] = doc.id;
+          obj.createdAt = obj.createdAt.toDate();
           return obj;
         });
       });

@@ -38,8 +38,8 @@
               </div>
               <div class="d-inline">
                 <span class="text-muted">
-                  {{ report.lat }}, {{ report.lng }}</span
-                >
+                  {{ report.lat }}, {{ report.lng }}
+                </span>
               </div>
             </div>
             <div>
@@ -120,7 +120,6 @@ export default {
       .doc(this.$route.params.issueId)
       .get()
       .then(querySnapshot => {
-        // console.log(querySnapshot);
         self.report = querySnapshot.data();
         self.report["id"] = querySnapshot.id;
         self.report.createdAt = self.report.createdAt.toDate();
