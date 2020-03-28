@@ -199,6 +199,7 @@ export default {
     onFileChange() {
       var self = this;
       this.files.forEach(file => {
+        if (file.size > 4194304) return;
         const reader = new FileReader();
         reader.onload = e => {
           self.issue.images.push(e.target.result);
