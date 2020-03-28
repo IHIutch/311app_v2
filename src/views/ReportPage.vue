@@ -45,7 +45,7 @@
             <div>
               <div class="d-inline mr-4">
                 <b>Open Date:</b>
-                {{ report.createdAt | date }}
+                {{ report.dateCreated | date }}
               </div>
               <div class="d-inline">
                 <b>Closed Date:</b>
@@ -122,7 +122,7 @@ export default {
       .then(querySnapshot => {
         self.report = querySnapshot.data();
         self.report["id"] = querySnapshot.id;
-        self.report.createdAt = self.report.createdAt.toDate();
+        self.report.dateCreated = self.report.dateCreated.toDate();
       });
   },
   filters: {

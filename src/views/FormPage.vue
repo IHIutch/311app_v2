@@ -172,7 +172,7 @@ export default {
         zipCode: null,
         city: null,
         state: null,
-        createdAt: ""
+        dateCreated: ""
       },
       locationType: "byCurrentLocation",
       anonymous: null,
@@ -204,7 +204,7 @@ export default {
     },
     saveIssue() {
       this.isSubmitting = true;
-      this.issue.createdAt = new Date();
+      this.issue.dateCreated = new Date();
       var self = this;
       db.collection("issues")
         .add(self.issue)

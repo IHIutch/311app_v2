@@ -56,8 +56,8 @@
                     <strong>Loading...</strong>
                   </div>
                 </template>
-                <template v-slot:cell(createdAt)="data">
-                  {{ data.item.createdAt | date }}
+                <template v-slot:cell(dateCreated)="data">
+                  {{ data.item.dateCreated | date }}
                 </template>
                 <template v-slot:cell(link)="data">
                   <router-link
@@ -98,7 +98,7 @@ export default {
       fields: [
         { key: "type", sortable: true },
         { key: "email", sortable: true },
-        { key: "createdAt", label: "Created", sortable: true },
+        { key: "dateCreated", label: "Created", sortable: true },
         { key: "link", label: "", sortable: false }
       ],
       table: {
@@ -107,7 +107,7 @@ export default {
         currentPage: 1,
         perPage: 10,
         filter: "",
-        sortBy: "createdAt",
+        sortBy: "dateCreated",
         sortDesc: false
       }
     };
@@ -120,7 +120,7 @@ export default {
         this.issues = querySnapshot.docs.map(doc => {
           var obj = doc.data();
           obj["id"] = doc.id;
-          obj.createdAt = obj.createdAt.toDate();
+          obj.dateCreated = obj.dateCreated.toDate();
           return obj;
         });
       });
