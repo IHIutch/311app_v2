@@ -82,31 +82,27 @@
               <b-form-group label="Upload Image">
                 <b-form-file
                   type="file"
-                  ref="test"
-                  @change="onFileChange"
-                  v-model="file"
+                  ref="imageUpload"
+                  v-model="files"
                   placeholder="Choose file(s)..."
                   drop-placeholder="Drop file(s) here..."
-                  multiple=""
+                  multiple
+                  accept="image/jpeg, image/png"
                 ></b-form-file>
               </b-form-group>
               <b-form-row>
-                <b-col
-                  cols="3"
-                  v-for="(preview, index) in filePreview"
-                  :key="index"
-                >
+                <b-col cols="3" v-for="(image, idx) in issue.images" :key="idx">
                   <div class="embed-responsive embed-responsive-1by1">
                     <b-img
                       rounded
-                      :src="filePreview[index]"
+                      :src="image"
                       class="fit-cover embed-responsive-item border"
                     />
                     <div class="position-absolute top-0 right-0 pt-2 pr-2">
                       <button
                         type="button"
-                        class="btn rounded-circle bg-black h-6 w-6 p-0 d-flex align-items-center justify-content-center"
-                        @click="removeFile(index)"
+                        class="btn rounded-circle btn-black h-6 w-6 p-0 d-flex align-items-center justify-content-center"
+                        @click="removeFile(idx)"
                       >
                         <x-icon size="1x" class="text-white"></x-icon>
                       </button>
@@ -176,14 +172,19 @@ export default {
         locationType: "byCurrentLocation",
         dateCreated: "",
         markerColor: "#0000EE",
-        anonymous: false
+        anonymous: false,
+        images: []
       },
-      file: null,
-      filePreview: [],
+      files: null,
       types: typesJSON,
       subtypes: subtypesJSON,
       filteredSubtypes: []
     };
+  },
+  watch: {
+    files() {
+      this.onFileChange();
+    }
   },
   methods: {
     getSubtypes() {
@@ -194,15 +195,18 @@ export default {
         }
       });
     },
-    onFileChange(e) {
+    onFileChange() {
       var self = this;
-      var files = e.target.files;
-      Object.keys(files).forEach(index => {
-        self.filePreview.push(URL.createObjectURL(files[index]));
+      this.files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = e => {
+          self.issue.images.push(e.target.result);
+        };
+        reader.readAsDataURL(file);
       });
     },
     removeFile(idx) {
-      this.filePreview.splice(idx, 1);
+      this.issue.images.splice(idx, 1);
     },
     saveIssue() {
       this.isSubmitting = true;
