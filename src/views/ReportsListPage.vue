@@ -51,7 +51,7 @@
                   </div>
                 </template>
                 <template v-slot:cell(createdAt)="data">
-                  {{ data.item.createdAt | moment }}
+                  {{ data.item.createdAt | date }}
                 </template>
                 <template v-slot:cell(link)="data">
                   <router-link
@@ -78,7 +78,7 @@
 
 <script>
 import { db } from "@/modules/firebase";
-import moment from "moment";
+import dayjs from "dayjs";
 
 export default {
   name: "ReportsListPage",
@@ -133,8 +133,8 @@ export default {
     }
   },
   filters: {
-    moment(value) {
-      return moment(value).format("MM/DD/YY, hh:mmA");
+    date(value) {
+      return dayjs(value).format("MM/DD/YY");
     }
   }
 };

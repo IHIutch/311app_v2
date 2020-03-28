@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import moment from "moment";
+import dayjs from "dayjs";
 
 export default {
   name: "test",
@@ -1516,12 +1516,9 @@ export default {
     this.dates = this.info.map(issue => {
       return {
         case_ref: issue.case_reference,
-        diff: moment(issue.closed_date).diff(
-          moment(issue.open_date),
-          "minutes"
-        ),
-        open_date: moment(issue.open_date).format("MM/DD/YY, hh:mmA"),
-        closed_date: moment(issue.closed_date).format("MM/DD/YY, hh:mmA")
+        diff: dayjs(issue.closed_date).diff(dayjs(issue.open_date), "minutes"),
+        open_date: dayjs(issue.open_date).format("MM/DD/YY, hh:mmA"),
+        closed_date: dayjs(issue.closed_date).format("MM/DD/YY, hh:mmA")
       };
     });
   }

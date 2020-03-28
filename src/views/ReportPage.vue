@@ -45,7 +45,7 @@
             <div>
               <div class="d-inline mr-4">
                 <b>Open Date:</b>
-                {{ report.createdAt | moment }}
+                {{ report.createdAt | date }}
               </div>
               <div class="d-inline">
                 <b>Closed Date:</b>
@@ -105,7 +105,7 @@
 
 <script>
 import { db } from "@/modules/firebase";
-import moment from "moment";
+import dayjs from "dayjs";
 
 export default {
   name: "ReportPage",
@@ -127,8 +127,8 @@ export default {
       });
   },
   filters: {
-    moment(value) {
-      return moment(value).format("MM/DD/YY, hh:mmA");
+    date(value) {
+      return dayjs(value).format("MM/DD/YY, hh:mmA");
     }
   }
 };
