@@ -225,27 +225,34 @@ export default {
       this.issue.lat = this.location.lat;
       this.issue.lng = this.location.lng;
       this.issue.dateCreated = new Date();
-      this.uploadImages();
-      this.uploadData();
+      Promise.all(
+        this.imagePreviews.map(async image => {
+          return await this.uploadImages(image);
+        })
+      ).then(() => {
+        this.uploadData();
+      });
     },
     uploadData() {
-      var self = this;
+      let self = this;
       db.collection("issues")
         .add(self.issue)
         .then(docRef => {
           self.$router.push({
             name: "ReportPage",
-            params: { issueId: docRef.id }
+            params: {
+              issueId: docRef.id
+            }
           });
         })
         .catch(error => {
-          console.error(error);
+          throw new Error(error);
         });
     },
-    uploadImages() {
+    uploadImages(image) {
       const storageRef = storage.ref();
       let self = this;
-      this.imagePreviews.forEach(image => {
+      return new Promise((resolve, reject) => {
         let imageName = uuidv1();
         let fileExt = image.fileName.split(".").pop();
         let uploadTask = storageRef
@@ -258,21 +265,21 @@ export default {
           //   console.log(`Upload is ${progress}% done`);
           // },
           error: error => {
-            console.error(error);
+            reject(new Error(error));
           },
           complete: () => {
             uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
               self.issue.images.push(downloadURL);
-              console.log(downloadURL);
+              resolve();
             });
           }
         });
       });
-    },
-    setLocationType(value) {
-      this.location = {};
-      this.issue.locationType = value;
     }
+  },
+  setLocationType(value) {
+    this.location = {};
+    this.issue.locationType = value;
   }
 };
 </script>
