@@ -139,7 +139,7 @@ export default {
       let range = this.table.currentPage * this.table.perPage;
       return {
         start: range - this.table.perPage + 1,
-        end: range + 1 < this.table.totalRows ? range + 1 : this.table.totalRows
+        end: range < this.table.totalRows ? range : this.table.totalRows
       };
     }
   },
