@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="mt-5">
     <b-row>
       <b-col cols="12">
         <b-row>

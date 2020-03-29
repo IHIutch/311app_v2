@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="bg-light">
-    <b-navbar type="light" variant="white" class="shadow-sm" fixed="top">
+    <b-navbar type="light" variant="white" fixed="top" class="shadow-sm h-14">
       <b-navbar-brand :to="{ name: 'ReportsListPage' }">
         Buffalo 311
       </b-navbar-brand>
@@ -10,6 +10,8 @@
         </b-button>
       </b-navbar-nav>
     </b-navbar>
-    <router-view />
+    <div class="pt-14">
+      <router-view />
+    </div>
   </div>
 </template>
