@@ -92,11 +92,15 @@
                 ></b-form-file>
               </b-form-group>
               <b-form-row>
-                <b-col cols="3" v-for="(image, idx) in issue.images" :key="idx">
+                <b-col
+                  cols="3"
+                  v-for="(image, idx) in imagePreviews"
+                  :key="idx"
+                >
                   <div class="embed-responsive embed-responsive-1by1">
                     <b-img
                       rounded
-                      :src="image"
+                      :src="image.base64String"
                       class="fit-cover embed-responsive-item border"
                     />
                     <div class="position-absolute top-0 right-0 pt-2 pr-2">
@@ -141,7 +145,8 @@
 </template>
 
 <script>
-import { db } from "@/modules/firebase";
+import { db, storage } from "@/modules/firebase";
+import { v1 as uuidv1 } from "uuid";
 import typesJSON from "@/data/types.json";
 import subtypesJSON from "@/data/subtypes.json";
 import NavigatorGeolocationInput from "@/components/NavigatorGeolocationInput";
@@ -176,6 +181,7 @@ export default {
         anonymous: false,
         images: []
       },
+      imagePreviews: [],
       files: null,
       types: typesJSON,
       subtypes: subtypesJSON,
@@ -202,19 +208,27 @@ export default {
         if (file.size > 4194304) return;
         const reader = new FileReader();
         reader.onload = e => {
-          self.issue.images.push(e.target.result);
+          self.imagePreviews.push({
+            base64String: e.target.result,
+            fileType: file.type,
+            fileName: file.name
+          });
         };
         reader.readAsDataURL(file);
       });
     },
     removeFile(idx) {
-      this.issue.images.splice(idx, 1);
+      this.imagePreviews.splice(idx, 1);
     },
     saveIssue() {
       this.isSubmitting = true;
       this.issue.lat = this.location.lat;
       this.issue.lng = this.location.lng;
       this.issue.dateCreated = new Date();
+      this.uploadImages();
+      this.uploadData();
+    },
+    uploadData() {
       var self = this;
       db.collection("issues")
         .add(self.issue)
@@ -225,8 +239,35 @@ export default {
           });
         })
         .catch(error => {
-          alert("Error adding document: ", error);
+          console.error(error);
         });
+    },
+    uploadImages() {
+      const storageRef = storage.ref();
+      let self = this;
+      this.imagePreviews.forEach(image => {
+        let imageName = uuidv1();
+        let fileExt = image.fileName.split(".").pop();
+        let uploadTask = storageRef
+          .child(`images/${imageName}.${fileExt}`)
+          .putString(image.base64String, "data_url");
+        uploadTask.on("state_changed", {
+          // next: snapshot => {
+          //   let progress =
+          //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          //   console.log(`Upload is ${progress}% done`);
+          // },
+          error: error => {
+            console.error(error);
+          },
+          complete: () => {
+            uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+              self.issue.images.push(downloadURL);
+              console.log(downloadURL);
+            });
+          }
+        });
+      });
     },
     setLocationType(value) {
       this.location = {};
