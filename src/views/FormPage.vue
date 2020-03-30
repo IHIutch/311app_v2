@@ -124,16 +124,17 @@
                   no-resize
                 />
               </b-form-group>
-              <div>
+              <div class="text-center">
                 <b-button
                   type="submit"
                   variant="primary"
                   :disabled="isSubmitting"
                 >
                   <span v-if="isSubmitting">
-                    <b-spinner label="Submitting..." />
+                    <b-spinner small label="Submitting..." />
+                    Submitting...
                   </span>
-                  <span v-else>Submit</span>
+                  <span v-else>Submit Issue</span>
                 </b-button>
               </div>
             </div>

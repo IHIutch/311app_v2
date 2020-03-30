@@ -17,10 +17,10 @@
       :disabled="findingLocation"
     >
       <span v-if="findingLocation">
-        <b-spinner small label="Searching..." />
-        Searching...
+        <b-spinner small label="Finding Your Location..." />
+        Finding Your Location...
       </span>
-      <span v-else>Use My Location</span>
+      <span v-else>Find My Location</span>
     </b-button>
   </div>
 </template>
