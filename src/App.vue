@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="bg-light">
+  <div id="app" class="bg-light antialiased">
     <b-navbar type="light" variant="white" fixed="top" class="shadow-sm h-14">
       <b-navbar-brand :to="{ name: 'ReportsListPage' }">
         Buffalo 311
