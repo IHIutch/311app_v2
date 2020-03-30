@@ -276,11 +276,11 @@ export default {
           }
         });
       });
+    },
+    setLocationType(value) {
+      this.location = {};
+      this.issue.locationType = value;
     }
-  },
-  setLocationType(value) {
-    this.location = {};
-    this.issue.locationType = value;
   }
 };
 </script>
