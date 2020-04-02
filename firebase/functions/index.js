@@ -1,11 +1,11 @@
-require("dotenv").config();
 const functions = require("firebase-functions");
+const sgMail = require("@sendgrid/mail");
 
 const domain = "beta.buffalo311.org";
 const fromEmail = `info@${domain}`;
 
-const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const sendgridApiKey = functions.config().sendgrid.api_key;
+sgMail.setApiKey(sendgridApiKey);
 
 exports.submitThanks = functions.firestore
   .document("/issues/{id}")
