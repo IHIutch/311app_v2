@@ -69,6 +69,7 @@
                 <b-input
                   type="email"
                   v-model="issue.email"
+                  name="email"
                   placeholder=""
                   required
                   :disabled="issue.anonymous"
