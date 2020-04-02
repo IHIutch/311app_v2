@@ -13,7 +13,7 @@
     "@sentry/integrations": "^5.15.4",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.10.0",
-    "core-js": "^2.6.11",
+    "core-js": "^3.6.4",
     "dayjs": "^1.8.23",
     "firebase": "^7.13.1",
     "leaflet": "^1.6.0",
