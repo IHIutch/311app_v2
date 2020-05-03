@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "pretty-quick": "pretty-quick"
   },
   "dependencies": {
     "@sentry/browser": "^5.15.5",
@@ -65,13 +66,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "pretty-quick --staged"
     }
-  },
-  "lint-staged": {
-    "*.{js,vue,scss,json,md,html}": [
-      "pretty-quick",
-      "git add"
-    ]
   }
 }
