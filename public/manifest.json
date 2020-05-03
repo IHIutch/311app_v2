@@ -1,6 +1,6 @@
 {
-  "name": "311app_v2",
-  "short_name": "311app_v2",
+  "name": "Buffalo 311",
+  "short_name": "Buffalo 311",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
@@ -15,6 +15,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#000000",
+  "background_color": "#7ED321",
   "theme_color": "#4DBA87"
 }
