@@ -8,7 +8,7 @@
 export default {
   name: "GoogleMapInput",
   props: {
-    location: { type: Object, required: true }
+    location: { type: Object, required: true },
   },
   data() {
     return {};
@@ -31,41 +31,41 @@ export default {
             elementType: "labels.text",
             stylers: [
               {
-                visibility: "off"
-              }
-            ]
-          }
-        ]
+                visibility: "off",
+              },
+            ],
+          },
+        ],
       };
       var map = new google.maps.Map(
         document.getElementById("googleMap"),
         mapOptions
       );
-      google.maps.event.addListener(map, "click", function(e) {
+      google.maps.event.addListener(map, "click", function (e) {
         if (marker) {
           marker.setMap(null);
         }
         var obj = {
           lat: e.latLng.lat(),
-          lng: e.latLng.lng()
+          lng: e.latLng.lng(),
         };
         marker = new google.maps.Marker({
           position: e.latLng,
-          map: map
+          map: map,
         });
         var infowindow = new google.maps.InfoWindow({
           content: `Latitude: 
           ${e.latLng.lat().toFixed(3)}, 
-            Longitude: ${e.latLng.lng().toFixed(3)}`
+            Longitude: ${e.latLng.lng().toFixed(3)}`,
         });
         infowindow.open(map, marker);
         // alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
         self.$emit("update:location", obj);
       });
-    }
+    },
   },
   mounted() {
     this.initGoogleMap();
-  }
+  },
 };
 </script>

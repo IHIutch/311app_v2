@@ -14,22 +14,22 @@ export default new Router({
     {
       path: "/",
       name: "FormPage",
-      component: FormPage
+      component: FormPage,
     },
     {
       path: "/test",
       name: "Test",
-      component: Test
+      component: Test,
     },
     {
       path: "/reports",
       name: "ReportsListPage",
-      component: ReportsListPage
+      component: ReportsListPage,
     },
     {
       path: "/report/:issueId",
       name: "ReportPage",
-      component: ReportPage
-    }
-  ]
+      component: ReportPage,
+    },
+  ],
 });

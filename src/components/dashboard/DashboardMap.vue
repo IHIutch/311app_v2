@@ -31,7 +31,7 @@ import {
   LTileLayer,
   LCircleMarker,
   LPopup,
-  LFeatureGroup
+  LFeatureGroup,
 } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 
@@ -42,28 +42,28 @@ export default {
     LTileLayer,
     LCircleMarker,
     LPopup,
-    LFeatureGroup
+    LFeatureGroup,
   },
   props: {
     points: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       map: {
         url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.VUE_APP_MAPBOX_ACCESS_TOKEN}`,
-        center: [42.8802, -78.8787]
+        center: [42.8802, -78.8787],
       },
-      popup: {}
+      popup: {},
     };
   },
   methods: {
     pointClick(info) {
       this.popup = info;
       this.$refs.feature.mapObject.openPopup([info.lat, info.lng]);
-    }
-  }
+    },
+  },
 };
 </script>
