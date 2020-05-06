@@ -63,7 +63,7 @@
                   <router-link
                     :to="{
                       name: 'ReportPage',
-                      params: { issueId: data.item.id },
+                      params: { issueId: data.item.id }
                     }"
                   >
                     View Details
@@ -90,7 +90,7 @@ import DashboardMap from "@/components/dashboard/DashboardMap";
 export default {
   name: "ReportsListPage",
   components: {
-    DashboardMap,
+    DashboardMap
   },
   data() {
     return {
@@ -99,7 +99,7 @@ export default {
         { key: "type", sortable: true },
         { key: "email", sortable: true },
         { key: "dateCreated", label: "Created", sortable: true },
-        { key: "link", label: "", sortable: false },
+        { key: "link", label: "", sortable: false }
       ],
       table: {
         isBusy: true,
@@ -108,16 +108,16 @@ export default {
         perPage: 10,
         filter: "",
         sortBy: "dateCreated",
-        sortDesc: false,
-      },
+        sortDesc: false
+      }
     };
   },
   async created() {
     await db
       .collection("issues")
       .get()
-      .then((querySnapshot) => {
-        this.issues = querySnapshot.docs.map((doc) => {
+      .then(querySnapshot => {
+        this.issues = querySnapshot.docs.map(doc => {
           var obj = doc.data();
           obj["id"] = doc.id;
           obj.dateCreated = obj.dateCreated.toDate();
@@ -132,21 +132,21 @@ export default {
     onFiltered(filteredItems) {
       this.table.totalRows = filteredItems.length;
       this.table.currentPage = 1;
-    },
+    }
   },
   computed: {
     tableRangeShowing() {
       let range = this.table.currentPage * this.table.perPage;
       return {
         start: range - this.table.perPage + 1,
-        end: range < this.table.totalRows ? range : this.table.totalRows,
+        end: range < this.table.totalRows ? range : this.table.totalRows
       };
-    },
+    }
   },
   filters: {
     date(value) {
       return dayjs(value).format("MM/DD/YY");
-    },
-  },
+    }
+  }
 };
 </script>

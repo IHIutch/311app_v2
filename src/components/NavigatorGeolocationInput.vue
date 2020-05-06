@@ -29,33 +29,33 @@
 export default {
   name: "NavigatorGeolocationInput",
   props: {
-    location: { type: Object, required: true },
+    location: { type: Object, required: true }
   },
   data() {
     return {
       test: {},
-      findingLocation: false,
+      findingLocation: false
     };
   },
   methods: {
     getCurrentLocation() {
       this.findingLocation = true;
       navigator.geolocation.getCurrentPosition(
-        (position) => {
+        position => {
           var obj = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-            accuracy: position.coords.accuracy,
+            accuracy: position.coords.accuracy
           };
           this.findingLocation = false;
           this.$emit("update:location", obj);
         },
-        (error) => {
+        error => {
           alert(`ERROR(${error.code}): ${error.message}`);
           this.findingLocation = false;
         }
       );
-    },
-  },
+    }
+  }
 };
 </script>

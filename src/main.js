@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
   // Initialize Sentry (Live error tracking)
   Sentry.init({
     dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230",
-    integrations: [new Integrations.Vue({ Vue, attachProps: true })],
+    integrations: [new Integrations.Vue({ Vue, attachProps: true })]
   });
 }
 
@@ -24,5 +24,5 @@ Vue.config.productionTip = false;
 
 new Vue({
   router,
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");

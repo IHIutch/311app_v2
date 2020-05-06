@@ -47,10 +47,10 @@ export default {
     return {
       form: {
         email: "",
-        password: "",
+        password: ""
       },
       errorMessage: null,
-      isLoggingIn: false,
+      isLoggingIn: false
     };
   },
   methods: {
@@ -58,15 +58,15 @@ export default {
       this.isLoggingIn = true;
       return auth
         .signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then((userData) => {
+        .then(userData => {
           this.$router.push("/admin");
           return userData;
         })
-        .catch((error) => {
+        .catch(error => {
           this.isLoggingIn = false;
           this.errorMessage = error.message;
         });
-    },
-  },
+    }
+  }
 };
 </script>
