@@ -16,18 +16,18 @@
 export default {
   name: "AddressGeocodeInput",
   props: {
-    location: { type: Object, required: true }
+    location: { type: Object, required: true },
   },
   data() {
     return {
-      searchBiasCenter: { lat: 42.886448, lng: -78.878372 }
+      searchBiasCenter: { lat: 42.886448, lng: -78.878372 },
     };
   },
   methods: {
     getAddressValues(autocomplete) {
       var place = autocomplete.getPlace();
       var obj = {};
-      place.address_components.map(component => {
+      place.address_components.map((component) => {
         var key = component.types[0];
         obj[key] = component.long_name;
       });
@@ -39,7 +39,7 @@ export default {
       var self = this;
       var circle = new google.maps.Circle({
         center: this.searchBiasCenter,
-        radius: 1000
+        radius: 1000,
       });
       var autocomplete = new google.maps.places.Autocomplete(
         document.getElementById("autocompleteInput"),
@@ -47,13 +47,13 @@ export default {
       );
       autocomplete.setFields(["address_component", "geometry"]);
       autocomplete.setBounds(circle.getBounds());
-      autocomplete.addListener("place_changed", function() {
+      autocomplete.addListener("place_changed", function () {
         self.getAddressValues(autocomplete);
       });
-    }
+    },
   },
   mounted() {
     this.initAutocomplete();
-  }
+  },
 };
 </script>

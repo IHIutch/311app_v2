@@ -8,7 +8,7 @@ const firebaseApp = firebase.initializeApp({
   authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
   databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
-  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
 });
 
 const db = firebaseApp.firestore();

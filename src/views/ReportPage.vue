@@ -122,7 +122,7 @@ export default {
   components: { PublicLayout },
   data() {
     return {
-      report: []
+      report: [],
     };
   },
   created() {
@@ -130,7 +130,7 @@ export default {
     db.collection("issues")
       .doc(this.$route.params.issueId)
       .get()
-      .then(querySnapshot => {
+      .then((querySnapshot) => {
         self.report = querySnapshot.data();
         self.report["id"] = querySnapshot.id;
         self.report.dateCreated = self.report.dateCreated.toDate();
@@ -139,7 +139,7 @@ export default {
   filters: {
     date(value) {
       return dayjs(value).format("MM/DD/YY, hh:mmA");
-    }
-  }
+    },
+  },
 };
 </script>

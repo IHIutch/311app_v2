@@ -40,7 +40,8 @@ export default {
           location: {
             latitude: "42.91483799536168",
             longitude: "-78.88394986927013",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.91483799536168",
           longitude: "-78.88394986927013",
@@ -51,7 +52,7 @@ export default {
           census_block: "1002",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8781339.039",
-          y_coordinate: "5299042.184"
+          y_coordinate: "5299042.184",
         },
         {
           case_reference: "1001080886",
@@ -71,7 +72,8 @@ export default {
           location: {
             latitude: "42.90554526807748",
             longitude: "-78.85031731923091",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.90554526807748",
           longitude: "-78.85031731923091",
@@ -82,7 +84,7 @@ export default {
           census_block: "4003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8777587.577",
-          y_coordinate: "5297580.1921"
+          y_coordinate: "5297580.1921",
         },
         {
           case_reference: "1001080885",
@@ -102,7 +104,8 @@ export default {
           location: {
             latitude: "42.89281705925132",
             longitude: "-78.8826406817489",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.89281705925132",
           longitude: "-78.8826406817489",
@@ -113,7 +116,7 @@ export default {
           census_block: "3005",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8781208.567",
-          y_coordinate: "5295659.847"
+          y_coordinate: "5295659.847",
         },
         {
           case_reference: "1001080882",
@@ -133,7 +136,8 @@ export default {
           location: {
             latitude: "42.93392535780059",
             longitude: "-78.81736807007185",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.93392535780059",
           longitude: "-78.81736807007185",
@@ -144,7 +148,7 @@ export default {
           census_block: "2005",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773842.26",
-          y_coordinate: "5301890.4387"
+          y_coordinate: "5301890.4387",
         },
         {
           case_reference: "1001080877",
@@ -164,7 +168,8 @@ export default {
           location: {
             latitude: "42.92751394417021",
             longitude: "-78.805541681418",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.92751394417021",
           longitude: "-78.805541681418",
@@ -175,7 +180,7 @@ export default {
           census_block: "4004",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8772578.137",
-          y_coordinate: "5300919.3488"
+          y_coordinate: "5300919.3488",
         },
         {
           case_reference: "1001080869",
@@ -195,7 +200,8 @@ export default {
           location: {
             latitude: "42.91059982721422",
             longitude: "-78.81481601344396",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.91059982721422",
           longitude: "-78.81481601344396",
@@ -206,7 +212,7 @@ export default {
           census_block: "3010",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773651.9",
-          y_coordinate: "5298408.8367"
+          y_coordinate: "5298408.8367",
         },
         {
           case_reference: "1001080861",
@@ -226,7 +232,8 @@ export default {
           location: {
             latitude: "42.90764752988615",
             longitude: "-78.80568794617724",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.90764752988615",
           longitude: "-78.80568794617724",
@@ -237,7 +244,7 @@ export default {
           census_block: "2003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8772575.675",
-          y_coordinate: "5297932.0284"
+          y_coordinate: "5297932.0284",
         },
         {
           case_reference: "1001080857",
@@ -257,7 +264,8 @@ export default {
           location: {
             latitude: "42.95755336035176",
             longitude: "-78.87273623571848",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.95755336035176",
           longitude: "-78.87273623571848",
@@ -268,7 +276,7 @@ export default {
           census_block: "3006",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8780060.627",
-          y_coordinate: "5305487.9976"
+          y_coordinate: "5305487.9976",
         },
         {
           case_reference: "1001080832",
@@ -288,7 +296,8 @@ export default {
           location: {
             latitude: "42.93234793173208",
             longitude: "-78.85093713168602",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.93234793173208",
           longitude: "-78.85093713168602",
@@ -299,7 +308,7 @@ export default {
           census_block: "1004",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8777694.143",
-          y_coordinate: "5301685.1556"
+          y_coordinate: "5301685.1556",
         },
         {
           case_reference: "1001080827",
@@ -319,7 +328,8 @@ export default {
           location: {
             latitude: "42.832059533295144",
             longitude: "-78.80959834233515",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.832059533295144",
           longitude: "-78.80959834233515",
@@ -330,7 +340,7 @@ export default {
           census_block: "4005",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773024.825",
-          y_coordinate: "5286475.401"
+          y_coordinate: "5286475.401",
         },
         {
           case_reference: "1001080820",
@@ -343,7 +353,7 @@ export default {
           object_type: "Individual",
           city: "Buffalo",
           state: "NY",
-          neighborhood: "UNKNOWN"
+          neighborhood: "UNKNOWN",
         },
         {
           case_reference: "1001080792",
@@ -363,7 +373,8 @@ export default {
           location: {
             latitude: "42.94171405882122",
             longitude: "-78.89324009300334",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.94171405882122",
           longitude: "-78.89324009300334",
@@ -374,7 +385,7 @@ export default {
           census_block: "3000",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8782389.226",
-          y_coordinate: "5303082.4408"
+          y_coordinate: "5303082.4408",
         },
         {
           case_reference: "1001080789",
@@ -394,7 +405,8 @@ export default {
           location: {
             latitude: "42.91668484424544",
             longitude: "-78.89236148927083",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.91668484424544",
           longitude: "-78.89236148927083",
@@ -405,7 +417,7 @@ export default {
           census_block: "4007",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8782267.609",
-          y_coordinate: "5299266.8701"
+          y_coordinate: "5299266.8701",
         },
         {
           case_reference: "1001080780",
@@ -425,7 +437,8 @@ export default {
           location: {
             latitude: "42.9507885750365",
             longitude: "-78.82772003888601",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.9507885750365",
           longitude: "-78.82772003888601",
@@ -436,7 +449,7 @@ export default {
           census_block: "5002",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8775128.017",
-          y_coordinate: "5304462.2744"
+          y_coordinate: "5304462.2744",
         },
         {
           case_reference: "1001080778",
@@ -456,7 +469,8 @@ export default {
           location: {
             latitude: "42.901109432149134",
             longitude: "-78.87945512998212",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.901109432149134",
           longitude: "-78.87945512998212",
@@ -467,7 +481,7 @@ export default {
           census_block: "1007",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8780919.026",
-          y_coordinate: "5296912.4739"
+          y_coordinate: "5296912.4739",
         },
         {
           case_reference: "1001080762",
@@ -487,7 +501,8 @@ export default {
           location: {
             latitude: "42.879470326658094",
             longitude: "-78.83499870242694",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.879470326658094",
           longitude: "-78.83499870242694",
@@ -498,7 +513,7 @@ export default {
           census_block: "1019",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8775889.917",
-          y_coordinate: "5293668.5115"
+          y_coordinate: "5293668.5115",
         },
         {
           case_reference: "1001080750",
@@ -518,7 +533,8 @@ export default {
           location: {
             latitude: "42.919620984731495",
             longitude: "-78.8033345392972",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.919620984731495",
           longitude: "-78.8033345392972",
@@ -529,7 +545,7 @@ export default {
           census_block: "1003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8772313.08",
-          y_coordinate: "5299786.8665"
+          y_coordinate: "5299786.8665",
         },
         {
           case_reference: "1001080749",
@@ -549,7 +565,8 @@ export default {
           location: {
             latitude: "42.92775973611972",
             longitude: "-78.88387727482886",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.92775973611972",
           longitude: "-78.88387727482886",
@@ -560,7 +577,7 @@ export default {
           census_block: "5002",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8781313.003",
-          y_coordinate: "5300951.4714"
+          y_coordinate: "5300951.4714",
         },
         {
           case_reference: "1001080743",
@@ -580,7 +597,8 @@ export default {
           location: {
             latitude: "42.83247402089748",
             longitude: "-78.81451518890105",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.83247402089748",
           longitude: "-78.81451518890105",
@@ -591,7 +609,7 @@ export default {
           census_block: "4001",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773543.442",
-          y_coordinate: "5286474.5435"
+          y_coordinate: "5286474.5435",
         },
         {
           case_reference: "1001080738",
@@ -611,7 +629,8 @@ export default {
           location: {
             latitude: "42.87776720705784",
             longitude: "-78.84762700553746",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.87776720705784",
           longitude: "-78.84762700553746",
@@ -622,7 +641,7 @@ export default {
           census_block: "3014",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8777297.249",
-          y_coordinate: "5293334.8573"
+          y_coordinate: "5293334.8573",
         },
         {
           case_reference: "1001080732",
@@ -642,7 +661,8 @@ export default {
           location: {
             latitude: "42.9150102541543",
             longitude: "-78.86920410441898",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.9150102541543",
           longitude: "-78.86920410441898",
@@ -651,7 +671,7 @@ export default {
           census_tract: "66.02",
           census_block_group: "3",
           census_block: "3001",
-          neighborhood: "UNKNOWN"
+          neighborhood: "UNKNOWN",
         },
         {
           case_reference: "1001080710",
@@ -671,7 +691,8 @@ export default {
           location: {
             latitude: "42.92713155028725",
             longitude: "-78.87573933881589",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.92713155028725",
           longitude: "-78.87573933881589",
@@ -682,7 +703,7 @@ export default {
           census_block: "1012",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8780430.484",
-          y_coordinate: "5300965.3031"
+          y_coordinate: "5300965.3031",
         },
         {
           case_reference: "1001080704",
@@ -696,7 +717,7 @@ export default {
           address_line_1: "HALLAM",
           city: "Buffalo",
           state: "NY",
-          neighborhood: "UNKNOWN"
+          neighborhood: "UNKNOWN",
         },
         {
           case_reference: "1001080693",
@@ -716,7 +737,8 @@ export default {
           location: {
             latitude: "42.94047975812876",
             longitude: "-78.87405512285237",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.94047975812876",
           longitude: "-78.87405512285237",
@@ -727,7 +749,7 @@ export default {
           census_block: "2004",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8780218.951",
-          y_coordinate: "5302885.967"
+          y_coordinate: "5302885.967",
         },
         {
           case_reference: "1001080654",
@@ -747,7 +769,8 @@ export default {
           location: {
             latitude: "42.89548401486864",
             longitude: "-78.84976131212859",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.89548401486864",
           longitude: "-78.84976131212859",
@@ -758,7 +781,7 @@ export default {
           census_block: "4002",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8777554.507",
-          y_coordinate: "5296046.3161"
+          y_coordinate: "5296046.3161",
         },
         {
           case_reference: "1001080647",
@@ -778,7 +801,8 @@ export default {
           location: {
             latitude: "42.89557781756228",
             longitude: "-78.86142456110204",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.89557781756228",
           longitude: "-78.86142456110204",
@@ -787,7 +811,7 @@ export default {
           census_tract: "25.02",
           census_block_group: "1",
           census_block: "1001",
-          neighborhood: "UNKNOWN"
+          neighborhood: "UNKNOWN",
         },
         {
           case_reference: "1001080627",
@@ -807,7 +831,8 @@ export default {
           location: {
             latitude: "42.95357488140298",
             longitude: "-78.84735827989324",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.95357488140298",
           longitude: "-78.84735827989324",
@@ -818,7 +843,7 @@ export default {
           census_block: "3003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8777277.061",
-          y_coordinate: "5304967.102"
+          y_coordinate: "5304967.102",
         },
         {
           case_reference: "1001080625",
@@ -838,7 +863,8 @@ export default {
           location: {
             latitude: "42.926981673036565",
             longitude: "-78.82421248606786",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.926981673036565",
           longitude: "-78.82421248606786",
@@ -849,7 +875,7 @@ export default {
           census_block: "1011",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8774635.422",
-          y_coordinate: "5300872.4024"
+          y_coordinate: "5300872.4024",
         },
         {
           case_reference: "1001080618",
@@ -869,7 +895,8 @@ export default {
           location: {
             latitude: "42.963598145211016",
             longitude: "-78.89665356095668",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.963598145211016",
           longitude: "-78.89665356095668",
@@ -880,7 +907,7 @@ export default {
           census_block: "1001",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8782809.012",
-          y_coordinate: "5306462.1613"
+          y_coordinate: "5306462.1613",
         },
         {
           case_reference: "1001080595",
@@ -900,7 +927,8 @@ export default {
           location: {
             latitude: "42.95026932864193",
             longitude: "-78.88150677387918",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.95026932864193",
           longitude: "-78.88150677387918",
@@ -911,7 +939,7 @@ export default {
           census_block: "5000",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8781073.482",
-          y_coordinate: "5304463.1303"
+          y_coordinate: "5304463.1303",
         },
         {
           case_reference: "1001080571",
@@ -931,7 +959,8 @@ export default {
           location: {
             latitude: "42.87995693923073",
             longitude: "-78.85946174208556",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.87995693923073",
           longitude: "-78.85946174208556",
@@ -942,7 +971,7 @@ export default {
           census_block: "1006",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8778616.223",
-          y_coordinate: "5293751.6391"
+          y_coordinate: "5293751.6391",
         },
         {
           case_reference: "1001080538",
@@ -962,7 +991,8 @@ export default {
           location: {
             latitude: "42.93591479696755",
             longitude: "-78.81489141421294",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.93591479696755",
           longitude: "-78.81489141421294",
@@ -973,7 +1003,7 @@ export default {
           census_block: "2000",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773600.422",
-          y_coordinate: "5302245.6167"
+          y_coordinate: "5302245.6167",
         },
         {
           case_reference: "1001080519",
@@ -986,7 +1016,7 @@ export default {
           object_type: "Individual",
           city: "Buffalo",
           state: "NY",
-          neighborhood: "UNKNOWN"
+          neighborhood: "UNKNOWN",
         },
         {
           case_reference: "1001080502",
@@ -1006,7 +1036,8 @@ export default {
           location: {
             latitude: "42.850862277791286",
             longitude: "-78.81700857832239",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.850862277791286",
           longitude: "-78.81700857832239",
@@ -1017,7 +1048,7 @@ export default {
           census_block: "3001",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773893.707",
-          y_coordinate: "5289312.9985"
+          y_coordinate: "5289312.9985",
         },
         {
           case_reference: "1001080493",
@@ -1037,7 +1068,8 @@ export default {
           location: {
             latitude: "42.854738219063314",
             longitude: "-78.82017587897354",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.854738219063314",
           longitude: "-78.82017587897354",
@@ -1048,7 +1080,7 @@ export default {
           census_block: "1006",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8774157.524",
-          y_coordinate: "5289920.3963"
+          y_coordinate: "5289920.3963",
         },
         {
           case_reference: "1001080489",
@@ -1068,7 +1100,8 @@ export default {
           location: {
             latitude: "42.94082956657566",
             longitude: "-78.81917923213452",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.94082956657566",
           longitude: "-78.81917923213452",
@@ -1079,7 +1112,7 @@ export default {
           census_block: "3006",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8774130.388",
-          y_coordinate: "5302943.3264"
+          y_coordinate: "5302943.3264",
         },
         {
           case_reference: "1001080482",
@@ -1099,7 +1132,8 @@ export default {
           location: {
             latitude: "42.91826448537809",
             longitude: "-78.86466744697637",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.91826448537809",
           longitude: "-78.86466744697637",
@@ -1110,7 +1144,7 @@ export default {
           census_block: "3002",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8779204.517",
-          y_coordinate: "5299538.189"
+          y_coordinate: "5299538.189",
         },
         {
           case_reference: "1001080483",
@@ -1130,7 +1164,8 @@ export default {
           location: {
             latitude: "42.942266021013644",
             longitude: "-78.80521904296789",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.942266021013644",
           longitude: "-78.80521904296789",
@@ -1141,7 +1176,7 @@ export default {
           census_block: "7004",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8772490.644",
-          y_coordinate: "5303199.4123"
+          y_coordinate: "5303199.4123",
         },
         {
           case_reference: "1001080473",
@@ -1161,7 +1196,8 @@ export default {
           location: {
             latitude: "42.83374644728424",
             longitude: "-78.81976671652112",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.83374644728424",
           longitude: "-78.81976671652112",
@@ -1172,7 +1208,7 @@ export default {
           census_block: "4005",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8774176.935",
-          y_coordinate: "5286728.0766"
+          y_coordinate: "5286728.0766",
         },
         {
           case_reference: "1001080460",
@@ -1192,7 +1228,8 @@ export default {
           location: {
             latitude: "42.93895004173319",
             longitude: "-78.86115034874435",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.93895004173319",
           longitude: "-78.86115034874435",
@@ -1203,7 +1240,7 @@ export default {
           census_block: "1005",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8778818.054",
-          y_coordinate: "5302728.588"
+          y_coordinate: "5302728.588",
         },
         {
           case_reference: "1001080459",
@@ -1223,7 +1260,8 @@ export default {
           location: {
             latitude: "42.921439622465776",
             longitude: "-78.8124995064781",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.921439622465776",
           longitude: "-78.8124995064781",
@@ -1234,7 +1272,7 @@ export default {
           census_block: "5003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8773341.554",
-          y_coordinate: "5300023.5142"
+          y_coordinate: "5300023.5142",
         },
         {
           case_reference: "1001080435",
@@ -1254,7 +1292,8 @@ export default {
           location: {
             latitude: "42.94061969023858",
             longitude: "-78.88200018935667",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.94061969023858",
           longitude: "-78.88200018935667",
@@ -1265,7 +1304,7 @@ export default {
           census_block: "1003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8781080.065",
-          y_coordinate: "5302970.3392"
+          y_coordinate: "5302970.3392",
         },
         {
           case_reference: "1001080409",
@@ -1285,7 +1324,8 @@ export default {
           location: {
             latitude: "42.932018510610895",
             longitude: "-78.82681389925489",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.932018510610895",
           longitude: "-78.82681389925489",
@@ -1296,7 +1336,7 @@ export default {
           census_block: "1014",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8774988.445",
-          y_coordinate: "5301615.4507"
+          y_coordinate: "5301615.4507",
         },
         {
           case_reference: "1001080405",
@@ -1316,7 +1356,8 @@ export default {
           location: {
             latitude: "42.91090590566914",
             longitude: "-78.84136158189679",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.91090590566914",
           longitude: "-78.84136158189679",
@@ -1325,7 +1366,7 @@ export default {
           census_tract: "35",
           census_block_group: "4",
           census_block: "4001",
-          neighborhood: "UNKNOWN"
+          neighborhood: "UNKNOWN",
         },
         {
           case_reference: "1001080377",
@@ -1345,7 +1386,8 @@ export default {
           location: {
             latitude: "42.9382906943772",
             longitude: "-78.79936820221106",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.9382906943772",
           longitude: "-78.79936820221106",
@@ -1356,7 +1398,7 @@ export default {
           census_block: "4005",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8771931.127",
-          y_coordinate: "5302565.6543"
+          y_coordinate: "5302565.6543",
         },
         {
           case_reference: "1001080358",
@@ -1376,7 +1418,8 @@ export default {
           location: {
             latitude: "42.957919827675504",
             longitude: "-78.85789131609417",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.957919827675504",
           longitude: "-78.85789131609417",
@@ -1387,7 +1430,7 @@ export default {
           census_block: "1009",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8778343.864",
-          y_coordinate: "5305601.5388"
+          y_coordinate: "5305601.5388",
         },
         {
           case_reference: "1001080356",
@@ -1407,7 +1450,8 @@ export default {
           location: {
             latitude: "42.93651113700432",
             longitude: "-78.7996491391884",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.93651113700432",
           longitude: "-78.7996491391884",
@@ -1418,7 +1462,7 @@ export default {
           census_block: "3003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8771891.632",
-          y_coordinate: "5302289.1632"
+          y_coordinate: "5302289.1632",
         },
         {
           case_reference: "1001080352",
@@ -1438,7 +1482,8 @@ export default {
           location: {
             latitude: "42.92027441416426",
             longitude: "-78.85117001973038",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.92027441416426",
           longitude: "-78.85117001973038",
@@ -1449,7 +1494,7 @@ export default {
           census_block: "1003",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8777668.731",
-          y_coordinate: "5299871.1858"
+          y_coordinate: "5299871.1858",
         },
         {
           case_reference: "1001080350",
@@ -1469,7 +1514,8 @@ export default {
           location: {
             latitude: "42.932931622534944",
             longitude: "-78.83837939390885",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.932931622534944",
           longitude: "-78.83837939390885",
@@ -1480,7 +1526,7 @@ export default {
           census_block: "3010",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8776243.647",
-          y_coordinate: "5301801.619"
+          y_coordinate: "5301801.619",
         },
         {
           case_reference: "1001080347",
@@ -1500,7 +1546,8 @@ export default {
           location: {
             latitude: "42.9378482666203",
             longitude: "-78.86493546168636",
-            human_address: '{"address": "", "city": "", "state": "", "zip": ""}'
+            human_address:
+              '{"address": "", "city": "", "state": "", "zip": ""}',
           },
           latitude: "42.9378482666203",
           longitude: "-78.86493546168636",
@@ -1511,20 +1558,20 @@ export default {
           census_block: "1006",
           neighborhood: "UNKNOWN",
           x_coordinate: "-8779163.303",
-          y_coordinate: "5302480.8287"
-        }
-      ]
+          y_coordinate: "5302480.8287",
+        },
+      ],
     };
   },
   created() {
-    this.dates = this.info.map(issue => {
+    this.dates = this.info.map((issue) => {
       return {
         case_ref: issue.case_reference,
         diff: dayjs(issue.closed_date).diff(dayjs(issue.open_date), "minutes"),
         open_date: dayjs(issue.open_date).format("MM/DD/YY, hh:mmA"),
-        closed_date: dayjs(issue.closed_date).format("MM/DD/YY, hh:mmA")
+        closed_date: dayjs(issue.closed_date).format("MM/DD/YY, hh:mmA"),
       };
     });
-  }
+  },
 };
 </script>

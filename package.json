@@ -42,25 +42,6 @@
     "vue-template-compiler": "^2.6.11",
     "vue2-leaflet": "^2.5.2"
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "@vue/prettier"
-    ],
-    "parserOptions": {
-      "parser": "babel-eslint"
-    },
-    "rules": {}
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ],
   "postcss": {
     "plugins": {
       "autoprefixer": {}
