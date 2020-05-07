@@ -1,17 +1,21 @@
 <template>
-  <div>
-    <div v-for="(date, idx) in dates" :key="idx">
-      Issue: #{{ date.case_ref }}, Duration: {{ date.diff }}, Open Date:
-      {{ date.open_date }}, Close Date: {{ date.closed_date }}
+  <PublicLayout>
+    <div>
+      <div v-for="(date, idx) in dates" :key="idx">
+        Issue: #{{ date.case_ref }}, Duration: {{ date.diff }}, Open Date:
+        {{ date.open_date }}, Close Date: {{ date.closed_date }}
+      </div>
     </div>
-  </div>
+  </PublicLayout>
 </template>
 
 <script>
+import PublicLayout from "@/layouts/PublicLayout";
 import dayjs from "dayjs";
 
 export default {
   name: "test",
+  components: { PublicLayout },
   data() {
     return {
       api_url:
