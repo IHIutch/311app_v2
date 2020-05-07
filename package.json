@@ -35,6 +35,7 @@
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
     "node-sass": "^4.12.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1",
@@ -49,7 +50,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,vue,scss}": [
+      "npm run lint --fix"
+    ]
   }
 }
