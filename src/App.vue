@@ -21,7 +21,7 @@
           <span>An update of Buffalo 311 is available, please reload.</span>
         </div>
         <div class="d-flex">
-          <b-button size="sm" @click="$router.go()" variant="outline-primary"
+          <b-button size="sm" @click="reloadPage()" variant="outline-primary"
             >Reload</b-button
           >
         </div>
@@ -29,3 +29,14 @@
     </b-toast>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  methods: {
+    reloadPage() {
+      location.reload();
+    },
+  },
+};
+</script>
