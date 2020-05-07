@@ -2,7 +2,7 @@
   <PublicLayout>
     <b-container role="main" class="mt-5">
       <b-row>
-        <b-col cols="8" offset="2">
+        <b-col cols="12" md="8" offset-md="2">
           <div class="border-bottom pb-2 mb-3">
             <h1>Submit an Issue</h1>
           </div>
@@ -166,7 +166,7 @@ export default {
     NavigatorGeolocationInput,
     AddressGeocodeInput,
     GoogleMapInput,
-    XIcon
+    XIcon,
   },
   data() {
     return {
@@ -185,24 +185,24 @@ export default {
         dateCreated: "",
         markerColor: "#0000EE",
         anonymous: false,
-        images: []
+        images: [],
       },
       imagePreviews: [],
       files: null,
       types: typesJSON,
       subtypes: subtypesJSON,
-      filteredSubtypes: []
+      filteredSubtypes: [],
     };
   },
   watch: {
     files() {
       this.onFileChange();
-    }
+    },
   },
   methods: {
     getSubtypes() {
       var self = this;
-      this.filteredSubtypes = this.subtypes.filter(subtype => {
+      this.filteredSubtypes = this.subtypes.filter((subtype) => {
         if (subtype.type == self.issue.type) {
           return subtype;
         }
@@ -210,14 +210,14 @@ export default {
     },
     onFileChange() {
       var self = this;
-      this.files.forEach(file => {
+      this.files.forEach((file) => {
         if (file.size > 4194304) return;
         const reader = new FileReader();
-        reader.onload = e => {
+        reader.onload = (e) => {
           self.imagePreviews.push({
             base64String: e.target.result,
             fileType: file.type,
-            fileName: file.name
+            fileName: file.name,
           });
         };
         reader.readAsDataURL(file);
@@ -232,7 +232,7 @@ export default {
       this.issue.lng = this.location.lng;
       this.issue.dateCreated = new Date();
       Promise.all(
-        this.imagePreviews.map(async image => {
+        this.imagePreviews.map(async (image) => {
           return await this.uploadImages(image);
         })
       ).then(() => {
@@ -243,15 +243,15 @@ export default {
       let self = this;
       db.collection("issues")
         .add(self.issue)
-        .then(docRef => {
+        .then((docRef) => {
           self.$router.push({
             name: "ReportPage",
             params: {
-              issueId: docRef.id
-            }
+              issueId: docRef.id,
+            },
           });
         })
-        .catch(error => {
+        .catch((error) => {
           throw new Error(error);
         });
     },
@@ -270,22 +270,22 @@ export default {
           //     (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           //   console.log(`Upload is ${progress}% done`);
           // },
-          error: error => {
+          error: (error) => {
             reject(new Error(error));
           },
           complete: () => {
-            uploadTask.snapshot.ref.getDownloadURL().then(downloadURL => {
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
               self.issue.images.push(downloadURL);
               resolve();
             });
-          }
+          },
         });
       });
     },
     setLocationType(value) {
       this.location = {};
       this.issue.locationType = value;
-    }
-  }
+    },
+  },
 };
 </script>
