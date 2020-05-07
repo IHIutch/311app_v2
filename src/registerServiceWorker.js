@@ -20,6 +20,9 @@ if (process.env.NODE_ENV === "production") {
       console.log("New content is downloading.");
     },
     updated() {
+      const pwaToast = document.getElementById("pwaUpdateAvailable");
+      pwaToast.classList.remove("hide");
+      pwaToast.classList.add("show");
       console.log("New content is available; please refresh.");
     },
     offline() {
