@@ -35,7 +35,7 @@ export default {
   name: "App",
   methods: {
     reloadPage() {
-      location.reload();
+      location.reload(true);
     },
   },
 };
