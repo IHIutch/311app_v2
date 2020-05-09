@@ -7,9 +7,6 @@
 <script>
 export default {
   name: "About",
-  layout: "PublicLayout",
-  components: {
-    PublicLayout
-  }
+  layout: "PublicLayout"
 };
 </script>
