@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
   mode: "universal",
   buildDir: "functions/.nuxt",
@@ -42,7 +44,29 @@ module.exports = {
     "bootstrap-vue/nuxt",
     "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
-    "@nuxtjs/dotenv"
+    "@nuxtjs/dotenv",
+    [
+      "@nuxtjs/firebase",
+      {
+        config: {
+          apiKey: process.env.NUXT_ENV_FIREBASE_API_KEY,
+          authDomain: process.env.NUXT_ENV_FIREBASE_AUTH_DOMAIN,
+          databaseURL: process.env.NUXT_ENV_FIREBASE_DATABASE_URL,
+          projectId: process.env.NUXT_ENV_FIREBASE_PROJECT_ID,
+          storageBucket: process.env.NUXT_ENV_FIREBASE_STORAGE_BUCKET,
+          messagingSenderId: process.env.NUXT_ENV_FIREBASE_MESSAGING_SENDER_ID,
+          appId: process.env.NUXT_ENV_FIREBASE_APP_ID
+        },
+        onFirebaseHosting: true,
+        services: {
+          auth: true,
+          firestore: true,
+          functions: true,
+          storage: true,
+          realtimeDb: true
+        }
+      }
+    ]
   ],
   /*
    ** Build configuration
