@@ -1,8 +1,6 @@
 <template>
   <b-container>
-    <h1>
-      Single report page
-    </h1>
+    <h1>Single report page "{{ $route.params.reportId }}"</h1>
   </b-container>
 </template>
 
