@@ -67,8 +67,13 @@ module.exports = {
         }
       }
     ],
-    "nuxt-leaflet"
+    "nuxt-leaflet",
+    "@nuxtjs/sentry"
   ],
+  sentry: {
+    initialize: process.env.NODE_ENV === "production",
+    dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230"
+  },
   /*
    ** Build configuration
    */
