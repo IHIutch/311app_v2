@@ -1,5 +1,5 @@
 @each $value in $object-fit {
-  .fit-#{$value} {
+  .object-#{$value} {
     object-fit: $value;
   }
 }
