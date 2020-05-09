@@ -1,0 +1,154 @@
+[
+  {
+    "value": "adjudicationOrdinanceViolation",
+    "text": "Adjudication - Ordinance Violation"
+  },
+  {
+    "value": "administration",
+    "text": "Administration"
+  },
+  {
+    "value": "animalShelter",
+    "text": "Animal Shelter"
+  },
+  {
+    "value": "assessmentAndTaxation",
+    "text": "Assessment & Taxation"
+  },
+  {
+    "value": "bfd",
+    "text": "BFD"
+  },
+  {
+    "value": "bmha",
+    "text": "BMHA"
+  },
+  {
+    "value": "buffaloSewerAuthority",
+    "text": "Buffalo Sewer Authority"
+  },
+  {
+    "value": "buffaloWaterAuthority",
+    "text": "Buffalo Water Authority"
+  },
+  {
+    "value": "buildingsDivision",
+    "text": "Buildings Division"
+  },
+  {
+    "value": "citizenServicesGraffiti",
+    "text": "Citizen Services - Graffiti"
+  },
+  {
+    "value": "citizenServicesQuickResponseTeams",
+    "text": "Citizen Services - Quick Response Teams"
+  },
+  {
+    "value": "citizenServicesSaveOurStreets",
+    "text": "Citizen Services - Save Our Streets"
+  },
+  {
+    "value": "citizenServicesCleanCity",
+    "text": "Citizens Services - Clean City"
+  },
+  {
+    "value": "cityClerkIssue",
+    "text": "City Clerk Issue"
+  },
+  {
+    "value": "cityParks",
+    "text": "City Parks"
+  },
+  {
+    "value": "communityBasedOrgs",
+    "text": "Community Based Orgs"
+  },
+  {
+    "value": "engineeringStreeRepairs",
+    "text": "Engineering - Street Repairs"
+  },
+  {
+    "value": "engineeringTraffic",
+    "text": "Engineering - Traffic"
+  },
+  {
+    "value": "forestry",
+    "text": "Forestry"
+  },
+  {
+    "value": "freedomOfInformation",
+    "text": "Freedom of Information"
+  },
+  {
+    "value": "harborMaster",
+    "text": "Harbor Master"
+  },
+  {
+    "value": "housing",
+    "text": "Housing"
+  },
+  {
+    "value": "hr",
+    "text": "HR"
+  },
+  {
+    "value": "licenses",
+    "text": "Licenses"
+  },
+  {
+    "value": "movingViolations",
+    "text": "Moving Violations"
+  },
+  {
+    "value": "nationalGrid",
+    "text": "National Grid"
+  },
+  {
+    "value": "osp",
+    "text": "OSP"
+  },
+  {
+    "value": "parkingViolationsBureau",
+    "text": "Parking Violations Bureau"
+  },
+  {
+    "value": "personnel",
+    "text": "Personnel"
+  },
+  {
+    "value": "police",
+    "text": "Police"
+  },
+  {
+    "value": "realEstate",
+    "text": "Real Estate"
+  },
+  {
+    "value": "rodentControl",
+    "text": "Rodent Control"
+  },
+  {
+    "value": "sanitation",
+    "text": "Sanitation"
+  },
+  {
+    "value": "streets",
+    "text": "Streets"
+  },
+  {
+    "value": "streetsSanitation",
+    "text": "Streets / Sanitation"
+  },
+  {
+    "value": "taxation",
+    "text": "Taxation"
+  },
+  {
+    "value": "telecommunications",
+    "text": "Telecommunications"
+  },
+  {
+    "value": "youthBureau",
+    "text": "Youth Bureau"
+  }
+]
