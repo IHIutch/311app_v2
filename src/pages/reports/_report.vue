@@ -1,14 +1,14 @@
 <template>
   <b-container>
     <h1>
-      Home
+      Single report page
     </h1>
   </b-container>
 </template>
 
 <script>
 export default {
-  name: "HomePage",
+  name: "ReportPage",
   layout: "PublicLayout"
 };
 </script>

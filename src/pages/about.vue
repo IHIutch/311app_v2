@@ -1,11 +1,15 @@
 <template>
-  <div class="container">
+  <b-container>
     <h1>About</h1>
-  </div>
+  </b-container>
 </template>
 
 <script>
 export default {
-  name: "About"
+  name: "About",
+  layout: "PublicLayout",
+  components: {
+    PublicLayout
+  }
 };
 </script>
