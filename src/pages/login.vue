@@ -6,7 +6,7 @@
           <div v-if="errorMessage" class="mb-4">
             <b-alert variant="danger" show>{{ errorMessage }}</b-alert>
           </div>
-          <b-form @submit="alert('Sign In')">
+          <b-form @submit.prevent="signIn()">
             <b-form-group label="Email" label-for="email">
               <b-form-input
                 id="email"
@@ -53,19 +53,20 @@ export default {
     };
   },
   methods: {
-    // signIn() {
-    //   this.isLoggingIn = true;
-    //   return auth
-    //     .signInWithEmailAndPassword(this.form.email, this.form.password)
-    //     .then((userData) => {
-    //       this.$router.push("/admin");
-    //       return userData;
-    //     })
-    //     .catch((error) => {
-    //       this.isLoggingIn = false;
-    //       this.errorMessage = error.message;
-    //     });
-    // },
+    signIn() {
+      let self = this;
+      this.isLoggingIn = true;
+      this.$fireAuth
+        .signInWithEmailAndPassword(this.form.email, this.form.password)
+        .then(userData => {
+          self.$router.push("/admin");
+          return userData;
+        })
+        .catch(error => {
+          this.isLoggingIn = false;
+          this.errorMessage = error.message;
+        });
+    }
   }
 };
 </script>
