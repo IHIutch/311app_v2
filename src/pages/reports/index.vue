@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row>
       <b-col cols="6" class="px-0">
-        <!-- <DashboardMap :points="reports" /> -->
+        <DashboardMap :points="reports" />
       </b-col>
       <b-col cols="6" class="my-5">
         <div class="border rounded bg-white p-3">
@@ -79,12 +79,12 @@
 
 <script>
 import dayjs from "dayjs";
-// import DashboardMap from "@/components/dashboard/DashboardMap";
+import DashboardMap from "@/components/dashboard/DashboardMap";
 
 export default {
   name: "ReportsList",
   layout: "PublicLayout",
-  //   components: { DashboardMap },
+  components: { DashboardMap },
   data() {
     return {
       reports: [],

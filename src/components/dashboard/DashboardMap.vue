@@ -1,48 +1,35 @@
 <template>
   <div class="vh-100 mt-n14 pt-14">
-    <l-map :zoom="12" :center="map.center">
-      <l-tile-layer :url="map.url"></l-tile-layer>
-      <l-feature-group ref="feature">
-        <l-popup>
-          <div>
-            <span>Hey</span>
-          </div>
-        </l-popup>
-      </l-feature-group>
-      <template v-for="(point, idx) in points">
-        <l-circle-marker
-          :key="idx"
-          :lat-lng="[point.lat, point.lng]"
-          :radius="4"
-          :fillOpacity="1"
-          :weight="10"
-          :color="point.markerColor + '40'"
-          :fillColor="point.markerColor"
-          @click="pointClick(point)"
-        />
-      </template>
-    </l-map>
+    <no-ssr>
+      <l-map :zoom="12" :center="map.center">
+        <l-tile-layer :url="map.url"></l-tile-layer>
+        <l-feature-group ref="feature">
+          <l-popup>
+            <div>
+              <span>Hey</span>
+            </div>
+          </l-popup>
+        </l-feature-group>
+        <template v-for="(point, idx) in points">
+          <l-circle-marker
+            :key="idx"
+            :lat-lng="[point.lat, point.lng]"
+            :radius="4"
+            :fillOpacity="1"
+            :weight="10"
+            :color="point.markerColor + '40'"
+            :fillColor="point.markerColor"
+            @click="pointClick(point)"
+          />
+        </template>
+      </l-map>
+    </no-ssr>
   </div>
 </template>
 
 <script>
-import {
-  LMap,
-  LTileLayer,
-  LCircleMarker,
-  LPopup,
-  LFeatureGroup
-} from "vue2-leaflet";
-import "leaflet/dist/leaflet.css";
 export default {
   name: "DashboardMap",
-  components: {
-    LMap,
-    LTileLayer,
-    LCircleMarker,
-    LPopup,
-    LFeatureGroup
-  },
   props: {
     points: {
       type: Array,

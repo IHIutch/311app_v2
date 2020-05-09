@@ -24,10 +24,9 @@
     "dayjs": "^1.8.26",
     "express": "^4.16.4",
     "firebase": "^7.14.3",
-    "leaflet": "^1.6.0",
     "nuxt": "^2.0.0",
-    "vue-feather-icons": "^5.0.0",
-    "vue2-leaflet": "^2.5.2"
+    "nuxt-leaflet": "0.0.21",
+    "vue-feather-icons": "^5.0.0"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.10.0",

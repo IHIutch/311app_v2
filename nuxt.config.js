@@ -66,7 +66,8 @@ module.exports = {
           realtimeDb: true
         }
       }
-    ]
+    ],
+    "nuxt-leaflet"
   ],
   /*
    ** Build configuration
