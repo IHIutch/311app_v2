@@ -60,7 +60,7 @@
                   {{ data.item.dateCreated | date }}
                 </template>
                 <template v-slot:cell(link)="data">
-                  <router-link :to="`reports/${data.item.id}`">
+                  <router-link :to="`/reports/${data.item.id}`">
                     View Details
                   </router-link>
                 </template>

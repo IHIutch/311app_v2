@@ -131,6 +131,7 @@ export default {
     return {
       title: this.report.type,
       meta: [
+        { hid: "og:url", property: "og:url", content: this.currentRoute },
         { hid: "og:title", property: "og:title", content: this.report.type },
         {
           hid: "description",
@@ -160,7 +161,7 @@ export default {
       ]
     };
   },
-  async asyncData({ app, route }) {
+  async asyncData({ app, route, env }) {
     let report = {};
     const reportRef = app.$fireStore
       .collection("issues")
@@ -174,7 +175,7 @@ export default {
       alert(e);
       return;
     }
-    return { report: report };
+    return { report: report, currentRoute: env.baseUrl + route.path };
   },
   data() {
     return {

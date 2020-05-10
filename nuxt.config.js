@@ -1,6 +1,12 @@
 require("dotenv").config();
 
 module.exports = {
+  env: {
+    baseUrl:
+      process.env.NODE_ENV === "production"
+        ? "https://buffalo-311.web.app"
+        : "http://localhost:3000"
+  },
   mode: "universal",
   buildDir: "functions/.nuxt",
   srcDir: "src/",
