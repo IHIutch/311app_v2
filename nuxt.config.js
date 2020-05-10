@@ -1,5 +1,10 @@
 require("dotenv").config();
 
+// const siteUrl = "https://buffalo311.org/";
+const siteName = "Buffalo 311";
+const siteDesc =
+  "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
+
 module.exports = {
   env: {
     baseUrl:
@@ -14,14 +19,14 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || "",
+    title: siteName,
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         hid: "description",
         name: "description",
-        content: process.env.npm_package_description || ""
+        content: siteDesc
       },
       {
         hid: "og:type",
@@ -31,7 +36,7 @@ module.exports = {
       {
         hid: "og:sitename",
         property: "og:sitename",
-        content: process.env.npm_package_name || ""
+        content: siteName
       }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]

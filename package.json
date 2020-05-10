@@ -1,7 +1,7 @@
 {
-  "name": "Buffalo 311",
+  "name": "buffalo-311",
   "version": "1.0.0",
-  "description": "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.",
+  "description": "Buffalo 311 Nuxt",
   "author": "IHIutch",
   "private": true,
   "scripts": {
