@@ -1,9 +1,10 @@
 require("dotenv").config();
 
-// const siteUrl = "https://buffalo311.org/";
+const siteUrl = "https://buffalo-311.web.app/";
 const siteName = "Buffalo 311";
 const siteDesc =
   "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
+const siteImage = "";
 
 module.exports = {
   env: {
@@ -19,25 +20,76 @@ module.exports = {
    ** Headers of the page
    */
   head: {
+    /* Primary Meta Tags */
     title: siteName,
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, shrink-to-fit=no"
+      },
       {
         hid: "description",
         name: "description",
         content: siteDesc
       },
       {
+        hid: "og:sitename",
+        property: "og:sitename",
+        content: siteName
+      },
+      /* Open Graph / Facebook */
+      {
         hid: "og:type",
         property: "og:type",
         content: "website"
       },
       {
-        hid: "og:sitename",
-        property: "og:sitename",
+        hid: "og:url",
+        property: "og:url",
+        content: siteUrl
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
         content: siteName
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: siteDesc
+      },
+      // {
+      //   hid: "og:image",
+      //   property: "og:image",
+      //   content: siteImage
+      // },
+      /* Twitter */
+      {
+        hid: "twitter:card",
+        property: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        hid: "twitter:url",
+        property: "twitter:url",
+        content: siteUrl
+      },
+      {
+        hid: "twitter:title",
+        property: "twitter:title",
+        content: siteName
+      },
+      {
+        hid: "twitter:description",
+        property: "twitter:description",
+        content: siteDesc
       }
+      // {
+      //   hid: "twitter:image",
+      //   property: "twitter:image",
+      //   content: siteImage
+      // }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
