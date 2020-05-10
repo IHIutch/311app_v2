@@ -21,7 +21,8 @@
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.26",
     "express": "^4.16.4",
-    "firebase": "^7.14.3",
+    "firebase-admin": "^8.12.1",
+    "firebase-functions": "^3.6.1",
     "nuxt": "^2.0.0",
     "nuxt-leaflet": "0.0.21",
     "vue-feather-icons": "^5.0.0"
