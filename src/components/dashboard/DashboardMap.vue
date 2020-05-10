@@ -1,6 +1,6 @@
 <template>
   <div class="vh-100 mt-n14 pt-14">
-    <no-ssr>
+    <client-only>
       <l-map :zoom="12" :center="map.center">
         <l-tile-layer :url="map.url"></l-tile-layer>
         <l-feature-group ref="feature">
@@ -23,7 +23,7 @@
           />
         </template>
       </l-map>
-    </no-ssr>
+    </client-only>
   </div>
 </template>
 

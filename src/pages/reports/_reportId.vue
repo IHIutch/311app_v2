@@ -131,9 +131,29 @@ export default {
     return {
       title: this.report.type,
       meta: [
-        { hid: 'description', name: 'description', content: this.report.comments }
+        {
+          hid: "description",
+          name: "description",
+          content: this.report.comments
+        }
       ]
+    };
+  },
+  async asyncData({ app, route }) {
+    let report = {};
+    const reportRef = app.$fireStore
+      .collection("issues")
+      .doc(route.params.reportId);
+    try {
+      const reportDoc = await reportRef.get();
+      report = reportDoc.data();
+      report["id"] = reportDoc.id;
+      report.dateCreated = report.dateCreated.toDate();
+    } catch (e) {
+      alert(e);
+      return;
     }
+    return { report: report };
   },
   data() {
     return {
@@ -141,24 +161,7 @@ export default {
       report: []
     };
   },
-  created() {
-    this.getReport();
-  },
   methods: {
-    async getReport() {
-      const reportRef = this.$fireStore
-        .collection("issues")
-        .doc(this.$route.params.reportId);
-      try {
-        const reportDoc = await reportRef.get();
-        this.report = reportDoc.data();
-        this.report["id"] = reportDoc.id;
-        this.report.dateCreated = this.report.dateCreated.toDate();
-      } catch (e) {
-        alert(e);
-        return;
-      }
-    },
     showZoomImageModal(imageUrl) {
       this.imageZoomUrl = imageUrl;
       this.$refs["imageZoomModal"].show();
