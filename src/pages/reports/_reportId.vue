@@ -127,6 +127,14 @@ import dayjs from "dayjs";
 export default {
   name: "ReportPage",
   layout: "PublicLayout",
+  head() {
+    return {
+      title: this.report.type,
+      meta: [
+        { hid: 'description', name: 'description', content: this.report.comments }
+      ]
+    }
+  },
   data() {
     return {
       imageZoomUrl: null,
