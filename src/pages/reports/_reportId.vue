@@ -131,7 +131,7 @@ export default {
     return {
       title: this.report.type,
       meta: [
-        { hid: "og:title", name: "og:title", content: this.report.type },
+        { hid: "og:title", property: "og:title", content: this.report.type },
         {
           hid: "description",
           name: "description",
@@ -139,17 +139,17 @@ export default {
         },
         {
           hid: "og:description",
-          name: "og:description",
+          property: "og:description",
           content: this.report.comments
         },
         {
           hid: "twitter:title",
-          name: "twitter:title",
+          property: "twitter:title",
           content: this.report.type
         },
         {
           hid: "twitter:description",
-          name: "twitter:description",
+          property: "twitter:description",
           content: this.report.comments
         }
       ]
