@@ -131,9 +131,25 @@ export default {
     return {
       title: this.report.type,
       meta: [
+        { hid: "og:title", name: "og:title", content: this.report.type },
         {
           hid: "description",
           name: "description",
+          content: this.report.comments
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.report.comments
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: this.report.type
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
           content: this.report.comments
         }
       ]
