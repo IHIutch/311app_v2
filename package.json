@@ -14,9 +14,6 @@
     "firebase:build": "npm run build && npm run copy && cd functions && npm i",
     "firebase:start": "firebase serve"
   },
-  "engines": {
-    "node": "10"
-  },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/firebase": "^5.2.0",
