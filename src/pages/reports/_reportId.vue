@@ -143,6 +143,11 @@ export default {
           content: this.report.comments
         },
         {
+          hid: "og:image",
+          property: "og:image",
+          content: this.report.images.length ? this.report.images[0] : undefined
+        },
+        {
           hid: "twitter:title",
           property: "twitter:title",
           content: this.report.type
