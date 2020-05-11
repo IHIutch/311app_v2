@@ -34,8 +34,8 @@ module.exports = {
         content: siteDesc
       },
       {
-        hid: "og:sitename",
-        property: "og:sitename",
+        hid: "og:site_name",
+        property: "og:site_name",
         content: siteName
       },
       /* Open Graph / Facebook */
