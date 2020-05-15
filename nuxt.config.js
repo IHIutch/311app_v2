@@ -164,9 +164,6 @@ module.exports = {
     extend(config, ctx) {}
   },
   pwa: {
-    icon: {
-      iconSrc: `${baseUrl}/img/pwa/pwa_icon.png`
-    },
     manifest: {
       name: "Buffalo 311",
       short_name: "Buffalo 311",
