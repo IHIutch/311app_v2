@@ -21,7 +21,7 @@
     "@nuxtjs/sentry": "^4.0.3",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.14.0",
-    "cross-env": "^5.2.0",
+    "cross-env": "^7.0.2",
     "dayjs": "^1.8.27",
     "express": "^4.16.4",
     "firebase": "^7.14.4",
