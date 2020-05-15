@@ -171,6 +171,53 @@ module.exports = {
       start_url: "/",
       display: "standalone",
       background_color: "#0b2123",
+      icons: [
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_64.png`,
+          sizes: "64x64",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_120.png`,
+          sizes: "120x120",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_144.png`,
+          sizes: "144x144",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_152.png`,
+          sizes: "152x152",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_192.png`,
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_384.png`,
+          sizes: "384x384",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: `${baseUrl}/img/pwa/icons/pwa_icon_512.png`,
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable any"
+        }
+      ],
+      start_url: "/",
+      display: "standalone",
+      background_color: "#0b2123",
       theme_color: "#0b2123",
       lang: "en"
     }
