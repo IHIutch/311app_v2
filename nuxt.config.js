@@ -8,7 +8,7 @@ const siteUrl = "https://buffalo-311.web.app/";
 const siteName = "Buffalo 311";
 const siteDesc =
   "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
-const siteImage = `${baseUrl}/meta/meta_image.jpg`;
+const siteImage = `${baseUrl}/img/meta/meta_image.jpg`;
 
 module.exports = {
   env: {
@@ -162,5 +162,61 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  pwa: {
+    manifest: {
+      name: "Buffalo 311",
+      short_name: "Buffalo 311",
+      description: "Quickly integrate Bootstrap v4 components with Vue.js",
+      icons: [
+        {
+          src: "./img/pwa/icons/pwa_icon_64.png",
+          sizes: "64x64",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: "./img/pwa/icons/pwa_icon_120.png",
+          sizes: "120x120",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: "./img/pwa/icons/pwa_icon_144.png",
+          sizes: "144x144",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: "./img/pwa/icons/pwa_icon_152.png",
+          sizes: "152x152",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: "./img/pwa/icons/pwa_icon_192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: "./img/pwa/icons/pwa_icon_384.png",
+          sizes: "384x384",
+          type: "image/png",
+          purpose: "maskable any"
+        },
+        {
+          src: "./img/pwa/icons/pwa_icon_512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable any"
+        }
+      ],
+      start_url: "/",
+      display: "standalone",
+      background_color: "#7ED321",
+      theme_color: "#0b2123",
+      lang: "en"
+    }
   }
 };
