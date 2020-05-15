@@ -164,6 +164,7 @@ module.exports = {
     extend(config, ctx) {}
   },
   pwa: {
+    icon: false,
     manifest: {
       name: "Buffalo 311",
       short_name: "Buffalo 311",
