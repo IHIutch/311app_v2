@@ -1,3 +1,7 @@
+body {
+  @extend .bg-light;
+}
+
 .antialiased {
   -webkit-font-smoothing: antialiased !important;
 }
