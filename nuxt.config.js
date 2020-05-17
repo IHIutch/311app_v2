@@ -153,6 +153,10 @@ module.exports = {
     initialize: process.env.NODE_ENV === "production",
     dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230"
   },
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
   /*
    ** Build configuration
    */
