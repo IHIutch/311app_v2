@@ -1,0 +1,152 @@
+[
+  {
+    "category": "",
+    "type": "Quality of Life",
+    "text": "Noise Complaint"
+  },
+  {
+    "category": "",
+    "type": "Parking/Vehicles",
+    "text": "Illegal Parking"
+  },
+  {
+    "category": "",
+    "type": "Parking/Vehicles",
+    "text": "Blocked Driveway"
+  },
+  {
+    "category": "",
+    "type": "Parking/Vehicles",
+    "text": "Damaged/Faulty Parking Meter"
+  },
+  {
+    "category": "",
+    "type": "Streets",
+    "text": "Signal Out or Flashing"
+  },
+  {
+    "category": "",
+    "type": "Streets",
+    "text": "Signal Timing Issue"
+  },
+  {
+    "category": "",
+    "type": "Streets",
+    "text": "Sneakers Hanging"
+  },
+  {
+    "category": "",
+    "type": "Streets",
+    "text": "Damaged Street Sign"
+  },
+  {
+    "category": "",
+    "type": "Streets",
+    "text": "Missing Manhole Cover"
+  },
+  {
+    "category": "",
+    "type": "Streets",
+    "text": "Unplowed Street"
+  },
+  {
+    "category": "",
+    "type": "Sidewalks",
+    "text": "Uneven/Cracked"
+  },
+  {
+    "category": "",
+    "type": "Sidewalks",
+    "text": "Sidewalk Obstruction"
+  },
+  {
+    "category": "",
+    "type": "Sidewalks",
+    "text": "Unshoveled Sidewalk"
+  },
+  {
+    "category": "",
+    "type": "Trees/Forestry",
+    "text": "Fallen Tree"
+  },
+  {
+    "category": "",
+    "type": "Trees/Forestry",
+    "text": "Tree/Stump Removal"
+  },
+  {
+    "category": "",
+    "type": "Trees/Forestry",
+    "text": "Tree Trimming"
+  },
+  {
+    "category": "",
+    "type": "Trees/Forestry",
+    "text": "Tree Planting"
+  },
+  {
+    "category": "",
+    "type": "Garbage/Sanitation",
+    "text": "Graffiti"
+  },
+  {
+    "category": "",
+    "type": "Garbage/Sanitation",
+    "text": "Request Street Sweeper"
+  },
+  {
+    "category": "",
+    "type": "Garbage/Sanitation",
+    "text": "Request Leaf/Yard Debris Pickup"
+  },
+  {
+    "category": "",
+    "type": "Garbage/Sanitation",
+    "text": "Damage from Street Worker"
+  },
+  {
+    "category": "",
+    "type": "Garbage/Sanitation",
+    "text": "Illegal Garbage Dumping"
+  },
+  {
+    "category": "",
+    "type": "Garbage/Sanitation",
+    "text": "Litter"
+  },
+  {
+    "category": "",
+    "type": "Utility",
+    "text": "Fire Hydrant Issue"
+  },
+  {
+    "category": "",
+    "type": "Utility",
+    "text": "Damaged/Faulty Street Light"
+  },
+  {
+    "category": "",
+    "type": "Utility",
+    "text": "Snow on Hydrant"
+  },
+  {
+    "category": "",
+    "type": "Housing",
+    "text": "Lead Paint Inspection"
+  },
+  {
+    "category": "",
+    "type": "Animal",
+    "text": "Pet Nuisance"
+  },
+  {
+    "category": "",
+    "type": "Animal",
+    "text": "Pest/Rodent"
+  },
+  {
+    "category": "",
+    "type": "Animal",
+    "text": "Dead Animal Removal"
+  }
+]
