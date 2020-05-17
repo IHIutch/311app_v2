@@ -4,106 +4,173 @@
       <b-row>
         <b-col cols="12">
           <b-row>
-            <b-col size="12" md="3" class="mb-4 mb-md-0">
-              <div class="p-2 border shadow rounded bg-white">
-                <div class="embed-responsive embed-responsive-1by1">
-                  <div id="map" class="embed-responsive-item"></div>
-                </div>
-              </div>
-            </b-col>
-            <b-col cols="12" md="6">
-              <div class="mb-2">
-                <div class="d-inline-block mr-5">
-                  <a class="border rounded d-inline-block p-1" href="#"
-                    >Report ID: {{ report.id }}
-                  </a>
-                </div>
-                <div class="d-inline-block">
-                  <span><b>Status: </b></span>
-                  <span class="badge badge-pill">
-                    {{ report.status }}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <span class="text-muted"> {{ report.type }}</span>
-              </div>
-              <div>
-                <h1>
-                  {{ report.subtype }}
-                </h1>
-              </div>
-              <div class="mb-4">
-                <div class="d-inline">
-                  {{ report.streetNum }}{{ report.streetName }}{{ report.zip }}
-                </div>
-                <div class="d-flex align-items-center">
-                  <span class="mr-2">
-                    <map-pin-icon class="text-primary" />
-                  </span>
-                  <span class="text-muted">
-                    {{ report.lat }}, {{ report.lng }}
-                  </span>
-                </div>
-              </div>
-              <div>
-                <div class="d-inline mr-4">
-                  <b>Open Date:</b>
-                  {{ report.dateCreated | date }}
-                </div>
-                <div class="d-inline">
-                  <b>Closed Date:</b>
-                  {{ report.closeDate }}
-                </div>
-              </div>
-            </b-col>
-            <b-col md="3" class="d-none d-md-block">
-              <div class="text-uppercase small mb-2"><b>Share</b></div>
-              <div class="btn btn-secondary">
-                <i class="fab fa-facebook"></i>
-              </div>
-              <div class="btn btn-secondary">
-                <i class="fab fa-twitter"></i>
-              </div>
-              <div class="btn btn-secondary"><i class="fas fa-link"></i></div>
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col cols="12">
-              <hr class="my-4" />
-            </b-col>
-          </b-row>
-          <b-row>
-            <b-col cols="6">
-              <div class="mb-2">
-                <b>Description:</b>
-              </div>
-              <div>
-                {{ report.comments }}
-              </div>
-            </b-col>
-            <b-col cols="6">
-              <b-form-row class="form-row">
-                <b-col cols="12" class="mb-2">
-                  <b>Photos:</b>
+            <b-col cols="12" md="9">
+              <b-row>
+                <b-col cols="12">
+                  <div class="d-flex mb-4 pb-4 border-bottom">
+                    <div>
+                      <div>
+                        <span class="text-muted">{{ report.type }}</span>
+                      </div>
+                      <div>
+                        <h1>
+                          {{ report.subtype }}
+                        </h1>
+                      </div>
+                      <div>
+                        <div class="d-flex align-items-center">
+                          <span class="mr-2">
+                            <map-pin-icon class="text-primary" />
+                          </span>
+                          <span class="text-muted">
+                            {{ report.lat | fixed3 }}, {{ report.lng | fixed3 }}
+                          </span>
+                          <span class="text-muted">
+                            {{ report.streetNum }} {{ report.streetName }}
+                            {{ report.zip }}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ml-auto d-flex">
+                      <div class="mr-5">
+                        <div class="border rounded p-1">
+                          <span class="h4 text-dark">
+                            ID: {{ report.id | substr7 }}
+                          </span>
+                        </div>
+                      </div>
+                      <div>
+                        <div>
+                          <span
+                            class="d-flex text-uppercase small font-weight-bold"
+                          >
+                            Share
+                          </span>
+                        </div>
+                        <div class="btn btn-secondary">
+                          <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="btn btn-secondary">
+                          <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="btn btn-secondary">
+                          <i class="fas fa-link"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </b-col>
-
-                <b-col
-                  cols="6"
-                  v-for="(image, index) in report.images"
-                  :key="index"
-                >
-                  <b-button
-                    variant="link"
-                    class="p-0 mb-2"
-                    @click="showZoomImageModal(image)"
-                  >
-                    <b-aspect :aspect="1" class="rounded-lg overflow-hidden">
-                      <img :src="image" class="h-100 w-100 object-cover" />
+              </b-row>
+              <b-row>
+                <b-col cols="6">
+                  <div class="p-1 border rounded mb-4">
+                    <b-aspect
+                      :aspect="16 / 9"
+                      class="rounded-lg overflow-hidden"
+                    >
+                      <div id="map" class="embed-responsive-item"></div>
                     </b-aspect>
-                  </b-button>
+                  </div>
                 </b-col>
-              </b-form-row>
+                <b-col cols="6">
+                  <div>
+                    <div class="mb-2">
+                      <span class="font-weight-bold">Details</span>
+                    </div>
+                    <p>
+                      {{ report.comments }}
+                    </p>
+                  </div>
+                  <div>
+                    <div class="mb-2">
+                      <span class="font-weight-bold">Photos</span>
+                    </div>
+                    <b-form-row>
+                      <b-col
+                        cols="6"
+                        v-for="(image, index) in report.images"
+                        :key="index"
+                      >
+                        <b-button
+                          variant="link"
+                          class="p-0 mb-2"
+                          @click="showZoomImageModal(image)"
+                        >
+                          <b-aspect
+                            :aspect="1"
+                            class="rounded-lg overflow-hidden"
+                          >
+                            <img
+                              :src="image"
+                              class="h-100 w-100 object-cover"
+                            />
+                          </b-aspect>
+                        </b-button>
+                      </b-col>
+                    </b-form-row>
+                  </div>
+                </b-col>
+              </b-row>
+            </b-col>
+            <b-col cols="12" md="3">
+              <div class="mb-4">
+                <div>
+                  <span class="d-flex text-dark small font-weight-bold">
+                    Status
+                  </span>
+                </div>
+                <span class="badge badge-pill">
+                  {{ report.status }}
+                </span>
+              </div>
+              <div class="mb-5">
+                <div>
+                  <span class="d-flex text-dark small font-weight-bold">
+                    Date Created
+                  </span>
+                </div>
+                <span>{{ report.dateCreated | date }}</span>
+              </div>
+              <div class="mb-5">
+                <div>
+                  <span class="d-flex text-dark small font-weight-bold">
+                    Date Assigned
+                  </span>
+                </div>
+                <template v-if="report.dateAssigned">
+                  <span>{{ report.dateAssigned | date }}</span>
+                </template>
+                <template v-else>
+                  <span class="text-muted small"><i>Not Assigned</i></span>
+                </template>
+              </div>
+              <div class="mb-5">
+                <div>
+                  <span class="d-flex text-dark small font-weight-bold">
+                    Date Scheduled
+                  </span>
+                </div>
+                <template v-if="report.dateScheduled">
+                  <span>{{ report.dateScheduled | date }}</span>
+                </template>
+                <template v-else>
+                  <span class="text-muted small"><i>Not scheduled</i></span>
+                </template>
+              </div>
+              <div>
+                <div>
+                  <span class="d-flex text-dark small font-weight-bold">
+                    Date Closed
+                  </span>
+                </div>
+                <template v-if="report.closeDate">
+                  <span>{{ report.closeDate | date }}</span>
+                </template>
+                <template v-else>
+                  <span class="text-muted small"><i>Not Closed</i></span>
+                </template>
+              </div>
             </b-col>
           </b-row>
         </b-col>
@@ -202,6 +269,12 @@ export default {
   filters: {
     date(value) {
       return dayjs(value).format("MM/DD/YY, hh:mmA");
+    },
+    fixed3(value) {
+      return value.toFixed(3);
+    },
+    substr7(value) {
+      return value.substring(0, 7);
     }
   }
 };
