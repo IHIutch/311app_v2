@@ -37,7 +37,10 @@
                 <div class="d-inline">
                   {{ report.streetNum }}{{ report.streetName }}{{ report.zip }}
                 </div>
-                <div class="d-inline">
+                <div class="d-flex align-items-center">
+                  <span class="mr-2">
+                    <map-pin-icon class="text-primary" />
+                  </span>
                   <span class="text-muted">
                     {{ report.lat }}, {{ report.lng }}
                   </span>
@@ -116,17 +119,24 @@
       hide-header
       hide-footer
     >
-      <img :src="imageZoomUrl" class="h-100 w-auto max-w-100 m-auto d-block" />
+      <img
+        :src="imageZoomUrl"
+        class="h-auto w-auto max-h-100 max-w-100 m-auto d-block"
+      />
     </b-modal>
   </div>
 </template>
 
 <script>
 import dayjs from "dayjs";
+import { MapPinIcon } from "vue-feather-icons";
 
 export default {
   name: "ReportPage",
   layout: "PublicLayout",
+  components: {
+    MapPinIcon
+  },
   head() {
     return {
       title: this.report.type,
