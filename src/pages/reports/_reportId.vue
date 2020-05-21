@@ -205,10 +205,9 @@ export default {
   },
   head() {
     const reportId = this.substr7(this.report.id).toUpperCase();
-    const reportDesc =
-      this.report.subtype + this.report.comments
-        ? `- ${this.report.comments}`
-        : "";
+    const reportDesc = this.report.comments
+      ? `${this.report.type} - ${this.report.comments}`
+      : `${this.report.type}`;
     return {
       title: `Issue: #${reportId} - ${this.report.subtype}`,
       meta: [
@@ -216,7 +215,7 @@ export default {
         {
           hid: "og:title",
           property: "og:title",
-          content: `Issue: #${reportId} - ${this.report.type}`
+          content: `Issue: #${reportId} - ${this.report.subtype}`
         },
         {
           hid: "description",
