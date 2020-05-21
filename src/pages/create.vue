@@ -184,7 +184,7 @@ export default {
       },
       imagePreviews: [],
       files: null,
-      types: [...new Set(issuesJSON.map(data => data.type))]
+      types: [...new Set(issuesJSON.map(data => data.type))].sort()
     };
   },
   watch: {
@@ -275,6 +275,7 @@ export default {
             .map(issue => {
               return issue.text;
             })
+            .sort()
         : [];
     }
   }
