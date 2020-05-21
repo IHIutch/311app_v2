@@ -94,18 +94,17 @@
                       >
                         <b-button
                           variant="link"
-                          class="p-0 mb-2"
+                          class="p-0 mb-2 w-100"
                           @click="showZoomImageModal(image)"
                         >
-                          <b-aspect
-                            :aspect="1"
-                            class="rounded-lg overflow-hidden"
+                          <div
+                            class="embed-responsive embed-responsive-1by1 rounded-lg overflow-hidden border"
                           >
                             <img
+                              class="embed-responsive-item object-cover"
                               :src="image"
-                              class="h-100 w-100 object-cover"
                             />
-                          </b-aspect>
+                          </div>
                         </b-button>
                       </b-col>
                     </b-form-row>
