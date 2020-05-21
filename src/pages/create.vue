@@ -179,7 +179,8 @@ export default {
         dateCreated: "",
         markerColor: "#0000EE",
         anonymous: false,
-        images: []
+        images: [],
+        status: "created"
       },
       imagePreviews: [],
       files: null,
