@@ -204,20 +204,29 @@ export default {
     MapPinIcon
   },
   head() {
+    const reportId = this.substr7(this.report.id).toUpperCase();
+    const reportDesc =
+      this.report.subtype + this.report.comments
+        ? `- ${this.report.comments}`
+        : "";
     return {
-      title: this.report.type,
+      title: `Issue: #${reportId} - ${this.report.subtype}`,
       meta: [
         { hid: "og:url", property: "og:url", content: this.currentRoute },
-        { hid: "og:title", property: "og:title", content: this.report.type },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: `Issue: #${reportId} - ${this.report.type}`
+        },
         {
           hid: "description",
           name: "description",
-          content: this.report.comments
+          content: reportDesc
         },
         {
           hid: "og:description",
           property: "og:description",
-          content: this.report.comments
+          content: reportDesc
         },
         {
           hid: "og:image",
@@ -227,12 +236,12 @@ export default {
         {
           hid: "twitter:title",
           property: "twitter:title",
-          content: this.report.type
+          content: `Issue: #${reportId} - ${this.report.subtype}`
         },
         {
           hid: "twitter:description",
           property: "twitter:description",
-          content: this.report.comments
+          content: reportDesc
         }
       ]
     };
@@ -260,6 +269,9 @@ export default {
     };
   },
   methods: {
+    substr7(val) {
+      return val.substring(0, 7);
+    },
     showZoomImageModal(imageUrl) {
       this.imageZoomUrl = imageUrl;
       this.$refs["imageZoomModal"].show();
