@@ -17,7 +17,7 @@
                 <b-form-select
                   v-model="issue.type"
                   :options="types"
-                  @input="getSubtypes()"
+                  @change="issue.subtype = null"
                 >
                   <template slot="first">
                     <option :value="null" disabled
@@ -28,9 +28,9 @@
               </b-form-group>
               <b-form-group label="What is the subtype?">
                 <b-form-select
-                  :disabled="!filteredSubtypes.length"
+                  :disabled="!issue.type"
                   v-model="issue.subtype"
-                  :options="filteredSubtypes"
+                  :options="subtypes"
                 >
                   <template slot="first">
                     <option :value="null" disabled
@@ -147,8 +147,7 @@
 </template>
 
 <script>
-import typesJSON from "@/data/types.json";
-import subtypesJSON from "@/data/subtypes.json";
+import issuesJSON from "@/data/issues.json";
 import { v1 as uuidv1 } from "uuid";
 import NavigatorGeolocationInput from "@/components/NavigatorGeolocationInput";
 import AddressGeocodeInput from "@/components/AddressGeocodeInput";
@@ -184,9 +183,7 @@ export default {
       },
       imagePreviews: [],
       files: null,
-      types: typesJSON,
-      subtypes: subtypesJSON,
-      filteredSubtypes: []
+      types: [...new Set(issuesJSON.map(data => data.type))]
     };
   },
   watch: {
@@ -195,14 +192,6 @@ export default {
     }
   },
   methods: {
-    getSubtypes() {
-      var self = this;
-      this.filteredSubtypes = this.subtypes.filter(subtype => {
-        if (subtype.type == self.issue.type) {
-          return subtype;
-        }
-      });
-    },
     onFileChange() {
       var self = this;
       this.files.forEach(file => {
@@ -259,7 +248,6 @@ export default {
           .putString(image.base64String, "data_url");
         uploadTask.on("state_changed", {
           error: error => {
-            console.log(error);
             reject(new Error(error));
           },
           complete: () => {
@@ -274,6 +262,19 @@ export default {
     setLocationType(value) {
       this.location = {};
       this.issue.locationType = value;
+    }
+  },
+  computed: {
+    subtypes() {
+      return this.issue.type
+        ? issuesJSON
+            .filter(issue => {
+              return issue.type == this.issue.type;
+            })
+            .map(issue => {
+              return issue.text;
+            })
+        : [];
     }
   }
 };

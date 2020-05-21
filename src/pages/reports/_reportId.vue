@@ -34,8 +34,8 @@
                     </div>
                     <div class="ml-auto d-flex">
                       <div class="mr-5">
-                        <div class="border rounded p-1">
-                          <span class="h4 text-dark">
+                        <div class="border rounded p-1 bg-white">
+                          <span class="h4">
                             ID: {{ report.id | substr7 }}
                           </span>
                         </div>
