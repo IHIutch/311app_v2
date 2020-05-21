@@ -3,6 +3,11 @@
     <b-row>
       <b-col cols="12" md="8" offset-md="2">
         <div class="border-bottom pb-2 mb-3">
+          <div>
+            <client-only>
+              <unicon name="car-wash" fill="limegreen"></unicon>
+            </client-only>
+          </div>
           <h1>Submit an Issue</h1>
         </div>
       </b-col>
