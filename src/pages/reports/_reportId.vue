@@ -237,7 +237,6 @@ export default {
     return {
       title: `Report: #${reportId} - ${this.report.subtype}`,
       meta: [
-        { hid: "og:url", property: "og:url", content: this.currentRoute },
         {
           hid: "title",
           name: "title",
@@ -248,6 +247,7 @@ export default {
           name: "description",
           content: reportDesc
         },
+        { hid: "og:url", property: "og:url", content: this.currentRoute },
         {
           hid: "og:title",
           property: "og:title",
@@ -264,18 +264,23 @@ export default {
           content: reportDesc
         },
         {
+          hid: "twitter:url",
+          property: "twitter:url",
+          content: this.currentRoute
+        },
+        {
           hid: "twitter:title",
-          name: "twitter:title",
+          property: "twitter:title",
           content: reportTitle
         },
         {
           hid: "twitter:image",
-          name: "twitter:image",
+          property: "twitter:image",
           content: reportImage
         },
         {
           hid: "twitter:description",
-          name: "twitter:description",
+          property: "twitter:description",
           content: reportDesc
         }
       ]
@@ -292,7 +297,7 @@ export default {
       report["id"] = reportDoc.id;
       report.dateCreated = report.dateCreated.toDate();
     } catch (e) {
-      alert(e);
+      console.log(e);
       return;
     }
     return { report: report, currentRoute: env.baseUrl + route.path };

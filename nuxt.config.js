@@ -30,16 +30,21 @@ module.exports = {
         content: "width=device-width, initial-scale=1, shrink-to-fit=no"
       },
       {
+        hid: "title",
+        name: "title",
+        content: siteName
+      },
+      {
         hid: "description",
         name: "description",
         content: siteDesc
       },
+      /* Open Graph / Facebook */
       {
         hid: "og:site_name",
         property: "og:site_name",
         content: siteName
       },
-      /* Open Graph / Facebook */
       {
         hid: "og:type",
         property: "og:type",
