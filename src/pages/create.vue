@@ -284,23 +284,16 @@ export default {
       this.issue.locationType = value;
     },
     findNeighborhood(point) {
-      let inside = null;
-      for (let neighborhood of this.neighborhoods) {
+      let inside = this.neighborhoods.find(neighborhood => {
         let polygon = neighborhood.coordinates.map(coords => {
           return { latitude: coords[1], longitude: coords[0] };
         });
-
-        if (
-          isPointInPolygon(
-            { latitude: point.lat, longitude: point.lng },
-            polygon
-          )
-        ) {
-          inside = neighborhood.neighborhood;
-          break;
-        }
-      }
-      return inside;
+        return isPointInPolygon(
+          { latitude: point.lat, longitude: point.lng },
+          polygon
+        );
+      }).neighborhood;
+      return inside ? inside : null;
     }
   },
   computed: {
