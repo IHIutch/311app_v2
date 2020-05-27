@@ -1,151 +1,151 @@
 [
   {
-    "category": "",
+    "subject": "Buffalo Police Department",
     "type": "Quality of Life",
     "text": "Noise Complaint"
   },
   {
-    "category": "",
+    "subject": "Dept of Parking",
     "type": "Parking/Vehicles",
     "text": "Illegal Parking"
   },
   {
-    "category": "",
+    "subject": "Dept of Parking",
     "type": "Parking/Vehicles",
     "text": "Blocked Driveway"
   },
   {
-    "category": "",
+    "subject": "Dept of Parking",
     "type": "Parking/Vehicles",
     "text": "Damaged/Faulty Parking Meter"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Streets",
     "text": "Signal Out or Flashing"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Streets",
     "text": "Signal Timing Issue"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Streets",
     "text": "Sneakers Hanging"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Streets",
     "text": "Damaged Street Sign"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Streets",
     "text": "Missing Manhole Cover"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Streets",
     "text": "Unplowed Street"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Sidewalks",
     "text": "Uneven/Cracked"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Sidewalks",
     "text": "Sidewalk Obstruction"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Sidewalks",
     "text": "Unshoveled Sidewalk"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Trees/Forestry",
     "text": "Fallen Tree"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Trees/Forestry",
     "text": "Tree/Stump Removal"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Trees/Forestry",
     "text": "Tree Trimming"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Trees/Forestry",
     "text": "Tree Planting"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Garbage/Sanitation",
     "text": "Graffiti"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Garbage/Sanitation",
     "text": "Request Street Sweeper"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Garbage/Sanitation",
     "text": "Request Leaf/Yard Debris Pickup"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Garbage/Sanitation",
     "text": "Damage from Street Worker"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Garbage/Sanitation",
     "text": "Illegal Garbage Dumping"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Garbage/Sanitation",
     "text": "Litter"
   },
   {
-    "category": "",
+    "subject": "Buffalo Fire Department",
     "type": "Utility",
     "text": "Fire Hydrant Issue"
   },
   {
-    "category": "",
+    "subject": "Utility",
     "type": "Utility",
     "text": "Damaged/Faulty Street Light"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Utility",
     "text": "Snow on Hydrant"
   },
   {
-    "category": "",
+    "subject": "Buffalo Municipal Housing Authority",
     "type": "Housing",
     "text": "Lead Paint Inspection"
   },
   {
-    "category": "",
+    "subject": "Buffalo Police Department",
     "type": "Animal",
     "text": "Pet Nuisance"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Animal",
     "text": "Pest/Rodent"
   },
   {
-    "category": "",
+    "subject": "Dept of Public Works",
     "type": "Animal",
     "text": "Dead Animal Removal"
   }
