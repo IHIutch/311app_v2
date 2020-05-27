@@ -178,7 +178,7 @@ export default {
         streetName: null,
         zipCode: null,
         neighborhood: null,
-        subject: null,
+        department: null,
         locationType: "byCurrentLocation",
         dateCreated: "",
         markerColor: "#0000EE",
@@ -205,10 +205,10 @@ export default {
       }
     },
     "issue.subtype": function() {
-      let subject = issuesJSON.find(issue => {
+      let dept = issuesJSON.find(issue => {
         return issue.text == this.issue.subtype;
-      }).subject;
-      this.issue.subject = subject ? subject : null;
+      });
+      this.issue.department = dept ? dept.department : null;
     }
   },
   methods: {
@@ -292,8 +292,8 @@ export default {
           { latitude: point.lat, longitude: point.lng },
           polygon
         );
-      }).neighborhood;
-      return inside ? inside : null;
+      });
+      return inside ? inside.neighborhood : null;
     }
   },
   computed: {

@@ -1,151 +1,151 @@
 [
   {
-    "subject": "Buffalo Police Department",
+    "department": "Police",
     "type": "Quality of Life",
     "text": "Noise Complaint"
   },
   {
-    "subject": "Dept of Parking",
+    "department": "Parking",
     "type": "Parking/Vehicles",
     "text": "Illegal Parking"
   },
   {
-    "subject": "Dept of Parking",
+    "department": "Parking",
     "type": "Parking/Vehicles",
     "text": "Blocked Driveway"
   },
   {
-    "subject": "Dept of Parking",
+    "department": "Parking",
     "type": "Parking/Vehicles",
     "text": "Damaged/Faulty Parking Meter"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Streets",
     "text": "Signal Out or Flashing"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Streets",
     "text": "Signal Timing Issue"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Streets",
     "text": "Sneakers Hanging"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Streets",
     "text": "Damaged Street Sign"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Streets",
     "text": "Missing Manhole Cover"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Streets",
     "text": "Unplowed Street"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Sidewalks",
     "text": "Uneven/Cracked"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Sidewalks",
     "text": "Sidewalk Obstruction"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Sidewalks",
     "text": "Unshoveled Sidewalk"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Trees/Forestry",
     "text": "Fallen Tree"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Trees/Forestry",
     "text": "Tree/Stump Removal"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Trees/Forestry",
     "text": "Tree Trimming"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Trees/Forestry",
     "text": "Tree Planting"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Garbage/Sanitation",
     "text": "Graffiti"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Garbage/Sanitation",
     "text": "Request Street Sweeper"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Garbage/Sanitation",
     "text": "Request Leaf/Yard Debris Pickup"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Garbage/Sanitation",
     "text": "Damage from Street Worker"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Garbage/Sanitation",
     "text": "Illegal Garbage Dumping"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Garbage/Sanitation",
     "text": "Litter"
   },
   {
-    "subject": "Buffalo Fire Department",
+    "department": "Fire",
     "type": "Utility",
     "text": "Fire Hydrant Issue"
   },
   {
-    "subject": "Utility",
+    "department": "Utility",
     "type": "Utility",
     "text": "Damaged/Faulty Street Light"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Utility",
     "text": "Snow on Hydrant"
   },
   {
-    "subject": "Buffalo Municipal Housing Authority",
+    "department": "Housing Authority",
     "type": "Housing",
     "text": "Lead Paint Inspection"
   },
   {
-    "subject": "Buffalo Police Department",
+    "department": " Police Department",
     "type": "Animal",
     "text": "Pet Nuisance"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Animal",
     "text": "Pest/Rodent"
   },
   {
-    "subject": "Dept of Public Works",
+    "department": "Public Works",
     "type": "Animal",
     "text": "Dead Animal Removal"
   }
