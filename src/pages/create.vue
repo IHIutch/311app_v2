@@ -215,7 +215,8 @@ export default {
     onFileChange() {
       var self = this;
       this.files.forEach(file => {
-        if (file.size > 4194304) return;
+        let fiveMb = 5242880;
+        if (file.size > fiveMb) return;
         const reader = new FileReader();
         reader.onload = e => {
           self.imagePreviews.push({
