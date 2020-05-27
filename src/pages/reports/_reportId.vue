@@ -231,13 +231,13 @@ export default {
       ? `${this.report.type} - ${this.report.comments}`
       : `${this.report.type}`;
     return {
-      title: `Report : #${reportId} - ${this.report.subtype}`,
+      title: `Report: #${reportId} - ${this.report.subtype}`,
       meta: [
         { hid: "og:url", property: "og:url", content: this.currentRoute },
         {
           hid: "og:title",
           property: "og:title",
-          content: `Report : #${reportId} - ${this.report.subtype}`
+          content: `Report: #${reportId} - ${this.report.subtype}`
         },
         {
           hid: "description",
@@ -257,7 +257,7 @@ export default {
         {
           hid: "twitter:title",
           property: "twitter:title",
-          content: `Report : #${reportId} - ${this.report.subtype}`
+          content: `Report: #${reportId} - ${this.report.subtype}`
         },
         {
           hid: "twitter:description",

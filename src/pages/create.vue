@@ -148,11 +148,14 @@
 
 <script>
 import issuesJSON from "@/data/issues.json";
+import neighborhoodJSON from "@/data/neighborhoods.json";
 import { v1 as uuidv1 } from "uuid";
 import NavigatorGeolocationInput from "@/components/NavigatorGeolocationInput";
 import AddressGeocodeInput from "@/components/AddressGeocodeInput";
 import GoogleMapInput from "@/components/GoogleMapInput";
 import { XIcon } from "vue-feather-icons";
+import isPointInPolygon from "geolib/es/isPointInPolygon";
+
 export default {
   name: "FormPage",
   layout: "PublicLayout",
@@ -184,12 +187,21 @@ export default {
       },
       imagePreviews: [],
       files: null,
-      types: [...new Set(issuesJSON.map(data => data.type))].sort()
+      types: [...new Set(issuesJSON.map(data => data.type))].sort(),
+      neighborhoods: neighborhoodJSON
     };
   },
   watch: {
     files() {
       this.onFileChange();
+    },
+    location() {
+      if (this.location.lat && this.location.lng) {
+        let point = { lat: this.location.lat, lng: this.location.lng };
+        this.issue.neighborhood = this.findNeighborhood(point);
+      } else {
+        this.issue.neighborhood = null;
+      }
     }
   },
   methods: {
@@ -263,6 +275,25 @@ export default {
     setLocationType(value) {
       this.location = {};
       this.issue.locationType = value;
+    },
+    findNeighborhood(point) {
+      let inside = null;
+      for (let neighborhood of this.neighborhoods) {
+        let polygon = neighborhood.coordinates.map(coords => {
+          return { latitude: coords[1], longitude: coords[0] };
+        });
+
+        if (
+          isPointInPolygon(
+            { latitude: point.lat, longitude: point.lng },
+            polygon
+          )
+        ) {
+          inside = neighborhood.neighborhood;
+          break;
+        }
+      }
+      return inside;
     }
   },
   computed: {
