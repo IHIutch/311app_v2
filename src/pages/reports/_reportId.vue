@@ -227,6 +227,10 @@ export default {
   },
   head() {
     const reportId = this.substr7(this.report.id).toUpperCase();
+    const reportTitle = `Report: #${reportId} - ${this.report.subtype}`;
+    const reportImage = this.report.images.length
+      ? this.report.images[0]
+      : undefined;
     const reportDesc = this.report.comments
       ? `${this.report.type} - ${this.report.comments}`
       : `${this.report.type}`;
@@ -235,9 +239,9 @@ export default {
       meta: [
         { hid: "og:url", property: "og:url", content: this.currentRoute },
         {
-          hid: "og:title",
-          property: "og:title",
-          content: `Report: #${reportId} - ${this.report.subtype}`
+          hid: "title",
+          name: "title",
+          content: reportTitle
         },
         {
           hid: "description",
@@ -245,23 +249,33 @@ export default {
           content: reportDesc
         },
         {
+          hid: "og:title",
+          property: "og:title",
+          content: reportTitle
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: reportImage
+        },
+        {
           hid: "og:description",
           property: "og:description",
           content: reportDesc
         },
         {
-          hid: "og:image",
-          property: "og:image",
-          content: this.report.images.length ? this.report.images[0] : undefined
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: reportTitle
         },
         {
-          hid: "twitter:title",
-          property: "twitter:title",
-          content: `Report: #${reportId} - ${this.report.subtype}`
+          hid: "twitter:image",
+          property: "twitter:image",
+          content: reportImage
         },
         {
           hid: "twitter:description",
-          property: "twitter:description",
+          name: "twitter:description",
           content: reportDesc
         }
       ]
