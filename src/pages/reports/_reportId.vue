@@ -26,7 +26,7 @@
                   <div class="flex-grow-1">
                     <div>
                       <span class="d-flex text-sm text-muted">
-                        {{ report.department }} · {{ report.type }}
+                        {{ report.department }} • {{ report.type }}
                       </span>
                     </div>
                     <div>
@@ -227,13 +227,13 @@ export default {
   },
   head() {
     const reportId = this.substr7(this.report.id).toUpperCase();
-    const reportTitle = `Buffalo 311 · ${this.report.department} · ${this.report.subtype}`;
+    const reportTitle = `Buffalo 311 · Report #${reportId}`;
     const reportImage = this.report.images.length
       ? this.report.images[0]
       : undefined;
     const reportDesc = this.report.comments
-      ? `Report #${reportId} · ${this.report.comments}`
-      : `Report #${reportId}`;
+      ? `${this.report.type} · ${this.report.subtype} · ${this.report.comments}`
+      : `${this.report.type} · ${this.report.subtype}`;
     return {
       title: reportTitle,
       meta: [
