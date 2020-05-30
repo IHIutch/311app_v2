@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Unicon from "vue-unicons";
-import { uniCarWash } from "vue-unicons/src/icons";
+import { uniCarWash, uniLayerGroupMonochrome } from "vue-unicons/src/icons";
 
-Unicon.add([uniCarWash]);
+Unicon.add([uniCarWash, uniLayerGroupMonochrome]);
 Vue.use(Unicon);
