@@ -27,7 +27,8 @@
     "geolib": "^3.3.1",
     "nuxt": "^2.12.2",
     "nuxt-leaflet": "0.0.21",
-    "vue-feather-icons": "^5.0.0"
+    "vue-feather-icons": "^5.0.0",
+    "vue-unicons": "^2.1.0"
   },
   "devDependencies": {
     "firebase-functions-test": "^0.1.6"
