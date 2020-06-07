@@ -10,7 +10,7 @@
         </b-button>
       </b-navbar-nav>
     </b-navbar>
-    <div class="pt-14">
+    <div>
       <nuxt />
     </div>
   </div>
