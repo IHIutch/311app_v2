@@ -27,9 +27,11 @@
                 <b-list-group-item
                   v-for="(issue, iIdx) in group.issues"
                   :key="`issue-${iIdx}`"
-                  class="border-left-0 border-right-0"
+                  class="border-left-0 border-right-0 d-flex align-items-center justify-content-between text-primary"
+                  button
                 >
-                  {{ issue }}
+                  <span>{{ issue }}</span>
+                  <chevron-right-icon />
                 </b-list-group-item>
               </div>
             </b-list-group>
@@ -42,10 +44,14 @@
 
 <script>
 import issuesJSON from "@/data/issues.json";
+import { ChevronRightIcon } from "vue-feather-icons";
 
 export default {
   name: "test",
   layout: "PublicLayout",
+  components: {
+    ChevronRightIcon
+  },
   data() {
     return {
       search: ""
