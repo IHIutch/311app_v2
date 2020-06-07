@@ -19,14 +19,14 @@
             <b-list-group class="w-100" flush>
               <div v-for="(group, gIdx) in groups">
                 <b-list-group-item
-                  :key="gIdx"
+                  :key="`group-${gIdx}`"
                   class="sticky-top text-uppercase font-weight-bold bg-secondary text-white p-2 text-sm border-left-0 border-right-0"
                 >
                   {{ group.title }}
                 </b-list-group-item>
                 <b-list-group-item
                   v-for="(issue, iIdx) in group.issues"
-                  :key="iIdx"
+                  :key="`issue-${iIdx}`"
                   class="border-left-0 border-right-0"
                 >
                   {{ issue }}
@@ -58,24 +58,47 @@ export default {
   layout: "PublicLayout",
   data() {
     return {
-      groups: [],
+      // groups: [],
       search: ""
     };
   },
   created() {
-    let groups = [...new Set(issuesJSON.map(data => data.type))].sort();
-    this.groups = groups.map(group => {
-      return {
-        title: group,
-        issues: issuesJSON
-          .filter(g => {
-            return g.type == group;
-          })
-          .map(issue => {
-            return issue.text;
-          })
-      };
-    });
+    // let groups = [...new Set(issuesJSON.map(data => data.type))].sort();
+    // this.groups = groups.map(group => {
+    //   return {
+    //     title: group,
+    //     issues: issuesJSON
+    //       .filter(g => {
+    //         return g.type == group;
+    //       })
+    //       .map(issue => {
+    //         return issue.text;
+    //       })
+    //   };
+    // });
+  },
+  computed: {
+    groups() {
+      let filtered = issuesJSON.filter(data => {
+        return data.text.toLowerCase().includes(this.search.toLowerCase());
+      });
+
+      let types = [...new Set(filtered.map(data => data.type))].sort();
+
+      let issues = types.map(group => {
+        return {
+          title: group,
+          issues: filtered
+            .filter(g => {
+              return g.type == group;
+            })
+            .map(issue => {
+              return issue.text;
+            })
+        };
+      });
+      return issues;
+    }
   }
 };
 </script>
