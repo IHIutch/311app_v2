@@ -33,16 +33,6 @@
                 </b-list-group-item>
               </div>
             </b-list-group>
-            <!-- <ul class="list-unstyled">
-              <template v-for="group in groups">
-                <li>{{ group.title }}</li>
-                <ul class="list-unstyled">
-                  <li v-for="issue in group.issues">
-                    {{ issue }}
-                  </li>
-                </ul>
-              </template>
-            </ul> -->
           </div>
         </div>
       </b-col>
@@ -58,24 +48,8 @@ export default {
   layout: "PublicLayout",
   data() {
     return {
-      // groups: [],
       search: ""
     };
-  },
-  created() {
-    // let groups = [...new Set(issuesJSON.map(data => data.type))].sort();
-    // this.groups = groups.map(group => {
-    //   return {
-    //     title: group,
-    //     issues: issuesJSON
-    //       .filter(g => {
-    //         return g.type == group;
-    //       })
-    //       .map(issue => {
-    //         return issue.text;
-    //       })
-    //   };
-    // });
   },
   computed: {
     groups() {
