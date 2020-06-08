@@ -75,6 +75,7 @@ export default {
             .map(issue => {
               return issue.text;
             })
+            .sort()
         };
       });
       return issues;
