@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/firebase": "^5.2.0",
+    "@nuxtjs/firebase": "^6.0.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.0.3",
     "bootstrap": "^4.5.0",
