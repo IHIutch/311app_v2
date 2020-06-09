@@ -18,9 +18,23 @@
                 <div>
                   <b-form-group
                     class="mb-0"
-                    description='Try searching: "this", "that", or "something else"'
+                    :description="
+                      `Example: &quot;${searchExamples[0]}&quot; or &quot;${searchExamples[1]}&quot;`
+                    "
                   >
-                    <b-form-input v-model="search" type="text"></b-form-input>
+                    <div class="position-relative">
+                      <b-form-input
+                        class="pl-10"
+                        placeholder="Search..."
+                        v-model="search"
+                        type="text"
+                      ></b-form-input>
+                      <div
+                        class="position-absolute top-0 left-0 h-100 w-10 d-flex align-items-center justify-content-center"
+                      >
+                        <search-icon />
+                      </div>
+                    </div>
                   </b-form-group>
                 </div>
               </div>
@@ -70,17 +84,20 @@
 
 <script>
 import issuesJSON from "@/data/issues.json";
-import { ChevronRightIcon } from "vue-feather-icons";
+import { ChevronRightIcon, SearchIcon } from "vue-feather-icons";
 
 export default {
   name: "test",
   layout: "PublicLayout",
   components: {
-    ChevronRightIcon
+    ChevronRightIcon,
+    SearchIcon
   },
   data() {
     return {
+      types: [...new Set(issuesJSON.map(data => data.text))].sort(),
       search: "",
+      searchExamples: [],
       form: {
         issueType: ""
       },
@@ -91,7 +108,18 @@ export default {
     selectType(val) {
       this.form.issueType = val;
       this.step = 2;
+    },
+    getSearchExamples() {
+      while (this.searchExamples.length < 3) {
+        let val = this.types[Math.floor(Math.random() * this.types.length)];
+        if (!this.searchExamples.includes(val)) {
+          this.searchExamples.push(val);
+        }
+      }
     }
+  },
+  created() {
+    this.getSearchExamples();
   },
   computed: {
     groups() {
@@ -99,9 +127,9 @@ export default {
         return data.text.toLowerCase().includes(this.search.toLowerCase());
       });
 
-      let types = [...new Set(filtered.map(data => data.type))].sort();
+      let filteredtTypes = [...new Set(filtered.map(data => data.type))].sort();
 
-      let issues = types.map(group => {
+      let issues = filteredtTypes.map(group => {
         return {
           title: group,
           issues: filtered
