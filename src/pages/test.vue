@@ -166,12 +166,12 @@ export default {
 
 .slide-fade-forward-enter,
 .slide-fade-back-leave-to {
-  transform: translateX(10px);
+  transform: translateX(30px);
   opacity: 0;
 }
 .slide-fade-forward-leave-to,
 .slide-fade-back-enter {
-  transform: translateX(-10px);
+  transform: translateX(-30px);
   opacity: 0;
 }
 </style>
