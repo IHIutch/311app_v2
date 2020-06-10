@@ -1,15 +1,12 @@
 <template>
   <b-container tag="main" role="main" class="pt-14 vh-100">
     <b-row class="h-100 py-5">
-      <b-col md="6" offset-md="3" class="h-100">
-        <div
-          class="bg-white rounded shadow-sm h-100 w-100 overflow-hidden position-relative"
-        >
-          <transition name="fade">
+      <b-col md="6" offset-md="3" class="h-100 position-relative">
+        <transition :name="slideDirection">
+          <template v-if="step == 1">
             <div
-              v-if="step == 1"
               key="1"
-              class="p-4 position-absolute h-100 w-100 d-flex flex-column"
+              class="bg-white rounded shadow-sm h-100 w-100 overflow-hidden position-absolute d-flex flex-column p-4"
             >
               <div class="mb-4">
                 <div>
@@ -61,7 +58,12 @@
                 </b-list-group>
               </div>
             </div>
-            <div key="2" v-else class="h-100 w-100 position-absolute">
+          </template>
+          <template v-else>
+            <div
+              key="2"
+              class="bg-white rounded shadow-sm h-100 w-100 overflow-hidden position-absolute"
+            >
               <div class="embed-responsive embed-responsive-21by9">
                 <div
                   class="embed-responsive-item bg-secondary d-flex align-items-end"
@@ -72,11 +74,11 @@
                 </div>
               </div>
               <div class="p-4">
-                <b-button @click="step = 1">Back</b-button>
+                <b-button @click="goBack()">Back</b-button>
               </div>
             </div>
-          </transition>
-        </div>
+          </template>
+        </transition>
       </b-col>
     </b-row>
   </b-container>
@@ -95,6 +97,7 @@ export default {
   },
   data() {
     return {
+      slideDirection: "",
       types: [...new Set(issuesJSON.map(data => data.text))].sort(),
       search: "",
       searchExamples: [],
@@ -108,6 +111,7 @@ export default {
     selectType(val) {
       this.form.issueType = val;
       this.step = 2;
+      this.slideDirection = "slide-fade-forward";
     },
     getSearchExamples() {
       while (this.searchExamples.length < 3) {
@@ -116,6 +120,10 @@ export default {
           this.searchExamples.push(val);
         }
       }
+    },
+    goBack() {
+      this.step = 1;
+      this.slideDirection = "slide-fade-back";
     }
   },
   created() {
@@ -149,11 +157,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
+.slide-fade-forward-enter-active,
+.slide-fade-back-enter-active,
+.slide-fade-forward-leave-active,
+.slide-fade-back-leave-active {
+  transition: all 0.3s ease;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.slide-fade-forward-enter,
+.slide-fade-back-leave-to {
+  transform: translateX(10px);
+  opacity: 0;
+}
+.slide-fade-forward-leave-to,
+.slide-fade-back-enter {
+  transform: translateX(-10px);
   opacity: 0;
 }
 </style>
