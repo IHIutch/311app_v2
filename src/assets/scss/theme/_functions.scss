@@ -1,3 +1,18 @@
+@each $color, $value in $theme-colors {
+  .btn-link-#{$color} {
+    @extend .btn-link;
+    color: $value;
+    &:hover {
+      color: darken($value, 10);
+      text-decoration: none !important;
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba($value, 0.25);
+      text-decoration: none !important;
+    }
+  }
+}
+
 @each $value in $object-fit {
   .object-#{$value} {
     object-fit: $value;
