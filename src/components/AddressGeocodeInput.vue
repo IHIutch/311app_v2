@@ -52,6 +52,7 @@ export default {
   },
   mounted() {
     this.initAutocomplete();
+    this.$emit("update:location", {});
   }
 };
 </script>
