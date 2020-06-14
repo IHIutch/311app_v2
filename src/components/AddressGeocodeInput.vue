@@ -1,14 +1,10 @@
 <template>
   <b-form-group
-    label="What is the location of the issue?"
+    :label="label"
     label-for="autocompleteInput"
+    :description="description"
   >
-    <b-input
-      autocomplete="off"
-      id="autocompleteInput"
-      type="search"
-      placeholder="123 Main Street..."
-    />
+    <b-input autocomplete="off" id="autocompleteInput" type="search" />
   </b-form-group>
 </template>
 
@@ -16,7 +12,9 @@
 export default {
   name: "AddressGeocodeInput",
   props: {
-    location: { type: Object, required: true }
+    location: { type: Object, required: true },
+    label: { type: String },
+    description: { type: String }
   },
   data() {
     return {
