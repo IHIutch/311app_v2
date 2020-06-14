@@ -146,8 +146,7 @@ module.exports = {
           auth: true,
           firestore: true,
           functions: true,
-          storage: true,
-          realtimeDb: true
+          storage: true
         }
       }
     ],
