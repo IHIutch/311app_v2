@@ -123,19 +123,15 @@
                     </div>
                     <div>
                       <template v-if="map.selected == 'map'">
-                        <div
-                          class="embed-responsive embed-responsive-21by9 mb-4"
-                        >
-                          <div
-                            class="embed-responsive-item bg-secondary rounded"
-                          ></div>
+                        <div class="mb-2">
+                          <GoogleMapInput :location.sync="location" />
                         </div>
                         <div>
                           <b-form-group
                             description="Click a point on the map or use your current location"
                           >
                             <b-input-group>
-                              <b-form-input></b-form-input>
+                              <b-form-input readonly></b-form-input>
                               <b-input-group-append>
                                 <b-button
                                   variant="primary"
@@ -149,13 +145,11 @@
                         </div>
                       </template>
                       <template v-else>
-                        <b-form-group
-                          label="Search by address"
-                          label-for="input-1"
-                          description="Type to see options"
-                        >
-                          <b-form-input id="input-1" type="text"></b-form-input>
-                        </b-form-group>
+                        <AddressGeocodeInput
+                          label="Search for an address"
+                          description="Select an option from the dropdown"
+                          :location.sync="location"
+                        />
                       </template>
                     </div>
                   </div>
@@ -224,6 +218,9 @@
 
 <script>
 import issuesJSON from "@/data/issues.json";
+import AddressGeocodeInput from "@/components/AddressGeocodeInput";
+import GoogleMapInput from "@/components/GoogleMapInput";
+
 import {
   ChevronRightIcon,
   ChevronLeftIcon,
@@ -246,7 +243,9 @@ export default {
     CameraIcon,
     EditIcon,
     PlusIcon,
-    CrosshairIcon
+    CrosshairIcon,
+    AddressGeocodeInput,
+    GoogleMapInput
   },
   data() {
     return {
@@ -254,6 +253,7 @@ export default {
       types: [...new Set(issuesJSON.map(data => data.text))].sort(),
       search: "",
       searchExamples: [],
+      location: {},
       form: {
         issueGroup: "",
         issueType: ""
@@ -340,6 +340,7 @@ export default {
   transform: translateX(30px);
   opacity: 0;
 }
+
 .slide-fade-forward-leave-to,
 .slide-fade-back-enter {
   transform: translateX(-30px);

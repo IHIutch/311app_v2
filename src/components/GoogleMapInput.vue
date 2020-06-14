@@ -1,5 +1,5 @@
 <template>
-  <div class="embed-responsive embed-responsive-16by9">
+  <div class="embed-responsive embed-responsive-16by9 rounded">
     <div id="googleMap" class="embed-responsive-item"></div>
   </div>
 </template>
@@ -11,14 +11,18 @@ export default {
     location: { type: Object, required: true }
   },
   data() {
-    return {};
+    return {
+      buffaloCoords: {
+        lat: 42.886448,
+        lng: -78.878372
+      }
+    };
   },
   methods: {
-    initGoogleMap() {
+    async initGoogleMap() {
       var self = this;
       var marker;
       var mapOptions = {
-        center: new google.maps.LatLng(42.886448, -78.878372),
         zoom: 14,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         fullscreenControl: false,
@@ -41,6 +45,25 @@ export default {
         document.getElementById("googleMap"),
         mapOptions
       );
+      if (navigator.geolocation) {
+        let pos = await this.getCurrentLocation();
+        var infoWindow = new google.maps.InfoWindow({
+          position: pos,
+          content: `Latitude: 
+          ${pos.lat.toFixed(3)}, 
+            Longitude: ${pos.lng.toFixed(3)}`
+        });
+        var marker = new google.maps.Marker({
+          position: pos,
+          map: map
+        });
+        infoWindow.open(map, marker);
+        map.setCenter(pos);
+      } else {
+        map.setCenter(
+          new google.maps.LatLng(this.buffaloCoords.lat, this.buffaloCoords.lng)
+        );
+      }
       google.maps.event.addListener(map, "click", function(e) {
         if (marker) {
           marker.setMap(null);
@@ -59,9 +82,23 @@ export default {
             Longitude: ${e.latLng.lng().toFixed(3)}`
         });
         infowindow.open(map, marker);
-        // alert("Latitude: " + e.latLng.lat() + "\r\nLongitude: " + e.latLng.lng());
+        map.panTo(e.latLng);
         self.$emit("update:location", obj);
       });
+    },
+    async getCurrentLocation() {
+      const getPos = () => {
+        return new Promise((res, rej) => {
+          navigator.geolocation.getCurrentPosition(res, rej);
+        });
+      };
+      let obj = await getPos();
+      this.$emit("update:location", {
+        lat: obj.coords.latitude,
+        lng: obj.coords.longitude,
+        accuracy: obj.coords.accuracy
+      });
+      return { lat: obj.coords.latitude, lng: obj.coords.longitude };
     }
   },
   mounted() {
