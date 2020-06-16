@@ -1,6 +1,6 @@
 <template>
   <b-form-row>
-    <b-col cols="6" md="4" v-for="(image, idx) in imagePreviews" :key="idx">
+    <b-col cols="6" md="4" v-for="(image, idx) in images" :key="idx">
       <div class="embed-responsive embed-responsive-1by1 mb-3">
         <b-img
           rounded
@@ -18,7 +18,7 @@
         </div>
       </div>
     </b-col>
-    <template v-if="imagePreviews.length < 4">
+    <template v-if="images.length < 4">
       <b-col cols="6" md="4">
         <input
           type="file"
@@ -54,13 +54,18 @@ import { XIcon, PlusIcon } from "vue-feather-icons";
 
 export default {
   name: "AddPhotos",
+  props: {
+    images: { type: Array }
+  },
   components: {
     XIcon,
     PlusIcon
   },
   data() {
     return {
-      imagePreviews: []
+      local: {
+        images: []
+      }
     };
   },
   methods: {
@@ -75,7 +80,7 @@ export default {
         .forEach(file => {
           const reader = new FileReader();
           reader.onload = e => {
-            self.imagePreviews.push({
+            self.local.images.push({
               base64String: e.target.result,
               fileType: file.type,
               fileName: file.name
@@ -83,6 +88,8 @@ export default {
           };
           reader.readAsDataURL(file);
         });
+
+      this.$emit("update:images", this.local.images);
     },
     removeFile(idx) {
       this.imagePreviews.splice(idx, 1);

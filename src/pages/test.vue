@@ -156,7 +156,7 @@
                       <div class="d-flex mb-2">
                         <span class="font-weight-bold text-sm">Photos</span>
                       </div>
-                      <AddPhotos />
+                      <AddPhotos :images.sync="form.images" />
                     </div>
                   </div>
                   <div class="d-flex align-items-start px-4 py-2 border-bottom">
@@ -262,7 +262,8 @@ export default {
       location: {},
       form: {
         issueGroup: "",
-        issueType: ""
+        issueType: "",
+        images: []
       },
       map: {
         selected: "map",
