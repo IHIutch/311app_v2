@@ -156,23 +156,7 @@
                       <div class="d-flex mb-2">
                         <span class="font-weight-bold text-sm">Photos</span>
                       </div>
-                      <b-row>
-                        <b-col cols="6" md="4">
-                          <div class="embed-responsive embed-responsive-1by1">
-                            <button
-                              type="button"
-                              class="embed-responsive-item bg-light border border-dark d-flex align-items-center justify-content-center rounded"
-                            >
-                              <div>
-                                <div>
-                                  <plus-icon />
-                                </div>
-                                <div><span>Add</span></div>
-                              </div>
-                            </button>
-                          </div>
-                        </b-col>
-                      </b-row>
+                      <AddPhotos />
                     </div>
                   </div>
                   <div class="d-flex align-items-start px-4 py-2 border-bottom">
@@ -242,6 +226,7 @@
 import issuesJSON from "@/data/issues.json";
 import AddressGeocodeInput from "@/components/AddressGeocodeInput";
 import GoogleMapInput from "@/components/GoogleMapInput";
+import AddPhotos from "@/components/AddPhotos";
 
 import {
   ChevronRightIcon,
@@ -265,7 +250,8 @@ export default {
     EditIcon,
     PlusIcon,
     AddressGeocodeInput,
-    GoogleMapInput
+    GoogleMapInput,
+    AddPhotos
   },
   data() {
     return {
