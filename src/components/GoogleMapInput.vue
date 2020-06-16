@@ -166,9 +166,9 @@ export default {
   computed: {
     locationInputValue() {
       if (Object.keys(this.location).length) {
-        let value = `Latitude: ${this.location.lat.toFixed(
+        let value = `${this.location.lat.toFixed(
           3
-        )}, Longitude: ${this.location.lng.toFixed(3)}`;
+        )}, ${this.location.lng.toFixed(3)}`;
         return this.location.current ? `${value} (Current Location)` : value;
       } else {
         return "";

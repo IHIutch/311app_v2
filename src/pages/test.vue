@@ -67,7 +67,7 @@
               >
                 <div class="embed-responsive embed-responsive-21by9">
                   <div
-                    class="embed-responsive-item bg-secondary d-flex flex-column justify-content-between p-6"
+                    class="embed-responsive-item bg-secondary d-flex flex-column justify-content-between p-4"
                   >
                     <div>
                       <b-button
@@ -83,10 +83,12 @@
                     </div>
                     <div>
                       <div>
-                        <span class="text-white">{{ form.issueGroup }}</span>
+                        <span class="text-white text-sm">{{
+                          form.issueGroup
+                        }}</span>
                       </div>
                       <div>
-                        <span class="text-white text-3xl">
+                        <span class="text-white text-2xl">
                           {{ form.issueType }}
                         </span>
                       </div>
@@ -110,32 +112,36 @@
                             >(Required)</span
                           >
                         </div>
-                        <div>
-                          <b-form-group class="mb-0">
-                            <b-form-radio-group
-                              id="btn-radios-2"
-                              v-model="map.selected"
-                              :options="map.options"
-                              buttons
-                              button-variant="outline-primary"
-                              size="sm"
-                              name="radio-btn-outline"
-                            ></b-form-radio-group>
-                          </b-form-group>
-                        </div>
                       </div>
                       <div>
-                        <template v-if="map.selected == 'map'">
-                          <div class="mb-2">
-                            <GoogleMapInput :location.sync="location" />
-                          </div>
+                        <template v-if="!Object.keys(location).length">
+                          <b-button
+                            block
+                            variant="outline-primary"
+                            v-b-modal.location-modal
+                          >
+                            Add Location
+                          </b-button>
                         </template>
                         <template v-else>
-                          <AddressGeocodeInput
-                            label="Search for an address"
-                            description="Select an option from the dropdown"
-                            :location.sync="location"
-                          />
+                          <div class="d-flex align-items-center">
+                            <b-form-input
+                              :value="
+                                location.street_number
+                                  ? `${location.street_number} ${location.route}`
+                                  : `${location.lat.toFixed(
+                                      3
+                                    )}, ${location.lng.toFixed(3)}`
+                              "
+                              readonly
+                            ></b-form-input>
+                            <b-button
+                              variant="link-primary"
+                              v-b-modal.location-modal
+                            >
+                              Change
+                            </b-button>
+                          </div>
                         </template>
                       </div>
                     </div>
@@ -200,6 +206,35 @@
         </div>
       </b-col>
     </b-row>
+    <b-modal id="location-modal" title="Get Location" hide-footer>
+      <div class="d-flex justify-content-center">
+        <b-form-group>
+          <b-form-radio-group
+            id="btn-radios-2"
+            v-model="map.selected"
+            :options="map.options"
+            buttons
+            button-variant="outline-primary"
+            size="sm"
+            name="radio-btn-outline"
+          ></b-form-radio-group>
+        </b-form-group>
+      </div>
+      <div>
+        <template v-if="map.selected == 'map'">
+          <div class="mb-2">
+            <GoogleMapInput :location.sync="location" />
+          </div>
+        </template>
+        <template v-else>
+          <AddressGeocodeInput
+            label="Search for an address"
+            description="Select an option from the dropdown"
+            :location.sync="location"
+          />
+        </template>
+      </div>
+    </b-modal>
   </b-container>
 </template>
 
