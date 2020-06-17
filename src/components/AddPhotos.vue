@@ -92,7 +92,7 @@ export default {
       this.$emit("update:images", this.local.images);
     },
     removeFile(idx) {
-      this.imagePreviews.splice(idx, 1);
+      this.local.images.splice(idx, 1);
     }
   }
 };
