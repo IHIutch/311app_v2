@@ -30,14 +30,11 @@
         />
         <label for="file" class="embed-responsive embed-responsive-1by1">
           <div
-            type="button"
-            class="embed-responsive-item bg-light border border-dark d-flex align-items-center justify-content-center rounded"
+            class="embed-responsive-item bg-light border border-dark d-flex align-items-center justify-content-center rounded flex-column"
           >
+            <plus-icon />
             <div>
-              <div>
-                <plus-icon />
-              </div>
-              <div><span>Add</span></div>
+              <span>Add</span>
             </div>
           </div>
         </label>
