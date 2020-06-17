@@ -1,8 +1,7 @@
 <template>
   <b-container tag="main" role="main" class="pt-14 vh-100">
     <b-row class="h-100 py-5">
-      <b-col md="6" offset-md="3" class="h-100">
-        <div class="h-100 position-relative">
+      <b-col md="6" offset-md="3" class="h-100 position-relative">
           <transition :name="slideDirection">
             <template v-if="step == 1">
               <div
@@ -63,7 +62,7 @@
             <template v-else>
               <div
                 key="2"
-                class="bg-white rounded shadow-sm h-100 w-100 overflow-auto position-absolute"
+                class="bg-white rounded shadow-sm w-100 position-absolute overflow-hidden mb-5"
               >
                 <div class="embed-responsive embed-responsive-21by9">
                   <div
