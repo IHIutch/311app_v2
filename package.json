@@ -22,7 +22,7 @@
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "cross-env": "^7.0.2",
-    "dayjs": "^1.8.28",
+    "dayjs": "^1.8.30",
     "express": "^4.16.4",
     "firebase": "^7.15.1",
     "geolib": "^3.3.1",
