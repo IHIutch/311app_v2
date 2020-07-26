@@ -1,18 +1,18 @@
 require("dotenv").config();
 
-const baseUrl =
+const baseURL =
   process.env.NODE_ENV === "production"
-    ? "https://buffalo-311.web.app"
+    ? "https://buffalo311.herokuapp.com/"
     : "http://localhost:3000";
-const siteUrl = "https://buffalo-311.web.app/";
+const siteUrl = "https://buffalo311.herokuapp.com//";
 const siteName = "Buffalo 311";
 const siteDesc =
   "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
-const siteImage = `${baseUrl}/img/meta/meta_image.jpg`;
+const siteImage = `${baseURL}/img/meta/meta_image.jpg`;
 
 module.exports = {
   env: {
-    baseUrl: baseUrl
+    baseURL: baseURL
   },
   mode: "universal",
   buildDir: "functions/.nuxt",
@@ -129,27 +129,6 @@ module.exports = {
     "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
     "@nuxtjs/dotenv",
-    [
-      "@nuxtjs/firebase",
-      {
-        config: {
-          apiKey: process.env.NUXT_ENV_FIREBASE_API_KEY,
-          authDomain: process.env.NUXT_ENV_FIREBASE_AUTH_DOMAIN,
-          databaseURL: process.env.NUXT_ENV_FIREBASE_DATABASE_URL,
-          projectId: process.env.NUXT_ENV_FIREBASE_PROJECT_ID,
-          storageBucket: process.env.NUXT_ENV_FIREBASE_STORAGE_BUCKET,
-          messagingSenderId: process.env.NUXT_ENV_FIREBASE_MESSAGING_SENDER_ID,
-          appId: process.env.NUXT_ENV_FIREBASE_APP_ID
-        },
-        onFirebaseHosting: true,
-        services: {
-          auth: true,
-          firestore: true,
-          functions: true,
-          storage: true
-        }
-      }
-    ],
     "nuxt-leaflet",
     "@nuxtjs/sentry"
   ],
@@ -182,43 +161,43 @@ module.exports = {
       background_color: "#0b2123",
       icons: [
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_64.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_64.png`,
           sizes: "64x64",
           type: "image/png",
           purpose: "maskable any"
         },
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_120.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_120.png`,
           sizes: "120x120",
           type: "image/png",
           purpose: "maskable any"
         },
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_144.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_144.png`,
           sizes: "144x144",
           type: "image/png",
           purpose: "maskable any"
         },
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_152.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_152.png`,
           sizes: "152x152",
           type: "image/png",
           purpose: "maskable any"
         },
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_192.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_192.png`,
           sizes: "192x192",
           type: "image/png",
           purpose: "maskable any"
         },
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_384.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_384.png`,
           sizes: "384x384",
           type: "image/png",
           purpose: "maskable any"
         },
         {
-          src: `${baseUrl}/img/pwa/icons/pwa_icon_512.png`,
+          src: `${baseURL}/img/pwa/icons/pwa_icon_512.png`,
           sizes: "512x512",
           type: "image/png",
           purpose: "maskable any"

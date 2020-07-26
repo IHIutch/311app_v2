@@ -12,14 +12,14 @@
     "serve": "nuxt serve"
   },
   "dependencies": {
+    "@nuxtjs/auth": "^4.9.1",
+    "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.1.2",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
     "dayjs": "^1.8.28",
-    "express": "^4.16.4",
-    "firebase": "^7.15.1",
     "geolib": "^3.3.1",
     "nuxt": "^2.12.2",
     "nuxt-leaflet": "0.0.21",

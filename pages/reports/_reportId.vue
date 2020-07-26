@@ -300,7 +300,7 @@ export default {
       console.log(e);
       return;
     }
-    return { report: report, currentRoute: env.baseUrl + route.path };
+    return { report: report, currentRoute: env.baseURL + route.path };
   },
   data() {
     return {
