@@ -1,4 +1,5 @@
 require("dotenv").config();
+const redirectSSL = require("redirect-ssl");
 
 const baseURL =
   process.env.NODE_ENV === "production"
