@@ -14,11 +14,19 @@ module.exports = {
   env: {
     baseURL: baseURL
   },
+  /*
+   ** Nuxt rendering mode
+   ** See https://nuxtjs.org/api/configuration-mode
+   */
   mode: "universal",
-  buildDir: "functions/.nuxt",
-  srcDir: "src/",
+  /*
+   ** Nuxt target
+   ** See https://nuxtjs.org/api/configuration-target
+   */
+  target: "server",
   /*
    ** Headers of the page
+   ** See https://nuxtjs.org/api/configuration-head
    */
   head: {
     /* Primary Meta Tags */
@@ -124,32 +132,38 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://bootstrap-vue.js.org
-    "bootstrap-vue/nuxt",
-    "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
     "@nuxtjs/dotenv",
-    "nuxt-leaflet",
-    "@nuxtjs/sentry"
+    // Doc: https://bootstrap-vue.js.org
+    "bootstrap-vue/nuxt",
+    "@nuxtjs/sentry",
+    "@nuxtjs/axios",
+    "@nuxtjs/auth",
+    "@nuxtjs/pwa",
+    "nuxt-leaflet"
   ],
-  sentry: {
-    initialize: process.env.NODE_ENV === "production",
-    dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230"
-  },
   bootstrapVue: {
     bootstrapCSS: false,
     bootstrapVueCSS: false
   },
+  sentry: {
+    initialize: process.env.NODE_ENV === "production",
+    dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230"
+  },
+  axios: {
+    baseURL: `${baseURL}/api/v1`
+  },
   /*
    ** Build configuration
    */
-  build: {
-    extractCSS: true,
-    /*
-     ** You can extend webpack config here
-     */
-    extend(config, ctx) {}
-  },
+  build: {},
+  serverMiddleware: [
+    redirectSSL.create({
+      enabled: process.env.NODE_ENV === "production"
+    }),
+    // Will register file from project api directory to handle /api/* requires
+    { path: "/api/v1", handler: "~/api/v1/index" }
+  ],
   pwa: {
     icon: false,
     manifest: {
