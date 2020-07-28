@@ -4,11 +4,10 @@ const baseURL =
   process.env.NODE_ENV === "production"
     ? "https://buffalo311.herokuapp.com"
     : "http://localhost:3000";
-const siteUrl = "https://buffalo311.herokuapp.com";
 const siteName = "Buffalo 311";
 const siteDesc =
   "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
-const siteImage = `img/meta/meta_image.jpg`;
+const siteImage = `${baseURL}/img/meta/meta_image.jpg`;
 
 module.exports = {
   publicRuntimeConfig: {
@@ -66,7 +65,7 @@ module.exports = {
       {
         hid: "og:url",
         property: "og:url",
-        content: siteUrl
+        content: baseURL
       },
       {
         hid: "og:title",
@@ -92,7 +91,7 @@ module.exports = {
       {
         hid: "twitter:url",
         property: "twitter:url",
-        content: siteUrl
+        content: baseURL
       },
       {
         hid: "twitter:title",
