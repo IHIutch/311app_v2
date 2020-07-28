@@ -2,13 +2,13 @@ import redirectSSL from "redirect-ssl";
 
 const baseURL =
   process.env.NODE_ENV === "production"
-    ? "https://buffalo311.herokuapp.com/"
+    ? "https://buffalo311.herokuapp.com"
     : "http://localhost:3000";
-const siteUrl = "https://buffalo311.herokuapp.com//";
+const siteUrl = "https://buffalo311.herokuapp.com";
 const siteName = "Buffalo 311";
 const siteDesc =
   "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
-const siteImage = `${baseURL}/img/meta/meta_image.jpg`;
+const siteImage = `img/meta/meta_image.jpg`;
 
 module.exports = {
   publicRuntimeConfig: {
@@ -42,73 +42,73 @@ module.exports = {
         name: "viewport",
         content: "width=device-width, initial-scale=1, shrink-to-fit=no"
       },
-      // {
-      //   hid: "title",
-      //   name: "title",
-      //   content: siteName
-      // },
-      // {
-      //   hid: "description",
-      //   name: "description",
-      //   content: siteDesc
-      // },
-      // /* Open Graph / Facebook */
-      // {
-      //   hid: "og:site_name",
-      //   property: "og:site_name",
-      //   content: siteName
-      // },
-      // {
-      //   hid: "og:type",
-      //   property: "og:type",
-      //   content: "website"
-      // },
-      // {
-      //   hid: "og:url",
-      //   property: "og:url",
-      //   content: siteUrl
-      // },
-      // {
-      //   hid: "og:title",
-      //   property: "og:title",
-      //   content: siteName
-      // },
-      // {
-      //   hid: "og:description",
-      //   property: "og:description",
-      //   content: siteDesc
-      // },
-      // {
-      //   hid: "og:image",
-      //   property: "og:image",
-      //   content: siteImage
-      // },
-      // /* Twitter */
-      // {
-      //   hid: "twitter:card",
-      //   property: "twitter:card",
-      //   content: "summary_large_image"
-      // },
-      // {
-      //   hid: "twitter:url",
-      //   property: "twitter:url",
-      //   content: siteUrl
-      // },
-      // {
-      //   hid: "twitter:title",
-      //   property: "twitter:title",
-      //   content: siteName
-      // },
-      // {
-      //   hid: "twitter:description",
-      //   property: "twitter:description",
-      //   content: siteDesc
-      // },
-      // {
-      //   hid: "twitter:image",
-      //   property: "twitter:image",
-      //   content: siteImage
-      // }
+      {
+        hid: "title",
+        name: "title",
+        content: siteName
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: siteDesc
+      },
+      /* Open Graph / Facebook */
+      {
+        hid: "og:site_name",
+        property: "og:site_name",
+        content: siteName
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "website"
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: siteUrl
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: siteName
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: siteDesc
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: siteImage
+      },
+      /* Twitter */
+      {
+        hid: "twitter:card",
+        property: "twitter:card",
+        content: "summary_large_image"
+      },
+      {
+        hid: "twitter:url",
+        property: "twitter:url",
+        content: siteUrl
+      },
+      {
+        hid: "twitter:title",
+        property: "twitter:title",
+        content: siteName
+      },
+      {
+        hid: "twitter:description",
+        property: "twitter:description",
+        content: siteDesc
+      },
+      {
+        hid: "twitter:image",
+        property: "twitter:image",
+        content: siteImage
+      }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     script: [
