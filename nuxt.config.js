@@ -141,7 +141,7 @@ module.exports = {
     "bootstrap-vue/nuxt",
     "@nuxtjs/sentry",
     "@nuxtjs/axios",
-    "@nuxtjs/auth",
+    // "@nuxtjs/auth",
     "@nuxtjs/pwa",
     "nuxt-leaflet"
   ],
@@ -156,6 +156,27 @@ module.exports = {
   axios: {
     baseURL: `${baseURL}/api/v1`
   },
+  // auth: {
+  //   redirect: {
+  //     login: "/login", // default
+  //     logout: "/", // default
+  //     home: "/admin"
+  //   },
+  //   strategies: {
+  //     local: {
+  //       endpoints: {
+  //         login: {
+  //           url: "/auth/login",
+  //           method: "post",
+  //           propertyName: "token"
+  //         },
+  //         logout: false,
+  //         user: { url: "/auth/user", method: "get", propertyName: "user" }
+  //       }
+  //     },
+  //     tokenType: "bearer"
+  //   }
+  // },
   /*
    ** Build configuration
    */

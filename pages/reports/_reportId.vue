@@ -17,7 +17,7 @@
                   <div class="px-2 py-1 border rounded-sm d-inline-flex">
                     <span class="text-sm text-muted">
                       Report: #<span class="text-uppercase"
-                        >{{ report.id | substr7 }}
+                        >{{ report.id }}
                       </span>
                     </span>
                   </div>
@@ -226,11 +226,12 @@ export default {
     AlertTriangleIcon
   },
   head() {
-    const reportId = this.substr7(this.report.id).toUpperCase();
+    const reportId = this.report.id;
     const reportTitle = `Buffalo 311 · Report #${reportId}`;
-    const reportImage = this.report.images.length
-      ? this.report.images[0]
-      : undefined;
+    const reportImage =
+      this.report.images && this.report.images.length
+        ? this.report.images[0]
+        : undefined;
     const reportDesc = this.report.comments
       ? `${this.report.type} · ${this.report.subtype} · ${this.report.comments}`
       : `${this.report.type} · ${this.report.subtype}`;
@@ -286,21 +287,24 @@ export default {
       ]
     };
   },
-  async asyncData({ app, route, $config }) {
-    let report = {};
-    const reportRef = app.$fireStore
-      .collection("issues")
-      .doc(route.params.reportId);
-    try {
-      const reportDoc = await reportRef.get();
-      report = reportDoc.data();
-      report["id"] = reportDoc.id;
-      report.dateCreated = report.dateCreated.toDate();
-    } catch (e) {
-      console.log(e);
-      return;
-    }
-    return { report: report, currentRoute: $config.baseURL + route.path };
+  async asyncData({ $axios, route, error, $config }) {
+    const reportId = route.params.reportId;
+    // console.log($axios.defaults.baseURL, reportId);
+    return $axios
+      .$get(`${$axios.defaults.baseURL}/reports/${reportId}`)
+      .then(res => {
+        if (res) {
+          return {
+            report: res,
+            currentRoute: $config.baseURL + route.path
+          };
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(err => {
+        error({ statusCode: 404, message: "Report not found" });
+      });
   },
   data() {
     return {
@@ -316,9 +320,6 @@ export default {
     };
   },
   methods: {
-    substr7(val) {
-      return val.substring(0, 7);
-    },
     showZoomImageModal(imageUrl) {
       this.imageZoomUrl = imageUrl;
       this.$refs["imageZoomModal"].show();
@@ -330,9 +331,6 @@ export default {
     },
     fixed3(value) {
       return value.toFixed(3);
-    },
-    substr7(value) {
-      return value.substring(0, 7);
     }
   }
 };

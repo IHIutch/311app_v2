@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       map: {
-        url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${$config.mapboxToken}`,
+        url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${this.$config.mapboxToken}`,
         center: [42.8802, -78.8787]
       },
       popup: {}

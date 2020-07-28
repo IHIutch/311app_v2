@@ -82,12 +82,11 @@ import dayjs from "dayjs";
 import DashboardMap from "@/components/dashboard/DashboardMap";
 
 export default {
-  name: "ReportsList",
+  name: "Dashboard",
   layout: "PublicLayout",
   components: { DashboardMap },
   data() {
     return {
-      reports: [],
       fields: [
         { key: "type", sortable: true },
         { key: "email", sortable: true },
@@ -105,27 +104,27 @@ export default {
       }
     };
   },
-  async created() {
-    await this.getReports();
+  async asyncData({ $axios, error }) {
+    return $axios
+      .$get(`${$axios.defaults.baseURL}/reports/`)
+      .then(res => {
+        if (res) {
+          return {
+            reports: res
+          };
+        } else {
+          throw new Error();
+        }
+      })
+      .catch(err => {
+        error({ statusCode: 404, message: err });
+      });
+  },
+  mounted() {
     this.table.totalRows = this.reports.length;
     this.table.isBusy = false;
   },
   methods: {
-    async getReports() {
-      const reportsRef = this.$fireStore.collection("issues");
-      try {
-        const reportsDoc = await reportsRef.get();
-        this.reports = reportsDoc.docs.map(doc => {
-          var obj = doc.data();
-          obj["id"] = doc.id;
-          obj.dateCreated = obj.dateCreated.toDate();
-          return obj;
-        });
-      } catch (e) {
-        alert(e);
-        return;
-      }
-    },
     onFiltered(filteredItems) {
       this.table.totalRows = filteredItems.length;
       this.table.currentPage = 1;
