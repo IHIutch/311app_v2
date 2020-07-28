@@ -286,7 +286,7 @@ export default {
       ]
     };
   },
-  async asyncData({ app, route, env }) {
+  async asyncData({ app, route, $config }) {
     let report = {};
     const reportRef = app.$fireStore
       .collection("issues")
@@ -300,7 +300,7 @@ export default {
       console.log(e);
       return;
     }
-    return { report: report, currentRoute: env.baseURL + route.path };
+    return { report: report, currentRoute: $config.baseURL + route.path };
   },
   data() {
     return {

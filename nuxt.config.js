@@ -1,5 +1,4 @@
-require("dotenv").config();
-const redirectSSL = require("redirect-ssl");
+import redirectSSL from "redirect-ssl";
 
 const baseURL =
   process.env.NODE_ENV === "production"
@@ -12,8 +11,13 @@ const siteDesc =
 const siteImage = `${baseURL}/img/meta/meta_image.jpg`;
 
 module.exports = {
-  env: {
-    baseURL: baseURL
+  publicRuntimeConfig: {
+    baseURL: baseURL,
+    mapboxToken: process.env.MAPBOX_ACCESS_TOKEN,
+    googleMapsKey: process.env.GOOGLE_MAPS_API_KEY
+  },
+  privateRuntimeConfig: {
+    // apiSecret: process.env.API_SECRET
   },
   /*
    ** Nuxt rendering mode
@@ -109,7 +113,7 @@ module.exports = {
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
     script: [
       {
-        src: `https://maps.googleapis.com/maps/api/js?key=${process.env.NUXT_ENV_GOOGLE_MAPS_API_KEY}&libraries=places`
+        src: `https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`
       }
     ]
   },
@@ -133,8 +137,6 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    "@nuxtjs/dotenv",
     // Doc: https://bootstrap-vue.js.org
     "bootstrap-vue/nuxt",
     "@nuxtjs/sentry",
