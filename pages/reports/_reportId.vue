@@ -217,6 +217,7 @@
 
 <script>
 import dayjs from "dayjs";
+import { getMeta } from "@/functions/index";
 import { AlertTriangleIcon } from "vue-feather-icons";
 
 export default {
@@ -235,57 +236,12 @@ export default {
     const reportDesc = this.report.comments
       ? `${this.report.type} · ${this.report.subtype} · ${this.report.comments}`
       : `${this.report.type} · ${this.report.subtype}`;
-    return {
+    return getMeta({
       title: reportTitle,
-      meta: [
-        {
-          hid: "title",
-          name: "title",
-          content: reportTitle
-        },
-        {
-          hid: "description",
-          name: "description",
-          content: reportDesc
-        },
-        { hid: "og:url", property: "og:url", content: this.currentRoute },
-        {
-          hid: "og:title",
-          property: "og:title",
-          content: reportTitle
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: reportImage
-        },
-        {
-          hid: "og:description",
-          property: "og:description",
-          content: reportDesc
-        },
-        {
-          hid: "twitter:url",
-          property: "twitter:url",
-          content: this.currentRoute
-        },
-        {
-          hid: "twitter:title",
-          property: "twitter:title",
-          content: reportTitle
-        },
-        {
-          hid: "twitter:image",
-          property: "twitter:image",
-          content: reportImage
-        },
-        {
-          hid: "twitter:description",
-          property: "twitter:description",
-          content: reportDesc
-        }
-      ]
-    };
+      url: this.currentRoute,
+      description: reportDesc,
+      image: reportImage
+    });
   },
   async asyncData({ $axios, route, error, $config }) {
     const reportId = route.params.reportId;
