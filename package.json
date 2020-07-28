@@ -26,6 +26,7 @@
     "pg-hstore": "^2.3.3",
     "redirect-ssl": "^2.0.0",
     "sequelize": "^6.3.2",
+    "sequelize-cli": "^6.2.0",
     "vue-feather-icons": "^5.0.0",
     "vue-unicons": "^2.2.1"
   },
@@ -34,8 +35,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "node-sass": "^4.14.1",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
-    "sequelize-cli": "^6.2.0"
+    "sass-loader": "^8.0.2"
   },
   "postcss": {
     "plugins": {

@@ -8,11 +8,7 @@ router.get("/", (req, res) => {
     limit: 100
   })
     .then(reports => {
-      if (reports) {
-        res.json(reports);
-      } else {
-        res.json([]);
-      }
+      res.json(reports);
     })
     .catch(err => console.log(err));
 });
