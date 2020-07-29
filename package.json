@@ -18,7 +18,7 @@
     "@nuxtjs/sentry": "^4.2.1",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.15.0",
-    "dayjs": "^1.8.28",
+    "dayjs": "^1.8.31",
     "geolib": "^3.3.1",
     "nuxt": "^2.14.0",
     "nuxt-leaflet": "0.0.21",
