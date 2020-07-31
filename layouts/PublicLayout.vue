@@ -1,23 +1,17 @@
 <template>
   <div>
-    <b-navbar type="light" variant="white" fixed="top" class="shadow-sm h-14">
-      <b-navbar-brand to="/">
-        Buffalo 311
-      </b-navbar-brand>
-      <b-navbar-nav class="ml-auto">
-        <b-button variant="primary" to="/create">
-          Create New Report
-        </b-button>
-      </b-navbar-nav>
-    </b-navbar>
-    <div>
-      <nuxt />
-    </div>
+    <PublicNav />
+    <nuxt class="pt-14" />
   </div>
 </template>
 
 <script>
+import PublicNav from "@/components/common/PublicNav";
+
 export default {
-  name: "PublicLayout"
+  name: "PublicLayout",
+  components: {
+    PublicNav
+  }
 };
 </script>

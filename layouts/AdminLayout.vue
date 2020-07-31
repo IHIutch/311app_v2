@@ -1,18 +1,17 @@
 <template>
   <div>
-    <b-navbar type="light" variant="white" fixed="top" class="shadow-sm h-14">
-      <b-navbar-brand to="/">
-        Buffalo 311
-      </b-navbar-brand>
-    </b-navbar>
-    <div class="pt-14">
-      <nuxt />
-    </div>
+    <AdminNav />
+    <nuxt class="pt-14" />
   </div>
 </template>
 
 <script>
+import AdminNav from "@/components/common/AdminNav";
+
 export default {
-  name: "AdminLayout"
+  name: "AdminLayout",
+  components: {
+    AdminNav
+  }
 };
 </script>
