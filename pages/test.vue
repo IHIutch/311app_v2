@@ -1,19 +1,21 @@
 <template>
-  <b-container tag="main" role="main" class="pt-14 vh-100">
-    <b-row class="h-100 position-relative" style="overflow-x: hidden;">
-      <transition :name="slideDirection">
-        <nuxt-child
-          :group.sync="form.issueGroup"
-          :type.sync="form.issueType"
-          :images.sync="form.images"
-          :description.sync="form.description"
-          :location.sync="form.location"
-          :neighborhood.sync="form.neighborhood"
-          :email.sync="form.email"
-        />
-      </transition>
-    </b-row>
-  </b-container>
+  <div class="position-fixed top-0 h-100 w-100">
+    <b-container tag="main" role="main" class="h-100">
+      <b-row class="h-100 position-relative" style="overflow-x: hidden;">
+        <transition :name="slideDirection">
+          <nuxt-child
+            :group.sync="form.issueGroup"
+            :type.sync="form.issueType"
+            :images.sync="form.images"
+            :description.sync="form.description"
+            :location.sync="form.location"
+            :neighborhood.sync="form.neighborhood"
+            :email.sync="form.email"
+          />
+        </transition>
+      </b-row>
+    </b-container>
+  </div>
 </template>
 
 <script>

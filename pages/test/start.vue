@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="h-100">
     <b-col md="6" offset-md="3" class="h-100 position-absolute py-5" key="1">
       <div
         class="bg-white rounded shadow-sm h-100 overflow-hidden d-flex flex-column p-4"
