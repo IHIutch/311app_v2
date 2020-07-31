@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
     lat: DataTypes.FLOAT,
     lng: DataTypes.FLOAT,
     location: DataTypes.JSONB,
-    locationType: DataTypes.STRING,
     images: DataTypes.JSON,
     status: DataTypes.STRING
   }, {

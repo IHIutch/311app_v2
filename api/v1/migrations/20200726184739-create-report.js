@@ -35,9 +35,6 @@ module.exports = {
       location: {
         type: Sequelize.JSONB
       },
-      locationType: {
-        type: Sequelize.STRING
-      },
       images: {
         type: Sequelize.JSON
       },
