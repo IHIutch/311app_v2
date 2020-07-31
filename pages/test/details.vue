@@ -10,7 +10,7 @@
               <b-button
                 variant="link-white"
                 class="border-0 d-inline-flex align-items-center p-1 text-decoration-none"
-                to="/test/start"
+                @click="$router.go(-1)"
               >
                 <span class="d-flex">
                   <chevron-left-icon size="22" />
