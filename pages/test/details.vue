@@ -154,7 +154,7 @@
           ></b-form-radio-group>
         </b-form-group>
       </div>
-      <div>
+      <div class="mb-8">
         <template v-if="map.selected == 'map'">
           <div class="mb-2">
             <GoogleMapInput :location.sync="location" />
@@ -167,6 +167,14 @@
             :location.sync="location"
           />
         </template>
+      </div>
+      <div class="text-center">
+        <b-button
+          variant="primary"
+          @click="$bvModal.hide('location-modal')"
+          class="px-8"
+          >Save</b-button
+        >
       </div>
     </b-modal>
   </div>
