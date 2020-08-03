@@ -15,7 +15,7 @@
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/sentry": "^4.3.2",
+    "@nuxtjs/sentry": "^4.3.4",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.16.0",
     "dayjs": "^1.8.31",
