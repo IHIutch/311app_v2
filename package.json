@@ -16,7 +16,7 @@
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.3.2",
-    "bootstrap": "^4.5.0",
+    "bootstrap": "^4.5.1",
     "bootstrap-vue": "^2.16.0",
     "dayjs": "^1.8.31",
     "geolib": "^3.3.1",
