@@ -14,8 +14,10 @@
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sentry": "^4.3.2",
+    "aws-sdk": "^2.729.0",
     "bootstrap": "^4.5.0",
     "bootstrap-vue": "^2.16.0",
     "dayjs": "^1.8.31",
