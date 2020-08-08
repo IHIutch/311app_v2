@@ -245,7 +245,7 @@ export default {
   },
   methods: {
     findNeighborhood(point) {
-      const inside = this.neighborhoods.find(neighborhood => {
+      return this.neighborhoods.find(neighborhood => {
         const polygon = neighborhood.coordinates.map(coords => {
           return { latitude: coords[1], longitude: coords[0] };
         });
@@ -254,7 +254,6 @@ export default {
           polygon
         );
       });
-      return inside ? inside.neighborhood : null;
     }
   },
   data() {

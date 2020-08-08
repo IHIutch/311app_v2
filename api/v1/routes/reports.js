@@ -23,4 +23,38 @@ router.get("/:reportId/", (req, res) => {
     .catch(err => console.log(err));
 });
 
+router.post("/", (req, res) => {
+  const {
+    reportTypeId,
+    email,
+    streetNumber,
+    streetName,
+    zipCode,
+    neighborhood,
+    lat,
+    lng,
+    location,
+    images,
+    status
+  } = req.body;
+
+  Report.create({
+    reportTypeId,
+    email,
+    streetNumber,
+    streetName,
+    zipCode,
+    neighborhood,
+    lat,
+    lng,
+    location,
+    images,
+    status
+  })
+    .then(data => {
+      res.status(201).json(data);
+    })
+    .catch(err => console.log(err));
+});
+
 export default router;
