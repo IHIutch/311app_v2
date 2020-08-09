@@ -4,7 +4,8 @@
       Buffalo 311
     </b-navbar-brand>
     <b-navbar-nav class="ml-auto">
-      <b-nav-item to="login" class="mr-2">Login</b-nav-item>
+      <b-nav-item to="/create-account" class="mr-2">Create Account</b-nav-item>
+      <b-nav-item to="/login" class="mr-2">Log In</b-nav-item>
       <b-button variant="primary" to="/create">
         Create New Report
       </b-button>
