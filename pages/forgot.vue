@@ -4,27 +4,18 @@
       <b-row>
         <b-col cols="6" offset="3">
           <div class="bg-white shadow-sm p-4 rounded-sm">
-            <h1 class="mb-5">Log In</h1>
-            <div v-if="errorMessage" class="mb-4">
-              <b-alert variant="danger" show>{{ errorMessage }}</b-alert>
+            <div class="mb-5">
+              <h1>Reset Password</h1>
+              <span class="text-muted">Request a password reset link</span>
             </div>
-            <b-form @submit.prevent="signIn()">
-              <b-form-group label="Email" label-for="email">
+            <b-form @submit.prevent="reset()">
+              <b-form-group label="Email" label-for="email" class="mb-8">
                 <b-form-input
                   id="email"
-                  v-model="form.email"
+                  v-model="email"
                   type="email"
                   required
                   placeholder="Enter email"
-                ></b-form-input>
-              </b-form-group>
-              <b-form-group label="Password" label-for="password">
-                <b-form-input
-                  id="password"
-                  v-model="form.password"
-                  required
-                  placeholder="Enter password"
-                  type="password"
                 ></b-form-input>
               </b-form-group>
               <div class="d-flex">
@@ -33,12 +24,12 @@
                     <span class="mr-2" v-if="busy">
                       <b-spinner small label="Submitting..." />
                     </span>
-                    <span>{{ busy ? "Logging in..." : "Log In" }}</span>
+                    <span>{{ busy ? "Sending..." : "Send Link" }}</span>
                   </b-button>
                 </div>
                 <div>
-                  <b-button variant="link" to="/forgot">
-                    Forgot Password
+                  <b-button variant="link" to="/login">
+                    Back to Login
                   </b-button>
                 </div>
               </div>
@@ -56,16 +47,13 @@ export default {
   layout: "PublicLayout",
   data() {
     return {
-      form: {
-        email: "",
-        password: ""
-      },
+      email: "",
       errorMessage: null,
       busy: false
     };
   },
   methods: {
-    signIn() {
+    reset() {
       this.busy = true;
     }
   }
