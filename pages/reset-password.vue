@@ -5,17 +5,20 @@
         <b-col cols="6" offset="3">
           <div class="bg-white shadow-sm p-4 rounded-sm">
             <div class="mb-5">
-              <h1>Reset Password</h1>
-              <span class="text-muted">Request a password reset link</span>
+              <h1>Enter a New Password</h1>
             </div>
-            <b-form @submit.prevent="reset()">
-              <b-form-group label="Email" label-for="email" class="mb-8">
+            <b-form @submit.prevent="update()" autocomplete="off">
+              <b-form-group
+                label="New Password"
+                label-for="new-password"
+                class="mb-8"
+              >
                 <b-form-input
-                  id="email"
-                  v-model="email"
-                  type="email"
+                  id="new-password"
+                  v-model="password"
+                  type="password"
                   required
-                  placeholder="Enter email"
+                  autocomplete="new-password"
                 ></b-form-input>
               </b-form-group>
               <div class="d-flex">
@@ -24,7 +27,9 @@
                     <span class="mr-2" v-if="busy">
                       <b-spinner small label="Submitting..." />
                     </span>
-                    <span>{{ busy ? "Sending..." : "Send Link" }}</span>
+                    <span>
+                      {{ busy ? "Updating..." : "Update Password" }}
+                    </span>
                   </b-button>
                 </div>
                 <div>
@@ -43,17 +48,17 @@
 
 <script>
 export default {
-  name: "LoginPage",
+  name: "ResetPasswordPage",
   layout: "PublicLayout",
   data() {
     return {
-      email: "",
+      password: "",
       errorMessage: null,
       busy: false
     };
   },
   methods: {
-    reset() {
+    update() {
       this.busy = true;
     }
   }

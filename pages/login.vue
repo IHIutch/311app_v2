@@ -37,7 +37,7 @@
                   </b-button>
                 </div>
                 <div>
-                  <b-button variant="link" to="/forgot">
+                  <b-button variant="link" to="/forgot-password">
                     Forgot Password
                   </b-button>
                 </div>
