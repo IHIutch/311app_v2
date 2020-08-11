@@ -6,7 +6,6 @@
         placeholder="Choose a file or drop it here..."
         drop-placeholder="Drop file here..."
       ></b-form-file>
-      <b-button @click="test()">Test</b-button>
       <b-button @click="getUrl()">Upload</b-button>
     </b-container>
   </div>
@@ -25,19 +24,6 @@ export default {
     };
   },
   methods: {
-    test() {
-      this.$axios
-        .post("/testing", {
-          job: "job",
-          name: "name"
-        })
-        .then(data => {
-          console.log(data);
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    },
     getUrl() {
       var self = this;
       this.$axios
