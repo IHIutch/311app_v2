@@ -26,9 +26,8 @@ export default {
   },
   methods: {
     test() {
-      console.log(this.$axios.defaults);
       this.$axios
-        .$post("/testing", {
+        .post("/testing", {
           job: "job",
           name: "name"
         })
@@ -44,23 +43,19 @@ export default {
       this.$axios
         .$get("/api/v1/upload")
         .then(data => {
-          this.upload(data.fields);
+          this.signedUrl = data;
+          this.upload();
         })
         .catch(err => console.log(err));
     },
-    upload(fields) {
+    upload() {
       let formData = new FormData();
       formData.append("Content-Type", this.images[0].fileType);
-      Object.keys(fields).forEach(key => {
-        formData.append(key, fields[key]);
+      Object.keys(this.signedUrl.fields).forEach(key => {
+        formData.append(key, this.signedUrl.fields[key]);
       });
       formData.append("file", this.images[0].file);
-      formData.forEach((key, val) => {
-        console.log(key, val);
-      });
-      this.$axios.$post("/aws", {
-        formData
-      });
+      this.$axios.post("/aws", formData);
     },
     onFileChange(e) {
       let self = this;

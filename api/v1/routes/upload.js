@@ -24,7 +24,6 @@ router.get("/", (req, res) => {
         key: `uploads/${uuidv4()}`
       },
       Conditions: [
-        { acl: "public-read" },
         ["starts-with", "$key", "uploads/"],
         ["starts-with", "$Content-Type", "image/"]
       ],
