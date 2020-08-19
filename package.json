@@ -22,7 +22,7 @@
     "geolib": "^3.3.1",
     "nuxt": "^2.14.1",
     "nuxt-leaflet": "0.0.21",
-    "pg": "^8.3.0",
+    "pg": "^8.3.2",
     "pg-hstore": "^2.3.3",
     "redirect-ssl": "^2.0.0",
     "sequelize": "^6.3.4",
