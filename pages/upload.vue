@@ -5,6 +5,7 @@
         @change="onFileChange"
         placeholder="Choose a file or drop it here..."
         drop-placeholder="Drop file here..."
+        multiple
       ></b-form-file>
       <b-button @click="getUrl()">Upload</b-button>
     </b-container>
@@ -26,28 +27,28 @@ export default {
   methods: {
     getUrl() {
       var self = this;
-      this.$axios
-        .$get("/api/v1/upload")
-        .then(data => {
-          this.signedUrl = data;
-          this.upload();
-        })
-        .catch(err => console.log(err));
-    },
-    upload() {
-      let formData = new FormData();
-      formData.append("Content-Type", this.images[0].fileType);
-      Object.keys(this.signedUrl.fields).forEach(key => {
-        formData.append(key, this.signedUrl.fields[key]);
+      this.images.forEach(image => {
+        this.$axios
+          .$get("/api/v1/upload")
+          .then(data => {
+            this.upload(data, image);
+          })
+          .catch(err => console.log(err));
       });
-      formData.append("file", this.images[0].file);
+    },
+    upload(signedUrl, image) {
+      const formData = new FormData();
+      Object.keys(signedUrl.fields).forEach(key => {
+        formData.append(key, signedUrl.fields[key]);
+      });
+      formData.append("Content-Type", image.fileType);
+      formData.append("file", image.file);
       this.$axios.post("/aws", formData);
     },
     onFileChange(e) {
       let self = this;
-      let fiveMb = 5242880;
-      let files = [...e.target.files].slice(0, 4);
-      // this.file = e.target.files[0];
+      const fiveMb = 5242880;
+      const files = [...e.target.files].slice(0, 4);
       files
         .filter(file => {
           return file.size < fiveMb;

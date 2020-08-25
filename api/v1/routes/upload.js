@@ -33,7 +33,6 @@ router.get("/", (req, res) => {
       if (err) {
         res.status(500).json(err);
       } else {
-        console.log(data);
         res.status(200).json(data);
       }
     }

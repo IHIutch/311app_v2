@@ -245,7 +245,6 @@ export default {
   },
   async asyncData({ $axios, route, error, $config }) {
     const reportId = route.params.reportId;
-    // console.log($axios.defaults.baseURL, reportId);
     return $axios
       .$get(`api/v1/reports/${reportId}`)
       .then(res => {
