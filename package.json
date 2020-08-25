@@ -17,6 +17,8 @@
     "@nuxtjs/pwa": "^3.0.1",
     "@nuxtjs/sentry": "^4.3.4",
     "bootstrap": "^4.5.2",
+    "@nuxtjs/proxy": "^2.0.1",
+    "aws-sdk": "^2.729.0",
     "bootstrap-vue": "^2.16.0",
     "dayjs": "^1.8.32",
     "geolib": "^3.3.1",

@@ -153,7 +153,13 @@ module.exports = {
     dsn: "https://fb0586e37cde4cbaa306926bf377ef5f@sentry.io/1516230"
   },
   axios: {
-    baseURL: `${baseURL}/api/v1`
+    proxy: true
+  },
+  proxy: {
+    "/aws": {
+      target: "https://s3.us-east-2.amazonaws.com/buffalo311",
+      pathRewrite: { "^/aws": "" }
+    }
   },
   // auth: {
   //   redirect: {

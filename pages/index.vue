@@ -106,7 +106,7 @@ export default {
   },
   async asyncData({ $axios, error }) {
     return $axios
-      .$get(`${$axios.defaults.baseURL}/reports/`)
+      .$get("api/v1/reports/")
       .then(res => {
         if (res) {
           return {

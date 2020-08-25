@@ -247,7 +247,7 @@ export default {
     const reportId = route.params.reportId;
     // console.log($axios.defaults.baseURL, reportId);
     return $axios
-      .$get(`${$axios.defaults.baseURL}/reports/${reportId}`)
+      .$get(`api/v1/reports/${reportId}`)
       .then(res => {
         if (res) {
           return {
