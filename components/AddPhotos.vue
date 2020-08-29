@@ -78,6 +78,7 @@ export default {
           const reader = new FileReader();
           reader.onload = e => {
             self.local.images.push({
+              file: file,
               base64String: e.target.result,
               fileType: file.type,
               fileName: file.name

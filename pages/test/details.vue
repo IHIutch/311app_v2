@@ -140,7 +140,9 @@
           </div>
         </div>
         <div class="p-4">
-          <b-button type="submit" variant="primary" block>Submit</b-button>
+          <b-button type="submit" variant="primary" block :disabled="busy">
+            <span>Submit</span>
+          </b-button>
         </div>
       </form>
     </b-col>
@@ -229,6 +231,7 @@ export default {
   },
   data() {
     return {
+      busy: false,
       local: {
         email: "",
         description: "",
@@ -292,15 +295,44 @@ export default {
         );
       });
     },
+    aws(signedUrl, image) {
+      const formData = new FormData();
+      Object.keys(signedUrl.fields).forEach(key => {
+        formData.append(key, signedUrl.fields[key]);
+      });
+      formData.append("Content-Type", image.fileType);
+      formData.append("file", image.file);
+      this.$axios.post("/aws", formData);
+    },
+    uploadImage(image) {
+      return this.$axios
+        .$get("/api/v1/upload")
+        .then(data => {
+          this.aws(data, image);
+          image["path"] = data.fields.key;
+          return image["path"];
+        })
+        .catch(err => console.log(err));
+    },
     submit() {
-      console.log({
-        group: this.group,
-        type: this.type,
-        email: this.email,
-        description: this.description,
-        neighborhood: this.neighborhood,
-        location: this.location,
-        images: this.images
+      this.busy = true;
+      Promise.all(
+        this.images.map(image => {
+          return this.uploadImage(image);
+        })
+      ).then(() => {
+        console.log({
+          group: this.group,
+          type: this.type,
+          email: this.email,
+          description: this.description,
+          neighborhood: this.neighborhood,
+          location: this.location,
+          images: this.images.map(image => {
+            return image.path;
+          })
+        });
+        this.busy = false;
       });
     }
   }
