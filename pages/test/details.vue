@@ -1,151 +1,149 @@
 <template>
   <div>
-    <b-col md="6" offset-md="3" class="position-absolute py-5" key="2">
-      <form
-        @submit.prevent="submit()"
-        class="bg-white rounded shadow-sm overflow-hidden mb-5"
-      >
-        <div class="embed-responsive embed-responsive-21by9">
+    <form
+      @submit.prevent="submit()"
+      class="bg-white rounded shadow-sm overflow-hidden mb-5"
+    >
+      <div class="embed-responsive embed-responsive-21by9">
+        <div
+          class="embed-responsive-item bg-secondary d-flex flex-column justify-content-between p-4"
+        >
+          <div>
+            <b-button
+              variant="link-white"
+              class="border-0 d-inline-flex align-items-center p-1 text-decoration-none"
+              @click="$router.go(-1)"
+            >
+              <span class="d-flex">
+                <chevron-left-icon size="22" />
+              </span>
+              <span class="ml-1">Back</span>
+            </b-button>
+          </div>
+          <div>
+            <div>
+              <span class="text-white text-sm">{{ group }}</span>
+            </div>
+            <div>
+              <span class="text-white text-2xl">
+                {{ type }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex align-items-start px-4 py-2 border-bottom">
           <div
-            class="embed-responsive-item bg-secondary d-flex flex-column justify-content-between p-4"
+            class="w-10 h-10 d-flex align-items-center justify-content-center"
           >
-            <div>
-              <b-button
-                variant="link-white"
-                class="border-0 d-inline-flex align-items-center p-1 text-decoration-none"
-                @click="$router.go(-1)"
-              >
-                <span class="d-flex">
-                  <chevron-left-icon size="22" />
-                </span>
-                <span class="ml-1">Back</span>
-              </b-button>
-            </div>
-            <div>
-              <div>
-                <span class="text-white text-sm">{{ group }}</span>
-              </div>
-              <div>
-                <span class="text-white text-2xl">
-                  {{ type }}
-                </span>
-              </div>
-            </div>
+            <map-pin-icon />
           </div>
-        </div>
-        <div>
-          <div class="d-flex align-items-start px-4 py-2 border-bottom">
+          <div class="flex-grow-1 pl-4">
             <div
-              class="w-10 h-10 d-flex align-items-center justify-content-center"
+              class="d-flex align-items-center justify-content-between mb-2 flex-wrap"
             >
-              <map-pin-icon />
-            </div>
-            <div class="flex-grow-1 pl-4">
-              <div
-                class="d-flex align-items-center justify-content-between mb-2 flex-wrap"
-              >
-                <div class="d-flex">
-                  <span class="font-weight-bold text-sm">Location</span>
-                  <span class="text-muted text-sm pl-1">(Required)</span>
-                </div>
+              <div class="d-flex">
+                <span class="font-weight-bold text-sm">Location</span>
+                <span class="text-muted text-sm pl-1">(Required)</span>
               </div>
-              <div>
-                <template
-                  v-if="local.location && Object.keys(local.location).length"
-                >
-                  <div class="d-flex align-items-center">
-                    <b-form-input
-                      :value="
-                        location.street_number
-                          ? `${location.street_number} ${location.route}`
-                          : `${location.lat.toFixed(3)}, ${location.lng.toFixed(
-                              3
-                            )}`
-                      "
-                      readonly
-                    ></b-form-input>
-                    <b-button variant="link-primary" v-b-modal.location-modal>
-                      Change
-                    </b-button>
-                  </div>
-                </template>
-                <template v-else>
-                  <b-button
-                    block
-                    variant="outline-primary"
-                    v-b-modal.location-modal
-                  >
-                    Add Location
+            </div>
+            <div>
+              <template
+                v-if="local.location && Object.keys(local.location).length"
+              >
+                <div class="d-flex align-items-center">
+                  <b-form-input
+                    :value="
+                      location.street_number
+                        ? `${location.street_number} ${location.route}`
+                        : `${location.lat.toFixed(3)}, ${location.lng.toFixed(
+                            3
+                          )}`
+                    "
+                    readonly
+                  ></b-form-input>
+                  <b-button variant="link-primary" v-b-modal.location-modal>
+                    Change
                   </b-button>
-                </template>
-              </div>
-            </div>
-          </div>
-          <div class="d-flex align-items-start px-4 py-2 border-bottom">
-            <div
-              class="w-10 h-10 d-flex align-items-center justify-content-center"
-            >
-              <camera-icon />
-            </div>
-            <div class="flex-grow-1 pl-4">
-              <div class="d-flex mb-2">
-                <span class="font-weight-bold text-sm">Photos</span>
-              </div>
-              <AddPhotos :images.sync="local.images" />
-            </div>
-          </div>
-          <div class="d-flex align-items-start px-4 py-2 border-bottom">
-            <div
-              class="w-10 h-10 d-flex align-items-center justify-content-center"
-            >
-              <edit-icon />
-            </div>
-            <div class="flex-grow-1 pl-4">
-              <b-form-group
-                label-class="font-weight-bold text-sm"
-                label="Description/Details"
-                label-for="description"
-              >
-                <b-form-textarea
-                  v-model="local.description"
-                  id="description"
-                  placeholder="Additional Details"
-                  rows="6"
-                  max-rows="8"
-                ></b-form-textarea>
-              </b-form-group>
-            </div>
-          </div>
-          <div class="d-flex align-items-start px-4 py-2 border-bottom">
-            <div
-              class="w-10 h-10 d-flex align-items-center justify-content-center"
-            >
-              <mail-icon />
-            </div>
-            <div class="flex-grow-1 pl-4">
-              <b-form-group
-                label-class="font-weight-bold text-sm"
-                label="Email Address"
-                label-for="email"
-                description="Enter your email to get updates about your report."
-              >
-                <b-form-input
-                  id="email"
-                  v-model="local.email"
-                  type="email"
-                  placeholder="Enter email"
-                ></b-form-input>
-              </b-form-group>
+                </div>
+              </template>
+              <template v-else>
+                <b-button
+                  block
+                  variant="outline-primary"
+                  v-b-modal.location-modal
+                >
+                  Add Location
+                </b-button>
+              </template>
             </div>
           </div>
         </div>
-        <div class="p-4">
-          <b-button type="submit" variant="primary" block :disabled="busy">
-            <span>Submit</span>
-          </b-button>
+        <div class="d-flex align-items-start px-4 py-2 border-bottom">
+          <div
+            class="w-10 h-10 d-flex align-items-center justify-content-center"
+          >
+            <camera-icon />
+          </div>
+          <div class="flex-grow-1 pl-4">
+            <div class="d-flex mb-2">
+              <span class="font-weight-bold text-sm">Photos</span>
+            </div>
+            <AddPhotos :images.sync="local.images" />
+          </div>
         </div>
-      </form>
-    </b-col>
+        <div class="d-flex align-items-start px-4 py-2 border-bottom">
+          <div
+            class="w-10 h-10 d-flex align-items-center justify-content-center"
+          >
+            <edit-icon />
+          </div>
+          <div class="flex-grow-1 pl-4">
+            <b-form-group
+              label-class="font-weight-bold text-sm"
+              label="Description/Details"
+              label-for="description"
+            >
+              <b-form-textarea
+                v-model="local.description"
+                id="description"
+                placeholder="Additional Details"
+                rows="6"
+                max-rows="8"
+              ></b-form-textarea>
+            </b-form-group>
+          </div>
+        </div>
+        <div class="d-flex align-items-start px-4 py-2 border-bottom">
+          <div
+            class="w-10 h-10 d-flex align-items-center justify-content-center"
+          >
+            <mail-icon />
+          </div>
+          <div class="flex-grow-1 pl-4">
+            <b-form-group
+              label-class="font-weight-bold text-sm"
+              label="Email Address"
+              label-for="email"
+              description="Enter your email to get updates about your report."
+            >
+              <b-form-input
+                id="email"
+                v-model="local.email"
+                type="email"
+                placeholder="Enter email"
+              ></b-form-input>
+            </b-form-group>
+          </div>
+        </div>
+      </div>
+      <div class="p-4">
+        <b-button type="submit" variant="primary" block :disabled="busy">
+          <span>Submit</span>
+        </b-button>
+      </div>
+    </form>
 
     <b-modal id="location-modal" title="Get Location" hide-footer>
       <div class="d-flex justify-content-center">

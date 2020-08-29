@@ -1,17 +1,47 @@
 <template>
-  <div class="position-fixed top-0 h-100 w-100">
-    <b-container tag="main" role="main" class="h-100">
-      <b-row class="h-100 position-relative" style="overflow-x: hidden;">
-        <transition :name="slideDirection">
-          <nuxt-child
-            :group.sync="form.issueGroup"
-            :type.sync="form.issueType"
-            :images.sync="form.images"
-            :description.sync="form.description"
-            :location.sync="form.location"
-            :neighborhood.sync="form.neighborhood"
-            :email.sync="form.email"
-          />
+  <div
+    :class="{
+      'position-fixed top-0 h-100 w-100': $route.path === '/test/start'
+    }"
+  >
+    <b-container
+      tag="main"
+      role="main"
+      :class="{ 'h-100': $route.path === '/test/start' }"
+    >
+      <b-row
+        class="position-relative"
+        :class="{ 'h-100': $route.path === '/test/start' }"
+        style="overflow-x: hidden;"
+      >
+        <transition
+          :name="
+            $route.path === '/test/start'
+              ? 'slide-fade-back'
+              : 'slide-fade-forward'
+          "
+          mode="out-in"
+        >
+          <b-col
+            :key="$route.path"
+            md="8"
+            offset-md="2"
+            xl="6"
+            offset-xl="3"
+            class="py-5"
+            :class="{ 'h-100': $route.path === '/test/start' }"
+          >
+            <nuxt-child
+              :key="$route.path"
+              :group.sync="form.issueGroup"
+              :type.sync="form.issueType"
+              :images.sync="form.images"
+              :description.sync="form.description"
+              :location.sync="form.location"
+              :neighborhood.sync="form.neighborhood"
+              :email.sync="form.email"
+            />
+          </b-col>
         </transition>
       </b-row>
     </b-container>
