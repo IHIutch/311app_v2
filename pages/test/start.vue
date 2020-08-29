@@ -81,6 +81,11 @@ export default {
     EditIcon,
     PlusIcon
   },
+  asyncData() {
+    return {
+      searchExamples: []
+    };
+  },
   data() {
     return {
       form: {
@@ -88,7 +93,6 @@ export default {
         issueType: ""
       },
       search: "",
-      searchExamples: [],
       types: [...new Set(issuesJSON.map(data => data.text))].sort()
     };
   },
@@ -99,7 +103,7 @@ export default {
       this.$router.push(`/test/details`);
     },
     getSearchExamples() {
-      while (this.searchExamples.length < 3) {
+      while (this.searchExamples.length < 2) {
         let val = this.types[Math.floor(Math.random() * this.types.length)];
         if (!this.searchExamples.includes(val)) {
           this.searchExamples.push(val);
@@ -108,7 +112,9 @@ export default {
     }
   },
   created() {
-    this.getSearchExamples();
+    if (!this.searchExamples.length) {
+      this.getSearchExamples();
+    }
   },
   computed: {
     groups() {
@@ -136,5 +142,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped></style>
