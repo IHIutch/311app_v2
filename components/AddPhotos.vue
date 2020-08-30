@@ -41,7 +41,9 @@
       </b-col>
     </template>
     <b-col cols="12">
-      <span class="text-muted text-sm">Upload up to 4 images, 5MB each</span>
+      <div class="mb-4">
+        <span class="text-muted small">Upload up to 4 images, 5MB each</span>
+      </div>
     </b-col>
   </b-form-row>
 </template>
@@ -79,7 +81,6 @@ export default {
           reader.onload = e => {
             self.local.images.push({
               file: file,
-              base64String: e.target.result,
               fileType: file.type,
               fileName: file.name
             });

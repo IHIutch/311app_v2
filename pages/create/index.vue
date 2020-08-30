@@ -93,10 +93,13 @@ export default {
     };
   },
   methods: {
-    selectType(group, issue) {
+    slugify(value) {
+      return value.replace(/\W+/g, "-").toLowerCase();
+    },
+    selectType(group, type) {
       this.$emit("update:group", group);
-      this.$emit("update:type", issue);
-      this.$router.push(`/test/details`);
+      this.$emit("update:type", type);
+      this.$router.push(`/create/${this.slugify(type)}`);
     },
     getSearchExamples() {
       while (this.searchExamples.length < 2) {
