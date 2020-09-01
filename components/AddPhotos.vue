@@ -5,7 +5,7 @@
         <b-img
           rounded
           :src="image.base64String"
-          class="fit-cover embed-responsive-item border"
+          class="object-cover embed-responsive-item border"
         />
         <div class="position-absolute top-0 right-0 pt-2 pr-2">
           <button
@@ -82,7 +82,8 @@ export default {
             self.local.images.push({
               file: file,
               fileType: file.type,
-              fileName: file.name
+              fileName: file.name,
+              base64String: e.target.result
             });
           };
           reader.readAsDataURL(file);
