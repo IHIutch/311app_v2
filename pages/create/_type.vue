@@ -140,7 +140,8 @@
       </div>
       <div class="p-4">
         <b-button type="submit" variant="primary" block :disabled="busy">
-          <span>Submit</span>
+          <b-spinner v-if="busy" label="Submitting..." small></b-spinner>
+          <span v-else>Submit</span>
         </b-button>
       </div>
     </form>
@@ -302,15 +303,14 @@ export default {
       });
       formData.append("Content-Type", image.fileType);
       formData.append("file", image.file);
-      this.$axios.post("/aws", formData);
+      return this.$axios.post("/aws", formData);
     },
     uploadImage(image) {
       return this.$axios
         .$get("api/v1/upload")
         .then(data => {
-          this.aws(data, image);
           image["path"] = `${this.$config.awsURL}/${data.fields.key}`;
-          return image["path"];
+          return this.aws(data, image);
         })
         .catch(err => console.log(err));
     },

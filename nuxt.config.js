@@ -8,11 +8,12 @@ const siteName = "Buffalo 311";
 const siteDesc =
   "The data that the City of Buffalo collects in its day-to-day operations to make Buffalo a great place to live, work, and play are a valuable asset for all citizens. Data are the building blocks of information. Information applied is knowledge and knowledge is power.";
 const siteImage = `${baseURL}/img/meta/meta_image.jpg`;
+const awsURL = "https://s3.us-east-2.amazonaws.com/buffalo311";
 
 module.exports = {
   publicRuntimeConfig: {
     baseURL: baseURL,
-    awsURL: "https://s3.us-east-2.amazonaws.com/buffalo311",
+    awsURL: awsURL,
     mapboxToken: process.env.MAPBOX_ACCESS_TOKEN,
     googleMapsKey: process.env.GOOGLE_MAPS_API_KEY
   },
@@ -158,7 +159,7 @@ module.exports = {
   },
   proxy: {
     "/aws": {
-      target: "https://s3.us-east-2.amazonaws.com/buffalo311",
+      target: awsURL,
       pathRewrite: { "^/aws": "" }
     }
   },
