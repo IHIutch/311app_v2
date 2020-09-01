@@ -227,7 +227,7 @@ export default {
     location: Object,
     email: String,
     images: Array,
-    neighborhood: Object,
+    neighborhood: String,
     description: String
   },
   data() {
@@ -287,7 +287,7 @@ export default {
   },
   methods: {
     getNeighborhood(point) {
-      return this.neighborhoods.find(neighborhood => {
+      const found = this.neighborhoods.find(neighborhood => {
         const polygon = neighborhood.coordinates.map(coords => {
           return { latitude: coords[1], longitude: coords[0] };
         });
@@ -296,6 +296,7 @@ export default {
           polygon
         );
       });
+      return found ? found.neighborhood : "";
     },
     aws(signedUrl, image) {
       const formData = new FormData();
@@ -324,28 +325,20 @@ export default {
       ).then(() => {
         this.$axios
           .$post("api/v1/reports", {
-            reportTypeId: null,
-            email: this.email ? this.email : null,
-            description: this.description ? this.description : "",
-            streetNumber: this.location.street_number
-              ? this.location.street_number
-              : null,
-            streetName: this.location.route ? this.location.route : null,
-            zipCode: this.location.postal_code
-              ? this.location.postal_code
-              : null,
+            reportTypeId: this.reportTypeId || null,
+            email: this.email,
+            description: this.description,
             lat: this.location.lat,
             lng: this.location.lng,
-            neighborhood: this.neighborhood
-              ? this.neighborhood.neighborhood
-              : null,
             location: this.location,
+            streetNumber: this.location.street_number || null,
+            streetName: this.location.route || null,
+            zipCode: this.location.postal_code || null,
+            neighborhood: this.neighborhood || null,
             images: this.images.map(image => {
               return image.path;
             }),
-            status: this.status,
-            group: this.group,
-            type: this.type
+            status: this.status
           })
           .then(data => {
             this.busy = false;

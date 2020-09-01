@@ -59,7 +59,8 @@ export default {
         images: [],
         description: "",
         location: {},
-        email: ""
+        email: "",
+        neighborhood: ""
       },
       step: 1
     };
