@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
     lng: DataTypes.FLOAT,
     location: DataTypes.JSONB,
     images: DataTypes.JSON,
-    status: DataTypes.STRING
+    status: DataTypes.STRING,
+    description: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Report',
