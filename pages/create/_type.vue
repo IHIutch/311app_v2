@@ -192,6 +192,7 @@ import GoogleMapInput from "@/components/GoogleMapInput";
 import AddPhotos from "@/components/AddPhotos";
 
 import neighborhoodJSON from "@/data/neighborhoods.json";
+import { reportStatus } from "@/constants";
 
 import {
   ChevronRightIcon,
@@ -237,6 +238,7 @@ export default {
         location: {}
       },
       neighborhoods: neighborhoodJSON,
+      status: reportStatus.OPEN,
       map: {
         selected: "map",
         options: [
@@ -304,10 +306,10 @@ export default {
     },
     uploadImage(image) {
       return this.$axios
-        .$get("/api/v1/upload")
+        .$get("api/v1/upload")
         .then(data => {
           this.aws(data, image);
-          image["path"] = data.fields.key;
+          image["path"] = `${this.$config.awsURL}/${data.fields.key}`;
           return image["path"];
         })
         .catch(err => console.log(err));
@@ -319,18 +321,36 @@ export default {
           return this.uploadImage(image);
         })
       ).then(() => {
-        console.log({
-          group: this.group,
-          type: this.type,
-          email: this.email,
-          description: this.description,
-          neighborhood: this.neighborhood,
-          location: this.location,
-          images: this.images.map(image => {
-            return image.path;
+        this.$axios
+          .$post("api/v1/reports", {
+            reportTypeId: null,
+            email: this.email ? this.email : null,
+            description: this.description ? this.description : "",
+            streetNumber: this.location.street_number
+              ? this.location.street_number
+              : null,
+            streetName: this.location.route ? this.location.route : null,
+            zipCode: this.location.postal_code
+              ? this.location.postal_code
+              : null,
+            lat: this.location.lat,
+            lng: this.location.lng,
+            neighborhood: this.neighborhood
+              ? this.neighborhood.neighborhood
+              : null,
+            location: this.location,
+            images: this.images.map(image => {
+              return image.path;
+            }),
+            status: this.status,
+            group: this.group,
+            type: this.type
           })
-        });
-        this.busy = false;
+          .then(data => {
+            this.busy = false;
+            this.$router.push(`/reports/${data}`);
+          })
+          .catch(err => console.log(err));
       });
     }
   }

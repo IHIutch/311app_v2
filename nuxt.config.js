@@ -12,6 +12,7 @@ const siteImage = `${baseURL}/img/meta/meta_image.jpg`;
 module.exports = {
   publicRuntimeConfig: {
     baseURL: baseURL,
+    awsURL: "https://s3.us-east-2.amazonaws.com/buffalo311",
     mapboxToken: process.env.MAPBOX_ACCESS_TOKEN,
     googleMapsKey: process.env.GOOGLE_MAPS_API_KEY
   },

@@ -52,7 +52,7 @@ router.post("/", (req, res) => {
     status
   })
     .then(data => {
-      res.status(201).json(data);
+      res.status(201).json(data.id);
     })
     .catch(err => console.log(err));
 });
