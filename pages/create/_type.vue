@@ -227,7 +227,8 @@ export default {
     location: Object,
     email: String,
     images: Array,
-    neighborhood: Object
+    neighborhood: Object,
+    description: String
   },
   data() {
     return {

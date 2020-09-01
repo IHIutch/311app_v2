@@ -35,7 +35,8 @@ router.post("/", (req, res) => {
     lng,
     location,
     images,
-    status
+    status,
+    description
   } = req.body;
 
   Report.create({
@@ -49,7 +50,8 @@ router.post("/", (req, res) => {
     lng,
     location,
     images,
-    status
+    status,
+    description
   })
     .then(data => {
       res.status(201).json(data.id);

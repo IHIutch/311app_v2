@@ -72,8 +72,8 @@
                     <div class="mb-2">
                       <span class="font-weight-bold">Description:</span>
                     </div>
-                    <template v-if="report.comments">
-                      <p class="mb-0">{{ report.comments }}</p>
+                    <template v-if="report.description">
+                      <p class="mb-0">{{ report.description }}</p>
                     </template>
                     <template v-else>
                       <p class="text-muted mb-0">
