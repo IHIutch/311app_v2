@@ -17,7 +17,7 @@
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/sentry": "^4.3.4",
-    "aws-sdk": "^2.740.0",
+    "aws-sdk": "^2.744.0",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
     "dayjs": "^1.8.32",
@@ -27,7 +27,7 @@
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "redirect-ssl": "^2.0.0",
-    "sequelize": "^6.3.4",
+    "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "vue-feather-icons": "^5.1.0",
     "vue-unicons": "^2.2.1"
