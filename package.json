@@ -23,7 +23,7 @@
     "dayjs": "^1.8.32",
     "geolib": "^3.3.1",
     "nuxt": "^2.14.4",
-    "nuxt-leaflet": "0.0.21",
+    "nuxt-leaflet": "0.0.22",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "redirect-ssl": "^2.0.0",
