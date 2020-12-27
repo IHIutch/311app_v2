@@ -1,8 +1,8 @@
 <template>
   <div>
     <form
-      @submit.prevent="submit()"
       class="bg-white rounded shadow-sm overflow-hidden mb-5"
+      @submit.prevent="submit()"
     >
       <div class="embed-responsive embed-responsive-21by9">
         <div
@@ -63,16 +63,16 @@
                     "
                     readonly
                   ></b-form-input>
-                  <b-button variant="link-primary" v-b-modal.location-modal>
+                  <b-button v-b-modal.location-modal variant="link-primary">
                     Change
                   </b-button>
                 </div>
               </template>
               <template v-else>
                 <b-button
+                  v-b-modal.location-modal
                   block
                   variant="outline-primary"
-                  v-b-modal.location-modal
                 >
                   Add Location
                 </b-button>
@@ -106,8 +106,8 @@
               label-for="description"
             >
               <b-form-textarea
-                v-model="local.description"
                 id="description"
+                v-model="local.description"
                 placeholder="Additional Details"
                 rows="6"
                 max-rows="8"
@@ -177,8 +177,8 @@
       <div class="text-center">
         <b-button
           variant="primary"
-          @click="$bvModal.hide('location-modal')"
           class="px-8"
+          @click="$bvModal.hide('location-modal')"
           >Save</b-button
         >
       </div>
@@ -187,13 +187,13 @@
 </template>
 
 <script>
-import isPointInPolygon from "geolib/es/isPointInPolygon";
-import AddressGeocodeInput from "@/components/AddressGeocodeInput";
-import GoogleMapInput from "@/components/GoogleMapInput";
-import AddPhotos from "@/components/AddPhotos";
+import isPointInPolygon from 'geolib/es/isPointInPolygon'
+import AddressGeocodeInput from '@/components/AddressGeocodeInput'
+import GoogleMapInput from '@/components/GoogleMapInput'
+import AddPhotos from '@/components/AddPhotos'
 
-import neighborhoodJSON from "@/data/neighborhoods.json";
-import { reportStatus } from "@/constants";
+import neighborhoodJSON from '@/data/neighborhoods.json'
+import { reportStatus } from '@/constants'
 
 import {
   ChevronRightIcon,
@@ -203,11 +203,11 @@ import {
   CameraIcon,
   EditIcon,
   PlusIcon,
-  MailIcon
-} from "vue-feather-icons";
+  MailIcon,
+} from 'vue-feather-icons'
 
 export default {
-  name: "CreateDetails",
+  name: 'CreateDetails',
   components: {
     AddressGeocodeInput,
     GoogleMapInput,
@@ -219,7 +219,7 @@ export default {
     CameraIcon,
     EditIcon,
     PlusIcon,
-    MailIcon
+    MailIcon,
   },
   props: {
     group: String,
@@ -228,103 +228,103 @@ export default {
     email: String,
     images: Array,
     neighborhood: String,
-    description: String
+    description: String,
   },
   data() {
     return {
       busy: false,
       local: {
-        email: "",
-        description: "",
+        email: '',
+        description: '',
         images: [],
-        location: {}
+        location: {},
       },
       neighborhoods: neighborhoodJSON,
       status: reportStatus.OPEN,
       map: {
-        selected: "map",
+        selected: 'map',
         options: [
           {
-            text: "Use Map",
-            value: "map"
+            text: 'Use Map',
+            value: 'map',
           },
           {
-            text: "Use Address",
-            value: "address"
-          }
-        ]
-      }
-    };
+            text: 'Use Address',
+            value: 'address',
+          },
+        ],
+      },
+    }
   },
   watch: {
-    "local.images"() {
-      this.$emit("update:images", this.local.images);
+    'local.images'() {
+      this.$emit('update:images', this.local.images)
     },
-    "local.description"() {
-      this.$emit("update:description", this.local.description);
+    'local.description'() {
+      this.$emit('update:description', this.local.description)
     },
-    "local.email"() {
-      this.$emit("update:email", this.local.email);
+    'local.email'() {
+      this.$emit('update:email', this.local.email)
     },
-    "local.location"() {
-      this.$emit("update:location", this.local.location);
+    'local.location'() {
+      this.$emit('update:location', this.local.location)
       if (
         this.local.location &&
         this.local.location.lat &&
         this.local.location.lng
       ) {
         this.$emit(
-          "update:neighborhood",
+          'update:neighborhood',
           this.getNeighborhood({
             lat: this.local.location.lat,
-            lng: this.local.location.lng
+            lng: this.local.location.lng,
           })
-        );
+        )
       } else {
-        this.$emit("update:neighborhood", null);
+        this.$emit('update:neighborhood', null)
       }
-    }
+    },
   },
   methods: {
     getNeighborhood(point) {
-      const found = this.neighborhoods.find(neighborhood => {
-        const polygon = neighborhood.coordinates.map(coords => {
-          return { latitude: coords[1], longitude: coords[0] };
-        });
+      const found = this.neighborhoods.find((neighborhood) => {
+        const polygon = neighborhood.coordinates.map((coords) => {
+          return { latitude: coords[1], longitude: coords[0] }
+        })
         return isPointInPolygon(
           { latitude: point.lat, longitude: point.lng },
           polygon
-        );
-      });
-      return found ? found.neighborhood : "";
+        )
+      })
+      return found ? found.neighborhood : ''
     },
     aws(signedUrl, image) {
-      const formData = new FormData();
-      Object.keys(signedUrl.fields).forEach(key => {
-        formData.append(key, signedUrl.fields[key]);
-      });
-      formData.append("Content-Type", image.fileType);
-      formData.append("file", image.file);
-      return this.$axios.post("/aws", formData);
+      const formData = new FormData()
+      Object.keys(signedUrl.fields).forEach((key) => {
+        formData.append(key, signedUrl.fields[key])
+      })
+      formData.append('Content-Type', image.fileType)
+      formData.append('file', image.file)
+      return this.$axios.post('/aws', formData)
     },
     uploadImage(image) {
       return this.$axios
-        .$get("api/v1/upload")
-        .then(data => {
-          image["path"] = `${this.$config.awsURL}/${data.fields.key}`;
-          return this.aws(data, image);
+        .$get('api/v1/upload')
+        .then((data) => {
+          image.path = `${this.$config.awsURL}/${data.fields.key}`
+          return this.aws(data, image)
         })
-        .catch(err => console.log(err));
+        .catch((err) => console.log(err))
     },
     submit() {
-      this.busy = true;
+      this.busy = true
       Promise.all(
-        this.images.map(image => {
-          return this.uploadImage(image);
+        this.images.map((image) => {
+          return this.uploadImage(image)
         })
       ).then(() => {
         this.$axios
-          .$post("api/v1/reports", {
+          .$post('api/v1/reports', {
             reportTypeId: this.reportTypeId || null,
             email: this.email,
             description: this.description,
@@ -335,18 +335,18 @@ export default {
             streetName: this.location.route || null,
             zipCode: this.location.postal_code || null,
             neighborhood: this.neighborhood || null,
-            images: this.images.map(image => {
-              return image.path;
+            images: this.images.map((image) => {
+              return image.path
             }),
-            status: this.status
+            status: this.status,
           })
-          .then(data => {
-            this.busy = false;
-            this.$router.push(`/reports/${data}`);
+          .then((data) => {
+            this.busy = false
+            this.$router.push(`/reports/${data}`)
           })
-          .catch(err => console.log(err));
-      });
-    }
-  }
-};
+          .catch((err) => console.log(err))
+      })
+    },
+  },
+}
 </script>

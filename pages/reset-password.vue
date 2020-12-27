@@ -7,7 +7,7 @@
             <div class="mb-5">
               <h1>Enter a New Password</h1>
             </div>
-            <b-form @submit.prevent="update()" autocomplete="off">
+            <b-form autocomplete="off" @submit.prevent="update()">
               <b-form-group
                 label="New Password"
                 label-for="new-password"
@@ -24,11 +24,11 @@
               <div class="d-flex">
                 <div class="mr-3">
                   <b-button type="submit" variant="primary" :disabled="busy">
-                    <span class="mr-2" v-if="busy">
+                    <span v-if="busy" class="mr-2">
                       <b-spinner small label="Submitting..." />
                     </span>
                     <span>
-                      {{ busy ? "Updating..." : "Update Password" }}
+                      {{ busy ? 'Updating...' : 'Update Password' }}
                     </span>
                   </b-button>
                 </div>
@@ -48,19 +48,19 @@
 
 <script>
 export default {
-  name: "ResetPasswordPage",
-  layout: "PublicLayout",
+  name: 'ResetPasswordPage',
+  layout: 'PublicLayout',
   data() {
     return {
-      password: "",
+      password: '',
       errorMessage: null,
-      busy: false
-    };
+      busy: false,
+    }
   },
   methods: {
     update() {
-      this.busy = true;
-    }
-  }
-};
+      this.busy = true
+    },
+  },
+}
 </script>

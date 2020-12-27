@@ -30,10 +30,10 @@
               <div class="d-flex">
                 <div class="mr-3">
                   <b-button type="submit" variant="primary" :disabled="busy">
-                    <span class="mr-2" v-if="busy">
+                    <span v-if="busy" class="mr-2">
                       <b-spinner small label="Submitting..." />
                     </span>
-                    <span>{{ busy ? "Logging in..." : "Log In" }}</span>
+                    <span>{{ busy ? 'Logging in...' : 'Log In' }}</span>
                   </b-button>
                 </div>
                 <div>
@@ -52,22 +52,22 @@
 
 <script>
 export default {
-  name: "LoginPage",
-  layout: "PublicLayout",
+  name: 'LoginPage',
+  layout: 'PublicLayout',
   data() {
     return {
       form: {
-        email: "",
-        password: ""
+        email: '',
+        password: '',
       },
       errorMessage: null,
-      busy: false
-    };
+      busy: false,
+    }
   },
   methods: {
     signIn() {
-      this.busy = true;
-    }
-  }
-};
+      this.busy = true
+    },
+  },
+}
 </script>

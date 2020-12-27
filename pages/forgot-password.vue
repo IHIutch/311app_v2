@@ -21,10 +21,10 @@
               <div class="d-flex">
                 <div class="mr-3">
                   <b-button type="submit" variant="primary" :disabled="busy">
-                    <span class="mr-2" v-if="busy">
+                    <span v-if="busy" class="mr-2">
                       <b-spinner small label="Submitting..." />
                     </span>
-                    <span>{{ busy ? "Sending..." : "Send Link" }}</span>
+                    <span>{{ busy ? 'Sending...' : 'Send Link' }}</span>
                   </b-button>
                 </div>
                 <div>
@@ -43,19 +43,19 @@
 
 <script>
 export default {
-  name: "ForgotPasswordPage",
-  layout: "PublicLayout",
+  name: 'ForgotPasswordPage',
+  layout: 'PublicLayout',
   data() {
     return {
-      email: "",
+      email: '',
       errorMessage: null,
-      busy: false
-    };
+      busy: false,
+    }
   },
   methods: {
     reset() {
-      this.busy = true;
-    }
-  }
-};
+      this.busy = true
+    },
+  },
+}
 </script>

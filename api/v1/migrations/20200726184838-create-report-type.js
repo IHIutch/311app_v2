@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('ReportTypes', {
@@ -6,31 +6,31 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       group: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       department: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       markerColor: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
+        type: Sequelize.DATE,
+      },
+    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('ReportTypes');
-  }
-};
+    await queryInterface.dropTable('ReportTypes')
+  },
+}

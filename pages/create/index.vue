@@ -9,15 +9,13 @@
       <div>
         <b-form-group
           class="mb-0"
-          :description="
-            `Example: &quot;${searchExamples[0]}&quot; or &quot;${searchExamples[1]}&quot;`
-          "
+          :description="`Example: &quot;${searchExamples[0]}&quot; or &quot;${searchExamples[1]}&quot;`"
         >
           <div class="position-relative">
             <b-form-input
+              v-model="search"
               class="pl-10"
               placeholder="Search..."
-              v-model="search"
               type="text"
             ></b-form-input>
             <div
@@ -55,7 +53,7 @@
 </template>
 
 <script>
-import issuesJSON from "@/data/issues.json";
+import issuesJSON from '@/data/issues.json'
 import {
   ChevronRightIcon,
   ChevronLeftIcon,
@@ -63,11 +61,11 @@ import {
   MapPinIcon,
   CameraIcon,
   EditIcon,
-  PlusIcon
-} from "vue-feather-icons";
+  PlusIcon,
+} from 'vue-feather-icons'
 
 export default {
-  name: "CreateStart",
+  name: 'CreateStart',
   components: {
     ChevronRightIcon,
     ChevronLeftIcon,
@@ -75,69 +73,71 @@ export default {
     MapPinIcon,
     CameraIcon,
     EditIcon,
-    PlusIcon
+    PlusIcon,
   },
   asyncData() {
     return {
-      searchExamples: []
-    };
+      searchExamples: [],
+    }
   },
   data() {
     return {
       form: {
-        issueGroup: "",
-        issueType: ""
+        issueGroup: '',
+        issueType: '',
       },
-      search: "",
-      types: [...new Set(issuesJSON.map(data => data.text))].sort()
-    };
-  },
-  methods: {
-    slugify(value) {
-      return value.replace(/\W+/g, "-").toLowerCase();
-    },
-    selectType(group, type) {
-      this.$emit("update:group", group);
-      this.$emit("update:type", type);
-      this.$router.push(`/create/${this.slugify(type)}`);
-    },
-    getSearchExamples() {
-      while (this.searchExamples.length < 2) {
-        let val = this.types[Math.floor(Math.random() * this.types.length)];
-        if (!this.searchExamples.includes(val)) {
-          this.searchExamples.push(val);
-        }
-      }
-    }
-  },
-  created() {
-    if (!this.searchExamples.length) {
-      this.getSearchExamples();
+      search: '',
+      types: [...new Set(issuesJSON.map((data) => data.text))].sort(),
     }
   },
   computed: {
     groups() {
-      let filtered = issuesJSON.filter(data => {
-        return data.text.toLowerCase().includes(this.search.toLowerCase());
-      });
+      const filtered = issuesJSON.filter((data) => {
+        return data.text.toLowerCase().includes(this.search.toLowerCase())
+      })
 
-      let filteredtTypes = [...new Set(filtered.map(data => data.type))].sort();
+      const filteredtTypes = [
+        ...new Set(filtered.map((data) => data.type)),
+      ].sort()
 
-      let issues = filteredtTypes.map(group => {
+      const issues = filteredtTypes.map((group) => {
         return {
           title: group,
           issues: filtered
-            .filter(g => {
-              return g.type == group;
+            .filter((g) => {
+              return g.type == group
             })
-            .map(issue => {
-              return issue.text;
+            .map((issue) => {
+              return issue.text
             })
-            .sort()
-        };
-      });
-      return issues;
+            .sort(),
+        }
+      })
+      return issues
+    },
+  },
+  created() {
+    if (!this.searchExamples.length) {
+      this.getSearchExamples()
     }
-  }
-};
+  },
+  methods: {
+    slugify(value) {
+      return value.replace(/\W+/g, '-').toLowerCase()
+    },
+    selectType(group, type) {
+      this.$emit('update:group', group)
+      this.$emit('update:type', type)
+      this.$router.push(`/create/${this.slugify(type)}`)
+    },
+    getSearchExamples() {
+      while (this.searchExamples.length < 2) {
+        const val = this.types[Math.floor(Math.random() * this.types.length)]
+        if (!this.searchExamples.includes(val)) {
+          this.searchExamples.push(val)
+        }
+      }
+    },
+  },
+}
 </script>

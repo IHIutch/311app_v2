@@ -10,9 +10,9 @@
             <b-col cols="6">
               <b-input-group>
                 <b-form-input
+                  id="filterInput"
                   v-model="table.filter"
                   type="search"
-                  id="filterInput"
                   placeholder="Type to Search"
                 ></b-form-input>
                 <b-input-group-append>
@@ -78,71 +78,71 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
-import DashboardMap from "@/components/dashboard/DashboardMap";
+import dayjs from 'dayjs'
+import DashboardMap from '@/components/dashboard/DashboardMap'
 
 export default {
-  name: "Dashboard",
-  layout: "PublicLayout",
+  name: 'Dashboard',
+  layout: 'PublicLayout',
   components: { DashboardMap },
+  filters: {
+    date(value) {
+      return dayjs(value).format('MM/DD/YY')
+    },
+  },
+  async asyncData({ $axios, error }) {
+    return $axios
+      .$get('api/v1/reports/')
+      .then((res) => {
+        if (res) {
+          return {
+            reports: res,
+          }
+        } else {
+          throw new Error()
+        }
+      })
+      .catch((err) => {
+        error({ statusCode: 404, message: err })
+      })
+  },
   data() {
     return {
       fields: [
-        { key: "type", sortable: true },
-        { key: "email", sortable: true },
-        { key: "dateCreated", label: "Created", sortable: true },
-        { key: "link", label: "", sortable: false }
+        { key: 'type', sortable: true },
+        { key: 'email', sortable: true },
+        { key: 'dateCreated', label: 'Created', sortable: true },
+        { key: 'link', label: '', sortable: false },
       ],
       table: {
         isBusy: true,
         totalRows: 1,
         currentPage: 1,
         perPage: 10,
-        filter: "",
-        sortBy: "dateCreated",
-        sortDesc: false
-      }
-    };
-  },
-  async asyncData({ $axios, error }) {
-    return $axios
-      .$get("api/v1/reports/")
-      .then(res => {
-        if (res) {
-          return {
-            reports: res
-          };
-        } else {
-          throw new Error();
-        }
-      })
-      .catch(err => {
-        error({ statusCode: 404, message: err });
-      });
-  },
-  mounted() {
-    this.table.totalRows = this.reports.length;
-    this.table.isBusy = false;
-  },
-  methods: {
-    onFiltered(filteredItems) {
-      this.table.totalRows = filteredItems.length;
-      this.table.currentPage = 1;
+        filter: '',
+        sortBy: 'dateCreated',
+        sortDesc: false,
+      },
     }
   },
   computed: {
     tableRangeShowing() {
-      let range = this.table.currentPage * this.table.perPage;
+      const range = this.table.currentPage * this.table.perPage
       return {
         start: range - this.table.perPage + 1,
-        end: range < this.table.totalRows ? range : this.table.totalRows
-      };
-    }
+        end: range < this.table.totalRows ? range : this.table.totalRows,
+      }
+    },
   },
-  filters: {
-    date(value) {
-      return dayjs(value).format("MM/DD/YY");
-    }
-  }
-};
+  mounted() {
+    this.table.totalRows = this.reports.length
+    this.table.isBusy = false
+  },
+  methods: {
+    onFiltered(filteredItems) {
+      this.table.totalRows = filteredItems.length
+      this.table.currentPage = 1
+    },
+  },
+}
 </script>

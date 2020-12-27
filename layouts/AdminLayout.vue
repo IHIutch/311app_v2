@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import AdminNav from "@/components/common/AdminNav";
+import AdminNav from '@/components/common/AdminNav'
 
 export default {
-  name: "AdminLayout",
+  name: 'AdminLayout',
   components: {
-    AdminNav
-  }
-};
+    AdminNav,
+  },
+}
 </script>

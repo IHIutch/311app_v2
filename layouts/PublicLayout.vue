@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import PublicNav from "@/components/common/PublicNav";
+import PublicNav from '@/components/common/PublicNav'
 
 export default {
-  name: "PublicLayout",
+  name: 'PublicLayout',
   components: {
-    PublicNav
-  }
-};
+    PublicNav,
+  },
+}
 </script>

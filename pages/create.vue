@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'position-fixed top-0 h-100 w-100': $route.name === 'create'
+      'position-fixed top-0 h-100 w-100': $route.name === 'create',
     }"
   >
     <b-container
@@ -12,7 +12,7 @@
       <b-row
         class="position-relative"
         :class="{ 'h-100': $route.name === 'create' }"
-        style="overflow-x: hidden;"
+        style="overflow-x: hidden"
       >
         <transition
           :name="
@@ -48,34 +48,34 @@
 
 <script>
 export default {
-  name: "CreateWrapper",
-  layout: "PublicLayout",
+  name: 'CreateWrapper',
+  layout: 'PublicLayout',
   data() {
     return {
-      slideDirection: "",
+      slideDirection: '',
       form: {
-        issueGroup: "",
-        issueType: "",
+        issueGroup: '',
+        issueType: '',
         images: [],
-        description: "",
+        description: '',
         location: {},
-        email: "",
-        neighborhood: ""
+        email: '',
+        neighborhood: '',
       },
-      step: 1
-    };
+      step: 1,
+    }
   },
   methods: {
     goBack() {
-      this.step--;
-      this.slideDirection = "slide-fade-back";
+      this.step--
+      this.slideDirection = 'slide-fade-back'
     },
     goForward() {
-      this.step++;
-      this.slideDirection = "slide-fade-forward";
-    }
-  }
-};
+      this.step++
+      this.slideDirection = 'slide-fade-forward'
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>

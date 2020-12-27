@@ -12,9 +12,9 @@
       class="mb-2"
     />
     <b-button
-      @click="getCurrentLocation()"
       variant="primary"
       :disabled="findingLocation"
+      @click="getCurrentLocation()"
     >
       <span v-if="findingLocation">
         <b-spinner small label="Finding Your Location..." />
@@ -27,35 +27,35 @@
 
 <script>
 export default {
-  name: "NavigatorGeolocationInput",
+  name: 'NavigatorGeolocationInput',
   props: {
-    location: { type: Object, required: true }
+    location: { type: Object, required: true },
   },
   data() {
     return {
       test: {},
-      findingLocation: false
-    };
+      findingLocation: false,
+    }
   },
   methods: {
     getCurrentLocation() {
-      this.findingLocation = true;
+      this.findingLocation = true
       navigator.geolocation.getCurrentPosition(
-        position => {
-          var obj = {
+        (position) => {
+          const obj = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-            accuracy: position.coords.accuracy
-          };
-          this.findingLocation = false;
-          this.$emit("update:location", obj);
+            accuracy: position.coords.accuracy,
+          }
+          this.findingLocation = false
+          this.$emit('update:location', obj)
         },
-        error => {
-          alert(`ERROR(${error.code}): ${error.message}`);
-          this.findingLocation = false;
+        (error) => {
+          alert(`ERROR(${error.code}): ${error.message}`)
+          this.findingLocation = false
         }
-      );
-    }
-  }
-};
+      )
+    },
+  },
+}
 </script>

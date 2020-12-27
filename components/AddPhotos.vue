@@ -1,6 +1,6 @@
 <template>
   <b-form-row>
-    <b-col cols="6" md="4" v-for="(image, idx) in images" :key="idx">
+    <b-col v-for="(image, idx) in images" :key="idx" cols="6" md="4">
       <div class="embed-responsive embed-responsive-1by1 mb-3">
         <b-img
           rounded
@@ -21,12 +21,12 @@
     <template v-if="images.length < 4">
       <b-col cols="6" md="4">
         <input
-          type="file"
           id="file"
-          @change="onFileChange"
+          type="file"
           multiple
           accept="image/jpeg, image/png"
           class="d-none"
+          @change="onFileChange"
         />
         <label for="file" class="embed-responsive embed-responsive-1by1">
           <div
@@ -49,51 +49,51 @@
 </template>
 
 <script>
-import { XIcon, PlusIcon } from "vue-feather-icons";
+import { XIcon, PlusIcon } from 'vue-feather-icons'
 
 export default {
-  name: "AddPhotos",
-  props: {
-    images: { type: Array }
-  },
+  name: 'AddPhotos',
   components: {
     XIcon,
-    PlusIcon
+    PlusIcon,
+  },
+  props: {
+    images: { type: Array },
   },
   data() {
     return {
       local: {
-        images: []
-      }
-    };
+        images: [],
+      },
+    }
   },
   methods: {
     onFileChange(e) {
-      let self = this;
-      let fiveMb = 5242880;
-      let files = [...e.target.files].slice(0, 4);
+      const self = this
+      const fiveMb = 5242880
+      const files = [...e.target.files].slice(0, 4)
       files
-        .filter(file => {
-          return file.size < fiveMb;
+        .filter((file) => {
+          return file.size < fiveMb
         })
-        .forEach(file => {
-          const reader = new FileReader();
-          reader.onload = e => {
+        .forEach((file) => {
+          const reader = new FileReader()
+          reader.onload = (e) => {
             self.local.images.push({
-              file: file,
+              file,
               fileType: file.type,
               fileName: file.name,
-              base64String: e.target.result
-            });
-          };
-          reader.readAsDataURL(file);
-        });
+              base64String: e.target.result,
+            })
+          }
+          reader.readAsDataURL(file)
+        })
 
-      this.$emit("update:images", this.local.images);
+      this.$emit('update:images', this.local.images)
     },
     removeFile(idx) {
-      this.local.images.splice(idx, 1);
-    }
-  }
-};
+      this.local.images.splice(idx, 1)
+    },
+  },
+}
 </script>

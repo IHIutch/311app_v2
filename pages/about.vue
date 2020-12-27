@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "About",
-  layout: "PublicLayout"
-};
+  name: 'About',
+  layout: 'PublicLayout',
+}
 </script>

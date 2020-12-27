@@ -15,10 +15,10 @@
             :key="idx"
             :lat-lng="[point.lat, point.lng]"
             :radius="4"
-            :fillOpacity="1"
+            :fill-opacity="1"
             :weight="10"
             :color="point.markerColor + '40'"
-            :fillColor="point.markerColor"
+            :fill-color="point.markerColor"
             @click="pointClick(point)"
           />
         </template>
@@ -29,27 +29,27 @@
 
 <script>
 export default {
-  name: "DashboardMap",
+  name: 'DashboardMap',
   props: {
     points: {
       type: Array,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       map: {
         url: `https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${this.$config.mapboxToken}`,
-        center: [42.8802, -78.8787]
+        center: [42.8802, -78.8787],
       },
-      popup: {}
-    };
+      popup: {},
+    }
   },
   methods: {
     pointClick(info) {
-      this.popup = info;
-      this.$refs.feature.mapObject.openPopup([info.lat, info.lng]);
-    }
-  }
-};
+      this.popup = info
+      this.$refs.feature.mapObject.openPopup([info.lat, info.lng])
+    },
+  },
+}
 </script>

@@ -117,9 +117,9 @@
                       </div>
                       <b-form-row>
                         <b-col
-                          cols="6"
                           v-for="(image, index) in report.images"
                           :key="index"
+                          cols="6"
                         >
                           <b-button
                             variant="link"
@@ -216,77 +216,77 @@
 </template>
 
 <script>
-import dayjs from "dayjs";
-import { getMeta } from "@/functions/index";
-import { AlertTriangleIcon } from "vue-feather-icons";
+import dayjs from 'dayjs'
+import { getMeta } from '@/functions/index'
+import { AlertTriangleIcon } from 'vue-feather-icons'
 
 export default {
-  name: "ReportPage",
-  layout: "PublicLayout",
+  name: 'ReportPage',
+  layout: 'PublicLayout',
   components: {
-    AlertTriangleIcon
+    AlertTriangleIcon,
   },
-  head() {
-    const reportId = this.report.id;
-    const reportTitle = `Buffalo 311 · Report #${reportId}`;
-    const reportImage =
-      this.report.images && this.report.images.length
-        ? this.report.images[0]
-        : undefined;
-    const reportDesc = this.report.comments
-      ? `${this.report.type} · ${this.report.subtype} · ${this.report.comments}`
-      : `${this.report.type} · ${this.report.subtype}`;
-    return getMeta({
-      title: reportTitle,
-      url: this.currentRoute,
-      description: reportDesc,
-      image: reportImage
-    });
+  filters: {
+    date(value) {
+      return dayjs(value).format('MM/DD/YY, hh:mmA')
+    },
+    fixed3(value) {
+      return value.toFixed(3)
+    },
   },
   async asyncData({ $axios, route, error, $config }) {
-    const reportId = route.params.reportId;
+    const reportId = route.params.reportId
     return $axios
       .$get(`api/v1/reports/${reportId}`)
-      .then(res => {
+      .then((res) => {
         if (res) {
           return {
             report: res,
-            currentRoute: $config.baseURL + route.path
-          };
+            currentRoute: $config.baseURL + route.path,
+          }
         } else {
-          throw new Error();
+          throw new Error()
         }
       })
-      .catch(err => {
-        error({ statusCode: 404, message: "Report not found" });
-      });
+      .catch((err) => {
+        error({ statusCode: 404, message: 'Report not found' })
+      })
   },
   data() {
     return {
       imageZoomUrl: null,
       report: {},
       section: {
-        value: "overview",
+        value: 'overview',
         options: [
-          { text: "Overview", value: "overview" },
-          { text: "Updates", value: "updates" }
-        ]
-      }
-    };
+          { text: 'Overview', value: 'overview' },
+          { text: 'Updates', value: 'updates' },
+        ],
+      },
+    }
   },
   methods: {
     showZoomImageModal(imageUrl) {
-      this.imageZoomUrl = imageUrl;
-      this.$refs["imageZoomModal"].show();
-    }
-  },
-  filters: {
-    date(value) {
-      return dayjs(value).format("MM/DD/YY, hh:mmA");
+      this.imageZoomUrl = imageUrl
+      this.$refs.imageZoomModal.show()
     },
-    fixed3(value) {
-      return value.toFixed(3);
-    }
-  }
-};
+  },
+  head() {
+    const reportId = this.report.id
+    const reportTitle = `Buffalo 311 · Report #${reportId}`
+    const reportImage =
+      this.report.images && this.report.images.length
+        ? this.report.images[0]
+        : undefined
+    const reportDesc = this.report.comments
+      ? `${this.report.type} · ${this.report.subtype} · ${this.report.comments}`
+      : `${this.report.type} · ${this.report.subtype}`
+    return getMeta({
+      title: reportTitle,
+      url: this.currentRoute,
+      description: reportDesc,
+      image: reportImage,
+    })
+  },
+}
 </script>

@@ -13,37 +13,37 @@
 
 <script>
 export default {
-  name: "AdminPage",
-  layout: "AdminLayout",
+  name: 'AdminPage',
+  layout: 'AdminLayout',
   data() {
     return {
-      currentUser: null
-    };
+      currentUser: null,
+    }
   },
   created() {
-    this.getCurrentUser();
+    this.getCurrentUser()
   },
   methods: {
     async getCurrentUser() {
       try {
-        this.$fireAuth.onAuthStateChanged(user => {
-          this.currentUser = user.email;
-        });
+        this.$fireAuth.onAuthStateChanged((user) => {
+          this.currentUser = user.email
+        })
       } catch (e) {
-        alert(e);
+        alert(e)
       }
     },
     logOut() {
       this.$fireAuth.signOut().then(() => {
         this.$fireAuth.onAuthStateChanged(() => {
-          if (this.$route.path === "/") {
-            this.$router.go();
+          if (this.$route.path === '/') {
+            this.$router.go()
           } else {
-            this.$router.push("/");
+            this.$router.push('/')
           }
-        });
-      });
-    }
-  }
-};
+        })
+      })
+    },
+  },
+}
 </script>

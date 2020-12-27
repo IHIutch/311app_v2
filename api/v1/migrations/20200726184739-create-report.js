@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Reports', {
@@ -6,55 +6,55 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       reportTypeId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       streetNumber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       streetName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       zipCode: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       neighborhood: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       lat: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
       },
       lng: {
-        type: Sequelize.FLOAT
+        type: Sequelize.FLOAT,
       },
       location: {
-        type: Sequelize.JSONB
+        type: Sequelize.JSONB,
       },
       images: {
-        type: Sequelize.JSON
+        type: Sequelize.JSON,
       },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
+        type: Sequelize.DATE,
+      },
+    })
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Reports');
-  }
-};
+    await queryInterface.dropTable('Reports')
+  },
+}
