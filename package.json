@@ -8,8 +8,19 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "export": "nuxt export",
-    "serve": "nuxt serve"
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore . --fix",
+    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint": "yarn lint:js && yarn lint:style"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint",
+    "*.{css,vue}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
@@ -20,9 +31,10 @@
     "aws-sdk": "^2.744.0",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
+    "core-js": "^3.6.5",
     "dayjs": "^1.8.32",
     "geolib": "^3.3.1",
-    "nuxt": "^2.14.4",
+    "nuxt": "^2.14.6",
     "nuxt-leaflet": "0.0.21",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
@@ -33,10 +45,21 @@
     "vue-unicons": "^2.2.1"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^6.11.0",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/stylelint-module": "^4.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-nuxt": "^1.0.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
+    "stylelint": "^13.7.2",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
     "node-sass": "^4.14.1",
-    "prettier": "^1.19.1",
     "sass-loader": "^8.0.2"
   },
   "postcss": {
@@ -48,14 +71,5 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ],
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,vue}": [
-      "vue-cli-service lint",
-      "git add"
-    ]
-  }
+  ]
 }
