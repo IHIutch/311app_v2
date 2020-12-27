@@ -8042,15 +8042,15 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-leaflet@0.0.21:
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/nuxt-leaflet/-/nuxt-leaflet-0.0.21.tgz#174a9ee1873092ce49ee48b0f993a392a369decc"
-  integrity sha512-7JangX6SrTFLvepwgHc7eE9TI0Idb974SU2fgvITSDDSuqPSHC2JwtYWx3KLb+gifsP6rPkzXb9NsmMdeOs9OA==
+nuxt-leaflet@0.0.25:
+  version "0.0.25"
+  resolved "https://registry.yarnpkg.com/nuxt-leaflet/-/nuxt-leaflet-0.0.25.tgz#b68b94ff2a524a9424d79b5fb72666c11799a064"
+  integrity sha512-R/XWs/kQOat+sgAggQk7llmgPXLWWCwDs7Z7N7y1XNc0cKW5Phc+wfBxNvuYS0tQ+UuS9CtNOSxhLJEBXl1wjQ==
   dependencies:
     "@types/leaflet" "1.5.4"
     leaflet "^1.6.0"
     npm-publish-git-tag "^3.0.3"
-    vue2-leaflet "^2.5.2"
+    vue2-leaflet "^2.6.0"
 
 nuxt@^2.14.6:
   version "2.14.12"
@@ -11896,7 +11896,7 @@ vue-unicons@^2.2.1:
     vue "^2.5.22"
     vue-analytics "^5.16.2"
 
-vue2-leaflet@^2.5.2:
+vue2-leaflet@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/vue2-leaflet/-/vue2-leaflet-2.6.0.tgz#c83c60a745fbc2a74d9dbd0f75b2a5ae07d220a9"
   integrity sha512-JG+w9TtNuk1yRpPta+RjzH6J+opdRUPzSo8UuBnwk+a/6XD0f2tsaB6g3D6ZpBgIE4wZA2dbZ0dZFz2ulYMj3A==

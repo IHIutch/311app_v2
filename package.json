@@ -38,7 +38,7 @@
     "html-to-text": "^6.0.0",
     "mjml": "^4.7.1",
     "nuxt": "^2.14.6",
-    "nuxt-leaflet": "0.0.21",
+    "nuxt-leaflet": "0.0.25",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
     "redirect-ssl": "^2.0.0",
