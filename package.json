@@ -22,7 +22,7 @@
     "bootstrap-vue": "^2.16.0",
     "dayjs": "^1.8.32",
     "geolib": "^3.3.1",
-    "nuxt": "^2.14.4",
+    "nuxt": "^2.14.12",
     "nuxt-leaflet": "0.0.21",
     "pg": "^8.3.3",
     "pg-hstore": "^2.3.3",
