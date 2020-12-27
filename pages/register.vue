@@ -8,11 +8,11 @@
             <div v-if="errorMessage" class="mb-4">
               <b-alert variant="danger" show>{{ errorMessage }}</b-alert>
             </div>
-            <b-form @submit.prevent="signIn()">
+            <b-form @submit.prevent="register()">
               <b-form-group label="Your Email" label-for="email">
                 <b-form-input
                   id="email"
-                  v-model="form.email"
+                  v-model="email"
                   type="email"
                   required
                   placeholder="Enter email"
@@ -21,7 +21,7 @@
               <b-form-group label="Create Password" label-for="new-password">
                 <b-form-input
                   id="new-password"
-                  v-model="form.password"
+                  v-model="password"
                   required
                   placeholder="Enter password"
                   type="password"
@@ -48,17 +48,24 @@ export default {
   layout: 'PublicLayout',
   data() {
     return {
-      form: {
-        email: '',
-        password: '',
-      },
+      email: '',
+      password: '',
       errorMessage: null,
       busy: false,
     }
   },
   methods: {
-    signIn() {
+    register() {
       this.busy = true
+      this.$axios
+        .$post('api/v1/users', {
+          email: this.email,
+          password: '',
+        })
+        .then((data) => {
+          this.busy = false
+        })
+        .catch((err) => console.log(err))
     },
   },
 }

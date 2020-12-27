@@ -28,12 +28,15 @@
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/pwa": "^3.0.2",
     "@nuxtjs/sentry": "^4.3.4",
+    "@sendgrid/mail": "^7.4.0",
     "aws-sdk": "^2.744.0",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.16.0",
     "core-js": "^3.6.5",
     "dayjs": "^1.8.32",
     "geolib": "^3.3.1",
+    "html-to-text": "^6.0.0",
+    "mjml": "^4.7.1",
     "nuxt": "^2.14.6",
     "nuxt-leaflet": "0.0.21",
     "pg": "^8.3.3",
@@ -42,6 +45,7 @@
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.2.0",
     "vue-feather-icons": "^5.1.0",
+    "vue-server-renderer": "^2.6.12",
     "vue-unicons": "^2.2.1"
   },
   "devDependencies": {
@@ -55,12 +59,12 @@
     "eslint-plugin-prettier": "^3.1.4",
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
+    "node-sass": "^4.14.1",
     "prettier": "^2.1.2",
+    "sass-loader": "^8.0.2",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-standard": "^20.0.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^8.0.2"
+    "stylelint-config-standard": "^20.0.0"
   },
   "postcss": {
     "plugins": {
