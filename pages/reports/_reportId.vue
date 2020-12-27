@@ -234,7 +234,7 @@ export default {
       return value.toFixed(3)
     },
   },
-  async asyncData({ $axios, route, error, $config }) {
+  asyncData({ $axios, route, error, $config }) {
     const reportId = route.params.reportId
     return $axios
       .$get(`api/v1/reports/${reportId}`)
@@ -245,11 +245,13 @@ export default {
             currentRoute: $config.baseURL + route.path,
           }
         } else {
-          throw new Error()
+          throw new Error(error)
         }
       })
       .catch((err) => {
-        error({ statusCode: 404, message: 'Report not found' })
+        if (err) {
+          error({ statusCode: 404, message: `Report not found. ${err}` })
+        }
       })
   },
   data() {

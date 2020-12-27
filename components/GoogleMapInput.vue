@@ -12,7 +12,7 @@
           <b-button
             variant="primary"
             class="py-0 align-items-center d-flex"
-            :disabled="isFinding || (this.location && this.location.current)"
+            :disabled="isFinding || (location && location.current)"
             title="Get Current Location"
             @click="getCurrentLocation()"
           >
@@ -35,6 +35,8 @@
 
 <script>
 import { CrosshairIcon } from 'vue-feather-icons'
+// eslint-disable-next-line no-undef
+const googleMaps = google.maps
 
 export default {
   name: 'GoogleMapInput',
@@ -76,11 +78,11 @@ export default {
     this.$emit('update:location', {})
   },
   methods: {
-    async initGoogleMap() {
+    initGoogleMap() {
       const self = this
       const mapOptions = {
         zoom: 14,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeId: googleMaps.MapTypeId.ROADMAP,
         fullscreenControl: false,
         streetViewControl: false,
         controlSize: 30,
@@ -97,7 +99,7 @@ export default {
           },
         ],
       }
-      this.map = new google.maps.Map(
+      this.map = new googleMaps.Map(
         document.getElementById('googleMap'),
         mapOptions
       )
@@ -105,21 +107,21 @@ export default {
         this.getCurrentLocation()
       } else {
         this.map.setCenter(
-          new google.maps.LatLng(this.buffaloCoords.lat, this.buffaloCoords.lng)
+          new googleMaps.LatLng(this.buffaloCoords.lat, this.buffaloCoords.lng)
         )
       }
-      google.maps.event.addListener(this.map, 'click', function (e) {
+      googleMaps.event.addListener(this.map, 'click', function (e) {
         if (self.marker || self.infowindow) {
           self.marker.setMap(null)
           self.infoWindow.setMap(null)
         }
-        self.marker = new google.maps.Marker({
+        self.marker = new googleMaps.Marker({
           position: e.latLng,
           map: self.map,
         })
-        self.infoWindow = new google.maps.InfoWindow({
-          content: `Latitude: 
-          ${e.latLng.lat().toFixed(3)}, 
+        self.infoWindow = new googleMaps.InfoWindow({
+          content: `Latitude:
+          ${e.latLng.lat().toFixed(3)},
             Longitude: ${e.latLng.lng().toFixed(3)}`,
         })
         self.infoWindow.open(self.map, self.marker)
@@ -135,8 +137,8 @@ export default {
     async getCurrentLocation() {
       this.isFinding = true
       const getPos = () => {
-        return new Promise((res, rej) => {
-          navigator.geolocation.getCurrentPosition(res, rej)
+        return new Promise((resolve, reject) => {
+          navigator.geolocation.getCurrentPosition(resolve, reject)
         })
       }
       const obj = await getPos()
@@ -151,13 +153,13 @@ export default {
         this.marker.setMap(null)
         this.infoWindow.setMap(null)
       }
-      this.infoWindow = new google.maps.InfoWindow({
+      this.infoWindow = new googleMaps.InfoWindow({
         position: pos,
-        content: `Latitude: 
-          ${pos.lat.toFixed(3)}, 
+        content: `Latitude:
+          ${pos.lat.toFixed(3)},
             Longitude: ${pos.lng.toFixed(3)}`,
       })
-      this.marker = new google.maps.Marker({
+      this.marker = new googleMaps.Marker({
         position: pos,
         map: this.map,
       })

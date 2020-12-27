@@ -58,7 +58,7 @@ export default {
     PlusIcon,
   },
   props: {
-    images: { type: Array },
+    images: { type: Array, default: () => [] },
   },
   data() {
     return {

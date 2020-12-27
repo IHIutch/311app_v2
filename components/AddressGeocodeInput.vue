@@ -13,8 +13,8 @@ export default {
   name: 'AddressGeocodeInput',
   props: {
     location: { type: Object, required: true },
-    label: { type: String },
-    description: { type: String },
+    label: { type: String, default: '' },
+    description: { type: String, default: '' },
   },
   data() {
     return {
@@ -39,11 +39,13 @@ export default {
     },
     initAutocomplete() {
       const self = this
-      const circle = new google.maps.Circle({
+      // eslint-disable-next-line no-undef
+      const googleMaps = google.maps
+      const circle = new googleMaps.Circle({
         center: this.searchBiasCenter,
         radius: 1000,
       })
-      const autocomplete = new google.maps.places.Autocomplete(
+      const autocomplete = new googleMaps.places.Autocomplete(
         document.getElementById('autocompleteInput'),
         { types: ['geocode'] }
       )

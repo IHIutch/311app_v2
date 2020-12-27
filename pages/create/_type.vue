@@ -196,13 +196,10 @@ import neighborhoodJSON from '@/data/neighborhoods.json'
 import { reportStatus } from '@/constants'
 
 import {
-  ChevronRightIcon,
   ChevronLeftIcon,
-  SearchIcon,
   MapPinIcon,
   CameraIcon,
   EditIcon,
-  PlusIcon,
   MailIcon,
 } from 'vue-feather-icons'
 
@@ -212,23 +209,20 @@ export default {
     AddressGeocodeInput,
     GoogleMapInput,
     AddPhotos,
-    ChevronRightIcon,
     ChevronLeftIcon,
-    SearchIcon,
     MapPinIcon,
     CameraIcon,
     EditIcon,
-    PlusIcon,
     MailIcon,
   },
   props: {
-    group: String,
-    type: String,
-    location: Object,
-    email: String,
-    images: Array,
-    neighborhood: String,
-    description: String,
+    group: { type: String, default: '' },
+    type: { type: String, default: '' },
+    location: { type: Object, default: () => {} },
+    email: { type: String, default: '' },
+    images: { type: Array, default: () => [] },
+    neighborhood: { type: String, default: '' },
+    description: { type: String, default: '' },
   },
   data() {
     return {

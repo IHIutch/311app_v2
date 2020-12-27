@@ -90,7 +90,7 @@ export default {
       return dayjs(value).format('MM/DD/YY')
     },
   },
-  async asyncData({ $axios, error }) {
+  asyncData({ $axios, error }) {
     return $axios
       .$get('api/v1/reports/')
       .then((res) => {
@@ -99,7 +99,7 @@ export default {
             reports: res,
           }
         } else {
-          throw new Error()
+          throw new Error(error)
         }
       })
       .catch((err) => {

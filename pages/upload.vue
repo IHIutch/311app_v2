@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from 'uuid'
-
 export default {
   name: 'Upload',
   data() {
@@ -26,7 +24,6 @@ export default {
   },
   methods: {
     getUrl() {
-      const self = this
       this.images.forEach((image) => {
         this.$axios
           .$get('/api/v1/upload')
@@ -69,5 +66,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped></style>

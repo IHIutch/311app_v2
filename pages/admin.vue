@@ -24,7 +24,7 @@ export default {
     this.getCurrentUser()
   },
   methods: {
-    async getCurrentUser() {
+    getCurrentUser() {
       try {
         this.$fireAuth.onAuthStateChanged((user) => {
           this.currentUser = user.email

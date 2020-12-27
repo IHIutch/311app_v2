@@ -29,7 +29,7 @@
     </div>
     <div class="d-flex flex-grow-1 overflow-auto border rounded">
       <b-list-group class="w-100" flush>
-        <div v-for="(group, gIdx) in groups">
+        <div v-for="(group, gIdx) in groups" :key="gIdx">
           <b-list-group-item
             :key="`group-${gIdx}`"
             class="sticky-top text-uppercase font-weight-bold bg-secondary text-white px-2 py-1 text-sm border-left-0 border-right-0"
@@ -54,26 +54,13 @@
 
 <script>
 import issuesJSON from '@/data/issues.json'
-import {
-  ChevronRightIcon,
-  ChevronLeftIcon,
-  SearchIcon,
-  MapPinIcon,
-  CameraIcon,
-  EditIcon,
-  PlusIcon,
-} from 'vue-feather-icons'
+import { ChevronRightIcon, SearchIcon } from 'vue-feather-icons'
 
 export default {
   name: 'CreateStart',
   components: {
     ChevronRightIcon,
-    ChevronLeftIcon,
     SearchIcon,
-    MapPinIcon,
-    CameraIcon,
-    EditIcon,
-    PlusIcon,
   },
   asyncData() {
     return {
@@ -105,7 +92,7 @@ export default {
           title: group,
           issues: filtered
             .filter((g) => {
-              return g.type == group
+              return g.type === group
             })
             .map((issue) => {
               return issue.text

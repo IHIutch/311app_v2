@@ -10,7 +10,7 @@ const siteDesc =
 const siteImage = `${baseURL}/img/meta/meta_image.jpg`
 const awsURL = 'https://s3.us-east-2.amazonaws.com/buffalo311'
 
-module.exports = {
+export default {
   publicRuntimeConfig: {
     baseURL,
     awsURL,
@@ -20,11 +20,6 @@ module.exports = {
   privateRuntimeConfig: {
     // apiSecret: process.env.API_SECRET
   },
-  /*
-   ** Nuxt rendering mode
-   ** See https://nuxtjs.org/api/configuration-mode
-   */
-  mode: 'universal',
   /*
    ** Nuxt target
    ** See https://nuxtjs.org/api/configuration-target
