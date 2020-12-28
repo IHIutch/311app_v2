@@ -65,7 +65,7 @@ export default {
         .then((data) => {
           this.busy = false
         })
-        .catch((err) => this.$sentry.captureException(new Error(err)))
+        .catch((err) => this.$sentry.captureException(err))
     },
   },
 }
