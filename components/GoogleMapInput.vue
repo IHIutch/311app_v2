@@ -134,44 +134,53 @@ export default {
         })
       })
     },
-    async getCurrentLocation() {
+    getCurrentLocation() {
       this.isFinding = true
+
       const getPos = () => {
         return new Promise((resolve, reject) => {
           navigator.geolocation.getCurrentPosition(resolve, reject)
         })
       }
-      const obj = await getPos()
-      this.isFinding = false
 
-      const pos = {
-        lat: obj.coords.latitude,
-        lng: obj.coords.longitude,
-      }
+      getPos()
+        .then(
+          (data) => {
+            const pos = {
+              lat: data.coords.latitude,
+              lng: data.coords.longitude,
+            }
 
-      if (this.marker || this.infoWindow) {
-        this.marker.setMap(null)
-        this.infoWindow.setMap(null)
-      }
-      this.infoWindow = new googleMaps.InfoWindow({
-        position: pos,
-        content: `Latitude:
+            if (this.marker || this.infoWindow) {
+              this.marker.setMap(null)
+              this.infoWindow.setMap(null)
+            }
+            this.infoWindow = new googleMaps.InfoWindow({
+              position: pos,
+              content: `Latitude:
           ${pos.lat.toFixed(3)},
             Longitude: ${pos.lng.toFixed(3)}`,
-      })
-      this.marker = new googleMaps.Marker({
-        position: pos,
-        map: this.map,
-      })
-      this.infoWindow.open(this.map, this.marker)
-      this.map.setCenter(pos)
+            })
+            this.marker = new googleMaps.Marker({
+              position: pos,
+              map: this.map,
+            })
+            this.infoWindow.open(this.map, this.marker)
+            this.map.setCenter(pos)
 
-      this.updateLocation({
-        lat: obj.coords.latitude,
-        lng: obj.coords.longitude,
-        accuracy: obj.coords.accuracy,
-        current: true,
-      })
+            this.updateLocation({
+              lat: data.coords.latitude,
+              lng: data.coords.longitude,
+              accuracy: data.coords.accuracy,
+              current: true,
+            })
+            this.isFinding = false
+          },
+          (err) => {
+            this.$sentry.captureException(err)
+          }
+        )
+        .catch((err) => this.$sentry.captureException(err))
     },
     updateLocation(obj) {
       this.$emit('update:location', obj)
