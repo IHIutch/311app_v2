@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     .then((reports) => {
       res.json(reports)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => sentry.captureException(new Error(err)))
 })
 
 router.get('/:reportId/', (req, res) => {
@@ -20,7 +20,7 @@ router.get('/:reportId/', (req, res) => {
     .then((report) => {
       res.json(report)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => sentry.captureException(new Error(err)))
 })
 
 router.post('/', (req, res) => {
@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
     .then((data) => {
       res.status(201).json(data.id)
     })
-    .catch((err) => console.log(err))
+    .catch((err) => sentry.captureException(new Error(err)))
 })
 
 export default router

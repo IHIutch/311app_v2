@@ -3,6 +3,7 @@ import sgMail from '@sendgrid/mail'
 import renderEmail from '../../../emails'
 import { User } from '../models/index'
 
+const sentry = process.sentry
 const router = express.Router()
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
@@ -26,15 +27,12 @@ router.post('/', (req, res) => {
             res.status(201).json(data.id)
           },
           (err) => {
-            console.error(err)
-            if (err.response) {
-              console.error(err.response.body)
-            }
+            sentry.captureException(new Error(err))
           }
         )
       })
     })
-    .catch((err) => console.log(err))
+    .catch((err) => sentry.captureException(new Error(err)))
 })
 
 export default router

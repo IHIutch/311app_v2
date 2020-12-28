@@ -308,7 +308,7 @@ export default {
           image.path = `${this.$config.awsURL}/${data.fields.key}`
           return this.aws(data, image)
         })
-        .catch((err) => console.log(err))
+        .catch((err) => this.$sentry.captureException(new Error(err)))
     },
     submit() {
       this.busy = true
@@ -338,7 +338,7 @@ export default {
             this.busy = false
             this.$router.push(`/reports/${data}`)
           })
-          .catch((err) => console.log(err))
+          .catch((err) => this.$sentry.captureException(new Error(err)))
       })
     },
   },
