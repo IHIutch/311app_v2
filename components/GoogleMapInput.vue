@@ -177,10 +177,12 @@ export default {
             this.isFinding = false
           },
           (err) => {
-            this.$sentry.captureException(err)
+            throw new Error(err)
           }
         )
-        .catch((err) => this.$sentry.captureException(err))
+        .catch((err) => {
+          throw new Error(err)
+        })
     },
     updateLocation(obj) {
       this.$emit('update:location', obj)
