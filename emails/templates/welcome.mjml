@@ -8,12 +8,7 @@
     </mj-attributes>
     <mj-style inline="inline">
       .body-section { -webkit-box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); -moz-box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); box-shadow: 1px 4px 11px 0px rgba(0, 0, 0, 0.15); }
-    </mj-style>
-    <mj-style inline="inline">
-      .text-link { color: #5e6ebf }
-    </mj-style>
-    <mj-style inline="inline">
-      .footer-link { color: #888888 }
+      .footer-link { color: blue }
     </mj-style>
 
   </mj-head>
@@ -33,7 +28,7 @@
     <mj-wrapper padding-top="0" padding-bottom="0" css-class="body-section">
       <mj-section background-color="#ffffff" padding-left="15px" padding-right="15px">
         <mj-column width="100%">
-          <mj-text color="#212b35" font-weight="bold" font-size="20px">
+          <mj-text font-weight="bold" font-size="20px">
             Hi {{email}},
           </mj-text>
           <mj-text color="#637381" font-size="16px">
