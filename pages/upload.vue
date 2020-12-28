@@ -30,7 +30,9 @@ export default {
           .then((data) => {
             this.upload(data, image)
           })
-          .catch((err) => this.$sentry.captureException(err))
+          .catch((err) => {
+            throw new Error(err)
+          })
       })
     },
     upload(signedUrl, image) {
