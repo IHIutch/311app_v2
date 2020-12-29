@@ -12,20 +12,34 @@
               <b-form-group label="Your Email" label-for="email">
                 <b-form-input
                   id="email"
-                  v-model="email"
+                  v-model="form.email"
                   type="email"
                   required
                   placeholder="Enter email"
                 ></b-form-input>
               </b-form-group>
+              <b-form-group label="Your Neighborhood" label-for="neighborhood">
+                <b-form-select
+                  id="neighborhood"
+                  v-model="form.neighborhood"
+                  :options="neighborhoodList"
+                  required
+                >
+                  <template #first>
+                    <b-form-select-option :value="null" disabled>
+                      -- Please select an option --
+                    </b-form-select-option>
+                  </template>
+                </b-form-select>
+              </b-form-group>
               <b-form-group label="Create Password" label-for="new-password">
                 <b-form-input
                   id="new-password"
-                  v-model="password"
-                  required
+                  v-model="form.password"
                   placeholder="Enter password"
                   type="password"
                   autocomplete="new-password"
+                  required
                 ></b-form-input>
               </b-form-group>
               <b-button type="submit" variant="primary" :disabled="busy">
@@ -43,24 +57,34 @@
 </template>
 
 <script>
+import neighborhoodJSON from '@/data/neighborhoods.json'
+import { userType } from '@/constants'
+
 export default {
   name: 'CreateAccountPage',
   layout: 'PublicLayout',
   data() {
     return {
-      email: '',
-      password: '',
+      form: {
+        email: '',
+        password: '',
+        neighborhood: null,
+      },
       errorMessage: null,
       busy: false,
+      neighborhoodList: neighborhoodJSON.map((n) => n.neighborhood).sort(),
     }
   },
   methods: {
     register() {
       this.busy = true
+      const { email, password, neighborhood } = this.form
       this.$axios
         .$post('api/v1/users', {
-          email: this.email,
-          password: '',
+          email,
+          password,
+          neighborhood,
+          type: userType.USER,
         })
         .then((data) => {
           this.busy = false
