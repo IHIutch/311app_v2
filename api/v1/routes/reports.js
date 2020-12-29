@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     })
     .catch((err) => {
       throw new Error(err)
-    }
+    })
 })
 
 router.get('/:reportId/', (req, res) => {
@@ -24,7 +24,7 @@ router.get('/:reportId/', (req, res) => {
     })
     .catch((err) => {
       throw new Error(err)
-    }
+    })
 })
 
 router.post('/', (req, res) => {
@@ -60,7 +60,9 @@ router.post('/', (req, res) => {
     .then((data) => {
       res.status(201).json(data.id)
     })
-    .catch((err) => throw new Error(err))
+    .catch((err) => {
+      throw new Error(err)
+    })
 })
 
 export default router

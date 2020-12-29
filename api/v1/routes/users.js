@@ -1,16 +1,16 @@
 import express from 'express'
 import { sendMail } from '../functions'
-import { userType } from '../../../constants'
 import { User } from '../models/index'
 
 const router = express.Router()
 
 router.post('/', (req, res) => {
-  const { email, password } = req.body
+  const { email, password, neighborhood, type } = req.body
   User.create({
     email,
     password,
-    type: userType.USER,
+    neighborhood,
+    type,
   })
     .then((data) => {
       sendMail({
