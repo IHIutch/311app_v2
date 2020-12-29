@@ -138,6 +138,7 @@ export default {
     '@nuxtjs/sentry',
     '@nuxtjs/axios',
     // "@nuxtjs/auth",
+    '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     'nuxt-leaflet',
   ],
@@ -190,6 +191,15 @@ export default {
     // Will register file from project api directory to handle /api/* requires
     { path: '/api/v1', handler: '~/api/v1/index' },
   ],
+  oneSignal: {
+    init: {
+      appId: process.env.ONE_SIGNAL_APP_ID,
+      allowLocalhostAsSecureOrigin: true,
+      welcomeNotification: {
+        disable: true,
+      },
+    },
+  },
   pwa: {
     icon: false,
     manifest: {

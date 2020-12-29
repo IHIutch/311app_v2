@@ -89,6 +89,5 @@ sw.*
 # Vim swap files
 *.swp
 
-.firebase
-
-public/
+# OneSignal files
+OneSignalSDK*
