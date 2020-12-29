@@ -116,6 +116,7 @@ import dayjs from 'dayjs'
 
 export default {
   name: 'AlertCreatePage',
+  layout: 'AdminLayout',
   data() {
     return {
       form: {
