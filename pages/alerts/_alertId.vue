@@ -11,7 +11,11 @@
         <b-col cols="4">
           <div class="mb-4">
             <div><span class="font-weight-bold">Status</span></div>
-            <span>{{ alert.startus }}</span>
+            <AlertStatusBadge
+              :status="alert.status"
+              :start-date="alert.startDate"
+              :end-date="alert.endDate"
+            />
           </div>
           <div class="mb-4">
             <div><span class="font-weight-bold">Start Date</span></div>
@@ -39,9 +43,12 @@
 
 <script>
 import dayjs from 'dayjs'
+import AlertStatusBadge from '~/components/common/AlertStatusBadge.vue'
 
 export default {
   name: 'AlertPage',
+  components: { AlertStatusBadge },
+  layout: 'PublicLayout',
   filters: {
     date(value) {
       return dayjs(value).format('MM/DD/YY')

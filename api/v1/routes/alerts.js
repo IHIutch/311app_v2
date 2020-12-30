@@ -4,13 +4,14 @@ import { Alert } from '../models/index'
 const router = express.Router()
 
 router.post('/', (req, res) => {
-  const { title, content, startDate, endDate, neighborhoods } = req.body
+  const { title, content, startDate, endDate, neighborhoods, status } = req.body
   Alert.create({
     title,
     content,
     startDate,
     endDate,
     neighborhoods,
+    status,
   })
     .then((data) => {
       res.status(201).json(data.id)

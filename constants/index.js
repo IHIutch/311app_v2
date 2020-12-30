@@ -11,7 +11,15 @@ const reportStatus = Object.freeze({
   CLOSED: 'CLOSED',
 })
 
+const alertStatus = Object.freeze({
+  PUBLISHED: 'PUBLISHED',
+  DRAFT: 'DRAFT',
+  PAUSED: 'PAUSED',
+  ENDED: 'ENDED',
+})
+
 module.exports = {
   userType,
   reportStatus,
+  alertStatus,
 }

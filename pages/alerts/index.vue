@@ -5,9 +5,16 @@
         <b-col>
           <div class="py-12">
             <div class="bg-white rounded border p-4">
+              <div>
+                <h1>Alerts</h1>
+              </div>
               <b-table class="mb-0" hover :items="alerts" :fields="fields">
-                <template #cell(createdAt)="data">
-                  {{ data.item.createdAt | date }}
+                <template #cell(status)="data">
+                  <AlertStatusBadge
+                    :status="data.item.status"
+                    :start-date="data.item.startDate"
+                    :end-date="data.item.endDate"
+                  />
                 </template>
                 <template #cell(startDate)="data">
                   {{ data.item.startDate | date }}
@@ -17,6 +24,9 @@
                 </template>
                 <template #cell(neighborhoods)="data">
                   {{ data.item.neighborhoods.length }}
+                </template>
+                <template #cell(createdAt)="data">
+                  {{ data.item.createdAt | date }}
                 </template>
                 <template #cell(link)="data">
                   <router-link :to="`/alerts/${data.item.id}`"
@@ -34,9 +44,12 @@
 
 <script>
 import dayjs from 'dayjs'
+import AlertStatusBadge from '@/components/common/AlertStatusBadge.vue'
 
 export default {
   name: 'AlertsPage',
+  layout: 'PublicLayout',
+  components: { AlertStatusBadge },
   filters: {
     date(value) {
       return dayjs(value).format('MM/DD/YY')
@@ -62,10 +75,11 @@ export default {
     return {
       fields: [
         { key: 'title', label: 'Title', sortable: true },
-        { key: 'createdAt', label: 'Created', sortable: true },
+        { key: 'status', label: 'Status', sortable: true },
         { key: 'startDate', label: 'Start Date', sortable: true },
         { key: 'endDate', label: 'End Date', sortable: true },
         { key: 'neighborhoods', label: 'Neighborhoods', sortable: true },
+        { key: 'createdAt', label: 'Created', sortable: true },
         {
           key: 'link',
           label: '',

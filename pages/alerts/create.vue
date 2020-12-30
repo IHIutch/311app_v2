@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-form @submit.prevent="submit()">
+    <b-form @submit.prevent="publish()">
       <b-container class="py-12">
         <b-row>
           <b-col>
@@ -113,6 +113,7 @@
 <script>
 import neighborhoodJSON from '@/data/neighborhoods.json'
 import dayjs from 'dayjs'
+import { alertStatus } from '@/constants'
 
 export default {
   name: 'AlertCreatePage',
@@ -136,7 +137,7 @@ export default {
     },
   },
   methods: {
-    submit() {
+    publish() {
       this.busy = true
       const { title, content, startDate, endDate, neighborhoods } = this.form
       this.$axios
@@ -146,6 +147,7 @@ export default {
           startDate,
           endDate,
           neighborhoods,
+          status: alertStatus.PUBLISHED,
         })
         .then((id) => {
           this.busy = false
