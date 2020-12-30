@@ -4,25 +4,25 @@ import mjml2html from 'mjml'
 import { htmlToText } from 'html-to-text'
 import { createRenderer } from 'vue-server-renderer'
 
-export default function renderEmail(templateName, data) {
+export default function renderEmail(templateName, templateData) {
   return new Promise((resolve, reject) => {
     const filePath = `./emails/templates/${templateName}.mjml`
     try {
       if (FS.existsSync(filePath)) {
         const app = new VUE({
-          data,
+          data: templateData,
           template: FS.readFileSync(filePath, 'utf-8'),
         })
         createRenderer().renderToString(app, (err, vueRender) => {
           if (err) {
             reject(new Error(`Error at Vue compiler: ${err}`))
           } else {
-            const htmlOutput = mjml2html(vueRender).html
-            const textOutput = htmlToText(htmlOutput)
-            if (htmlOutput && textOutput) {
+            const { html } = mjml2html(vueRender)
+            const text = htmlToText(html)
+            if (html && text) {
               resolve({
-                text: textOutput,
-                html: htmlOutput,
+                text,
+                html,
               })
             } else {
               reject(err)

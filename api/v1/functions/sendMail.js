@@ -5,13 +5,13 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const from = 'jbhutch01+311@gmail.com'
 
-export default function sendMail({ to, template, subject, data }) {
+export default function sendMail({ to = [], template, subject, data }) {
   return new Promise((resolve, reject) => {
-    renderEmail(template, { email: data.email })
+    renderEmail(template, data)
       .then(
         ({ text, html }) => {
           sgMail
-            .send({
+            .sendMultiple({
               to,
               from,
               subject,

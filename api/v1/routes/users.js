@@ -12,17 +12,19 @@ router.post('/', (req, res) => {
     neighborhood,
     type,
   })
-    .then((data) => {
+    .then((user) => {
       sendMail({
-        to: data.email,
+        to: [user.email],
         template: 'registration-success',
         title: 'Welcome to Buffalo 311',
         preview: '',
         subject: 'Welcome to Buffalo 311',
-        data,
+        data: {
+          email: user.email,
+        },
       })
         .then(() => {
-          res.status(201).json(data.id)
+          res.status(201).json(user.id)
         })
         .catch((err) => {
           throw new Error(err)
