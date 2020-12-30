@@ -336,9 +336,9 @@ export default {
             }),
             status: this.status,
           })
-          .then((data) => {
+          .then((id) => {
             this.busy = false
-            this.$router.push(`/reports/${data}`)
+            this.$router.push(`/reports/${id}`)
           })
           .catch((err) => {
             throw new Error(err)

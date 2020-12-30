@@ -50,21 +50,21 @@
                 sort-icon-left
                 @filtered="onFiltered"
               >
-                <template v-slot:table-busy>
+                <template #table-busy>
                   <div class="text-center text-primary my-2">
                     <b-spinner small class="align-middle mr-2"></b-spinner>
                     <strong>Loading...</strong>
                   </div>
                 </template>
-                <template v-slot:cell(dateCreated)="data">
+                <template #cell(dateCreated)="data">
                   {{ data.item.dateCreated | date }}
                 </template>
-                <template v-slot:cell(link)="data">
+                <template #cell(link)="data">
                   <router-link :to="`/reports/${data.item.id}`">
                     View Details
                   </router-link>
                 </template>
-                <template v-slot:table-caption>
+                <template #table-caption>
                   Showing {{ tableRangeShowing.start }} -
                   {{ tableRangeShowing.end }} of {{ table.totalRows }}
                 </template>
