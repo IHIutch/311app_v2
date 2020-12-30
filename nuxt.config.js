@@ -138,7 +138,7 @@ export default {
     '@nuxtjs/sentry',
     '@nuxtjs/axios',
     // "@nuxtjs/auth",
-    '@nuxtjs/onesignal',
+    // '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     'nuxt-leaflet',
   ],
@@ -194,9 +194,9 @@ export default {
   oneSignal: {
     init: {
       appId: process.env.ONE_SIGNAL_APP_ID,
-      allowLocalhostAsSecureOrigin: true,
-      welcomeNotification: {
-        disable: true,
+      allowLocalhostAsSecureOrigin: process.env.NODE_ENV === 'production',
+      notifyButton: {
+        enable: true,
       },
     },
   },
