@@ -137,8 +137,23 @@ export default {
   },
   methods: {
     submit() {
-      console.log(this.form)
       this.busy = true
+      const { title, content, startDate, endDate, neighborhoods } = this.form
+      this.$axios
+        .$post('api/v1/alerts', {
+          title,
+          content,
+          startDate,
+          endDate,
+          neighborhoods,
+        })
+        .then((id) => {
+          this.busy = false
+          this.$router.push(`/alerts/${id}`)
+        })
+        .catch((err) => {
+          throw new Error(err)
+        })
     },
   },
 }
