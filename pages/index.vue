@@ -11,15 +11,13 @@
               <b-input-group>
                 <b-form-input
                   id="filterInput"
-                  v-model="table.filter"
+                  v-model="search"
                   type="search"
                   placeholder="Type to Search"
+                  @input="onSearch()"
                 ></b-form-input>
                 <b-input-group-append>
-                  <b-button
-                    :disabled="!table.filter"
-                    @click="table.filter = ''"
-                  >
+                  <b-button :disabled="!search" @click="search = ''">
                     Clear
                   </b-button>
                 </b-input-group-append>
@@ -28,52 +26,39 @@
             <b-col cols="6">
               <div class="d-flex justify-content-end">
                 <b-pagination
-                  v-model="table.currentPage"
-                  :total-rows="table.totalRows"
-                  :per-page="table.perPage"
+                  v-model="pagination.currentPage"
+                  :total-rows="pagination.totalRows"
+                  :per-page="pagination.perPage"
                 ></b-pagination>
               </div>
             </b-col>
             <b-col cols="12">
-              <b-list-group>
-                <b-list-group-item v-for="(report, idx) in reports" :key="idx">
-                  <div>{{ report.title }}</div>
+              <b-list-group class="mb-2">
+                <b-list-group-item
+                  v-for="(report, idx) in filteredReports"
+                  :key="idx"
+                  :to="`/reports/${report.id}`"
+                >
+                  <div>
+                    <span class="font-weight-bold text-black">
+                      {{ report.group }} - {{ report.title }}
+                    </span>
+                  </div>
+                  <div class="d-flex">
+                    <span class="text-sm text-muted">
+                      #{{ report.id }} • Opened on
+                      {{ report.createdAt | date }}
+                    </span>
+                  </div>
                 </b-list-group-item>
               </b-list-group>
-              <!-- <b-table
-                class="mb-0 small"
-                small
-                hover
-                :items="reports"
-                :fields="fields"
-                :filter="table.filter"
-                :current-page="table.currentPage"
-                :per-page="table.perPage"
-                :busy="table.isBusy"
-                :sort-by.sync="table.sortBy"
-                :sort-desc.sync="table.sortDesc"
-                sort-icon-left
-                @filtered="onFiltered"
-              >
-                <template #table-busy>
-                  <div class="text-center text-primary my-2">
-                    <b-spinner small class="align-middle mr-2"></b-spinner>
-                    <strong>Loading...</strong>
-                  </div>
-                </template>
-                <template #cell(dateCreated)="data">
-                  {{ data.item.dateCreated | date }}
-                </template>
-                <template #cell(link)="data">
-                  <router-link :to="`/reports/${data.item.id}`">
-                    View Details
-                  </router-link>
-                </template>
-                <template #table-caption>
+              <div>
+                <span class="text-muted small">
                   Showing {{ tableRangeShowing.start }} -
-                  {{ tableRangeShowing.end }} of {{ table.totalRows }}
-                </template>
-              </b-table>-->
+                  {{ tableRangeShowing.end }} of
+                  {{ pagination.totalRows }}
+                </span>
+              </div>
             </b-col>
           </b-row>
         </div>
@@ -85,6 +70,7 @@
 <script>
 import dayjs from 'dayjs'
 import DashboardMap from '@/components/dashboard/DashboardMap'
+import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
   name: 'Dashboard',
@@ -100,6 +86,18 @@ export default {
       .$get('api/v1/reports/')
       .then((res) => {
         if (res) {
+          const types = reportTypesJSON.map((t, idx) => {
+            return {
+              id: idx,
+              ...t,
+            }
+          })
+          res = res.map((r) => {
+            const type = types.find((t) => {
+              return t.id === r.reportTypeId
+            })
+            return { ...type, ...r }
+          })
           return {
             reports: res,
           }
@@ -113,40 +111,43 @@ export default {
   },
   data() {
     return {
-      fields: [
-        { key: 'type', sortable: true },
-        { key: 'email', sortable: true },
-        { key: 'dateCreated', label: 'Created', sortable: true },
-        { key: 'link', label: '', sortable: false },
-      ],
-      table: {
-        isBusy: true,
+      pagination: {
         totalRows: 1,
         currentPage: 1,
-        perPage: 10,
-        filter: '',
-        sortBy: 'dateCreated',
-        sortDesc: false,
+        perPage: 5,
       },
+      search: '',
     }
   },
   computed: {
     tableRangeShowing() {
-      const range = this.table.currentPage * this.table.perPage
+      const range = this.pagination.currentPage * this.pagination.perPage
       return {
-        start: range - this.table.perPage + 1,
-        end: range < this.table.totalRows ? range : this.table.totalRows,
+        start: range - this.pagination.perPage + 1,
+        end:
+          range < this.pagination.totalRows ? range : this.pagination.totalRows,
       }
+    },
+    filteredReports() {
+      const range = this.pagination.currentPage * this.pagination.perPage
+      const filtered = this.search
+        ? this.reports.filter((report) => {
+            const title = report.title ? report.title.toLowerCase() : ''
+            const group = report.group ? report.group.toLowerCase() : ''
+            const search = this.search.toLowerCase()
+            return title.includes(search) || group.includes(search)
+          })
+        : this.reports
+
+      return [...filtered].slice(range - this.pagination.perPage, range)
     },
   },
   mounted() {
-    this.table.totalRows = this.reports.length
-    this.table.isBusy = false
+    this.pagination.totalRows = this.reports.length
   },
   methods: {
-    onFiltered(filteredItems) {
-      this.table.totalRows = filteredItems.length
-      this.table.currentPage = 1
+    onSearch() {
+      this.pagination.currentPage = 1
     },
   },
 }
