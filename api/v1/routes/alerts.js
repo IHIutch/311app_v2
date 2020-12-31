@@ -1,10 +1,20 @@
 import express from 'express'
-import { Alert } from '../models/index'
+import { Op } from 'sequelize'
+import { sendMail } from '../functions'
+import { Alert, User } from '../models/index'
 
 const router = express.Router()
 
 router.post('/', (req, res) => {
-  const { title, content, startDate, endDate, neighborhoods, status } = req.body
+  const {
+    title,
+    content,
+    startDate,
+    endDate,
+    neighborhoods,
+    status,
+    sendNotification,
+  } = req.body
   Alert.create({
     title,
     content,
@@ -13,8 +23,42 @@ router.post('/', (req, res) => {
     neighborhoods,
     status,
   })
-    .then((data) => {
-      res.status(201).json(data.id)
+    .then((alert) => {
+      if (sendNotification) {
+        User.findAll({
+          where: {
+            neighborhood: neighborhoods,
+          },
+        })
+          .then((users) => {
+            const userEmails = users.map((user) => user.email)
+            sendMail({
+              to: userEmails,
+              template: 'alert',
+              meta: {
+                title: 'New Alert',
+                subject: title,
+                preview: '',
+              },
+              data: {
+                title: alert.title,
+                content: alert.content,
+                alertLink: `/alerts/${alert.id}`,
+              },
+            })
+              .then(() => {
+                res.status(201).json(alert.id)
+              })
+              .catch((err) => {
+                throw new Error(err)
+              })
+          })
+          .catch((err) => {
+            throw new Error(err)
+          })
+      } else {
+        res.status(201).json(alert.id)
+      }
     })
     .catch((err) => {
       throw new Error(err)

@@ -16,9 +16,11 @@ router.post('/', (req, res) => {
       sendMail({
         to: [user.email],
         template: 'registration-success',
-        title: 'Welcome to Buffalo 311',
-        preview: '',
-        subject: 'Welcome to Buffalo 311',
+        meta: {
+          title: 'Welcome to Buffalo 311',
+          preview: '',
+          subject: 'Welcome to Buffalo 311',
+        },
         data: {
           email: user.email,
         },

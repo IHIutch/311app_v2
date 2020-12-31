@@ -27,24 +27,21 @@
       <mj-wrapper padding="30px">
         <mj-section border-right="1px solid #e9e9e9" border-left="1px solid #e9e9e9" border-top="1px solid #e9e9e9" full-width="full-width" background-color="#ffeeba" padding="0">
           <mj-column padding="24px 20px">
-            <mj-text align="center" font-size="24px" color="#856404" padding="0">
-              {{title}}
+            <mj-text align="center" font-size="24px" color="#856404" padding="0" line-height="32px">
+              An alert has been issued for your neighborhood.
             </mj-text>
           </mj-column>
         </mj-section>
         <mj-section background-color="#ffffff" border-bottom="1px solid #e9e9e9" border-right="1px solid #e9e9e9" border-left="1px solid #e9e9e9"  full-width="full-width" padding="0">
           <mj-column padding="20px">
-            <mj-text padding-left="0" padding-right="0" padding-bottom="20px">
-            Thank you for your submission,
-            <br />
-            <br />
-              {{message}}
+            <mj-text padding-left="0" padding-right="0" padding-bottom="20px" font-weight="bold" font-size="24px">
+              {{title}}
             </mj-text>
             <mj-text padding-left="0" padding-right="0" padding-bottom="20px">
-              <a :href="reportLink" class="btn">See Report</a>
+              {{content}}
             </mj-text>
-            <mj-text padding-left="0" padding-right="0">
-            Thank you for your report.
+            <mj-text padding="0">
+              <a :href="alertLink" class="btn">See Alert</a>
             </mj-text>
           </mj-column>
         </mj-section>

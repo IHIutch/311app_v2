@@ -40,6 +40,13 @@
           <b-col cols="4">
             <div class="border rounded bg-white">
               <div class="p-4 border-bottom">
+                <b-form-checkbox
+                  v-model="form.sendNotification"
+                  name="sendNotification"
+                  class="mb-4"
+                >
+                  Send Email Notification to Users
+                </b-form-checkbox>
                 <b-button
                   type="submit"
                   variant="primary"
@@ -126,6 +133,7 @@ export default {
         startDate: '',
         endDate: '',
         neighborhoods: [],
+        sendNotification: false,
       },
       neighborhoodList: neighborhoodJSON.map((n) => n.neighborhood).sort(),
       busy: false,
@@ -139,7 +147,14 @@ export default {
   methods: {
     publish() {
       this.busy = true
-      const { title, content, startDate, endDate, neighborhoods } = this.form
+      const {
+        title,
+        content,
+        startDate,
+        endDate,
+        neighborhoods,
+        sendNotification,
+      } = this.form
       this.$axios
         .$post('api/v1/alerts', {
           title,
@@ -148,6 +163,7 @@ export default {
           endDate,
           neighborhoods,
           status: alertStatus.PUBLISHED,
+          sendNotification,
         })
         .then((id) => {
           this.busy = false
