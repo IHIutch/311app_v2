@@ -9,3 +9,16 @@ body {
 .pac-container {
   z-index: 1041;
 }
+
+.leaflet-popup-content {
+  width: 200px !important;
+  max-width: 200px;
+  padding: 1rem;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.25rem !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}

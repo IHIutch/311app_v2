@@ -1,12 +1,17 @@
 <template>
   <div class="vh-100 mt-n14 pt-14">
     <client-only>
-      <l-map :zoom="12" :center="map.center">
+      <l-map :zoom="12" :center="map.center" style="font-size: 16px">
         <l-tile-layer :url="map.url"></l-tile-layer>
         <l-feature-group ref="feature">
-          <l-popup>
+          <l-popup :options="{ className: 'shadow-sm rounded-sm' }">
+            <div class="d-flex mb-2">
+              <span class="text-muted small">#{{ popup.id }}</span>
+            </div>
             <div>
-              <span>Hey</span>
+              <span class="font-weight-bold small">
+                {{ popup.title }} - {{ popup.group }}
+              </span>
             </div>
           </l-popup>
         </l-feature-group>
@@ -53,3 +58,5 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped></style>
