@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import reportTypes from '@/data/reportTypes.json'
+import reportTypesJSON from '@/data/reportTypes.json'
 import { ChevronRightIcon, SearchIcon } from 'vue-feather-icons'
 
 export default {
@@ -75,7 +75,7 @@ export default {
         group: '',
       },
       search: '',
-      types: reportTypes
+      types: reportTypesJSON
         .map((type, idx) => {
           return {
             id: idx,

@@ -26,12 +26,12 @@
                   <div class="flex-grow-1">
                     <div>
                       <span class="d-flex text-sm text-muted">
-                        {{ report.department }} • {{ report.type }}
+                        {{ report.department }} • {{ report.group }}
                       </span>
                     </div>
                     <div>
                       <span class="d-flex text-3xl mt-n1">
-                        {{ report.subtype }}
+                        {{ report.title }}
                       </span>
                     </div>
                   </div>
@@ -219,6 +219,7 @@
 import dayjs from 'dayjs'
 import { getMeta } from '@/functions/index'
 import { AlertTriangleIcon } from 'vue-feather-icons'
+import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
   name: 'ReportPage',
@@ -240,8 +241,18 @@ export default {
       .$get(`api/v1/reports/${reportId}`)
       .then((res) => {
         if (res) {
+          const type = reportTypesJSON
+            .map((t, idx) => {
+              return {
+                id: idx,
+                ...t,
+              }
+            })
+            .find((t) => {
+              return t.id === res.reportTypeId
+            })
           return {
-            report: res,
+            report: { ...type, ...res },
             currentRoute: $config.baseURL + route.path,
           }
         } else {
