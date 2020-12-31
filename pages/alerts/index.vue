@@ -8,7 +8,19 @@
               <div>
                 <h1>Alerts</h1>
               </div>
-              <b-table class="mb-0" hover :items="alerts" :fields="fields">
+              <b-table
+                class="mb-0"
+                hover
+                :items="alerts"
+                :fields="fields"
+                :busy="table.isBusy"
+              >
+                <template #table-busy>
+                  <div class="text-center text-primary my-2">
+                    <b-spinner class="align-middle"></b-spinner>
+                    <strong>Loading...</strong>
+                  </div>
+                </template>
                 <template #cell(status)="data">
                   <AlertStatusBadge
                     :status="data.item.status"
@@ -86,7 +98,13 @@ export default {
           sortable: false,
         },
       ],
+      table: {
+        isBusy: true,
+      },
     }
+  },
+  mounted() {
+    this.table.isBusy = false
   },
 }
 </script>
