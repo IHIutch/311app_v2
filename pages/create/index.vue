@@ -9,7 +9,7 @@
       <div>
         <b-form-group
           class="mb-0"
-          :description="`Example: &quot;${searchExamples[0]}&quot; or &quot;${searchExamples[1]}&quot;`"
+          :description="`Example: &quot;${searchExamples[0].title}&quot; or &quot;${searchExamples[1].title}&quot;`"
         >
           <div class="position-relative">
             <b-form-input
@@ -37,13 +37,13 @@
             {{ group.title }}
           </b-list-group-item>
           <b-list-group-item
-            v-for="(issue, iIdx) in group.issues"
-            :key="`issue-${iIdx}`"
+            v-for="(type, iIdx) in group.types"
+            :key="`type-${iIdx}`"
             class="border-left-0 border-right-0 d-flex align-items-center justify-content-between text-primary"
             button
-            @click="selectType(group.title, issue)"
+            @click="selectType(type.id, group.title, type.title)"
           >
-            <span>{{ issue }}</span>
+            <span>{{ type.title }}</span>
             <chevron-right-icon />
           </b-list-group-item>
         </div>
@@ -53,7 +53,7 @@
 </template>
 
 <script>
-import issuesJSON from '@/data/issues.json'
+import reportTypes from '@/data/reportTypes.json'
 import { ChevronRightIcon, SearchIcon } from 'vue-feather-icons'
 
 export default {
@@ -69,38 +69,49 @@ export default {
   },
   data() {
     return {
-      form: {
-        issueGroup: '',
-        issueType: '',
+      reportType: {
+        id: '',
+        title: '',
+        group: '',
       },
       search: '',
-      types: [...new Set(issuesJSON.map((data) => data.text))].sort(),
+      types: reportTypes
+        .map((type, idx) => {
+          return {
+            id: idx,
+            ...type,
+          }
+        })
+        .sort(),
     }
   },
   computed: {
     groups() {
-      const filtered = issuesJSON.filter((data) => {
-        return data.text.toLowerCase().includes(this.search.toLowerCase())
+      const filteredTypes = this.types.filter((data) => {
+        return data.title.toLowerCase().includes(this.search.toLowerCase())
       })
 
-      const filteredtTypes = [
-        ...new Set(filtered.map((data) => data.type)),
+      const filteredGroups = [
+        ...new Set(filteredTypes.map((data) => data.group)),
       ].sort()
 
-      const issues = filteredtTypes.map((group) => {
+      const sortedTypes = filteredGroups.map((group) => {
         return {
           title: group,
-          issues: filtered
+          types: filteredTypes
             .filter((g) => {
-              return g.type === group
+              return g.group === group
             })
-            .map((issue) => {
-              return issue.text
+            .map((type) => {
+              return {
+                id: type.id,
+                title: type.title,
+              }
             })
             .sort(),
         }
       })
-      return issues
+      return sortedTypes
     },
   },
   created() {
@@ -112,10 +123,13 @@ export default {
     slugify(value) {
       return value.replace(/\W+/g, '-').toLowerCase()
     },
-    selectType(group, type) {
-      this.$emit('update:group', group)
-      this.$emit('update:type', type)
-      this.$router.push(`/create/${this.slugify(type)}`)
+    selectType(id, group, title) {
+      this.$emit('update:reportType', {
+        id,
+        group,
+        title,
+      })
+      this.$router.push(`/create/${this.slugify(title)}`)
     },
     getSearchExamples() {
       while (this.searchExamples.length < 2) {

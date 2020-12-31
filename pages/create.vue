@@ -31,8 +31,7 @@
           >
             <nuxt-child
               :key="$route.path"
-              :group.sync="form.issueGroup"
-              :type.sync="form.issueType"
+              :report-type.sync="form.reportType"
               :images.sync="form.images"
               :description.sync="form.description"
               :location.sync="form.location"
@@ -54,8 +53,7 @@ export default {
     return {
       slideDirection: '',
       form: {
-        issueGroup: '',
-        issueType: '',
+        reportType: '',
         images: [],
         description: '',
         location: {},

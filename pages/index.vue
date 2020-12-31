@@ -35,7 +35,12 @@
               </div>
             </b-col>
             <b-col cols="12">
-              <b-table
+              <b-list-group>
+                <b-list-group-item v-for="(report, idx) in reports" :key="idx">
+                  <div>{{ report.title }}</div>
+                </b-list-group-item>
+              </b-list-group>
+              <!-- <b-table
                 class="mb-0 small"
                 small
                 hover
@@ -68,7 +73,7 @@
                   Showing {{ tableRangeShowing.start }} -
                   {{ tableRangeShowing.end }} of {{ table.totalRows }}
                 </template>
-              </b-table>
+              </b-table>-->
             </b-col>
           </b-row>
         </div>

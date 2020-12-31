@@ -1,0 +1,152 @@
+[
+  {
+    "department": "Police",
+    "group": "Quality of Life",
+    "title": "Noise Complaint"
+  },
+  {
+    "department": "Parking",
+    "group": "Parking/Vehicles",
+    "title": "Illegal Parking"
+  },
+  {
+    "department": "Parking",
+    "group": "Parking/Vehicles",
+    "title": "Blocked Driveway"
+  },
+  {
+    "department": "Parking",
+    "group": "Parking/Vehicles",
+    "title": "Damaged/Faulty Parking Meter"
+  },
+  {
+    "department": "Public Works",
+    "group": "Streets",
+    "title": "Signal Out or Flashing"
+  },
+  {
+    "department": "Public Works",
+    "group": "Streets",
+    "title": "Signal Timing Issue"
+  },
+  {
+    "department": "Public Works",
+    "group": "Streets",
+    "title": "Sneakers Hanging"
+  },
+  {
+    "department": "Public Works",
+    "group": "Streets",
+    "title": "Damaged Street Sign"
+  },
+  {
+    "department": "Public Works",
+    "group": "Streets",
+    "title": "Missing Manhole Cover"
+  },
+  {
+    "department": "Public Works",
+    "group": "Streets",
+    "title": "Unplowed Street"
+  },
+  {
+    "department": "Public Works",
+    "group": "Sidewalks",
+    "title": "Uneven/Cracked"
+  },
+  {
+    "department": "Public Works",
+    "group": "Sidewalks",
+    "title": "Sidewalk Obstruction"
+  },
+  {
+    "department": "Public Works",
+    "group": "Sidewalks",
+    "title": "Unshoveled Sidewalk"
+  },
+  {
+    "department": "Public Works",
+    "group": "Trees/Forestry",
+    "title": "Fallen Tree"
+  },
+  {
+    "department": "Public Works",
+    "group": "Trees/Forestry",
+    "title": "Tree/Stump Removal"
+  },
+  {
+    "department": "Public Works",
+    "group": "Trees/Forestry",
+    "title": "Tree Trimming"
+  },
+  {
+    "department": "Public Works",
+    "group": "Trees/Forestry",
+    "title": "Tree Planting"
+  },
+  {
+    "department": "Public Works",
+    "group": "Garbage/Sanitation",
+    "title": "Graffiti"
+  },
+  {
+    "department": "Public Works",
+    "group": "Garbage/Sanitation",
+    "title": "Request Street Sweeper"
+  },
+  {
+    "department": "Public Works",
+    "group": "Garbage/Sanitation",
+    "title": "Request Leaf/Yard Debris Pickup"
+  },
+  {
+    "department": "Public Works",
+    "group": "Garbage/Sanitation",
+    "title": "Damage from Street Worker"
+  },
+  {
+    "department": "Public Works",
+    "group": "Garbage/Sanitation",
+    "title": "Illegal Garbage Dumping"
+  },
+  {
+    "department": "Public Works",
+    "group": "Garbage/Sanitation",
+    "title": "Litter"
+  },
+  {
+    "department": "Fire",
+    "group": "Utility",
+    "title": "Fire Hydrant Issue"
+  },
+  {
+    "department": "Utility",
+    "group": "Utility",
+    "title": "Damaged/Faulty Street Light"
+  },
+  {
+    "department": "Public Works",
+    "group": "Utility",
+    "title": "Snow on Hydrant"
+  },
+  {
+    "department": "Housing Authority",
+    "group": "Housing",
+    "title": "Lead Paint Inspection"
+  },
+  {
+    "department": "Police",
+    "group": "Animal",
+    "title": "Pet Nuisance"
+  },
+  {
+    "department": "Public Works",
+    "group": "Animal",
+    "title": "Pest/Rodent"
+  },
+  {
+    "department": "Public Works",
+    "group": "Animal",
+    "title": "Dead Animal Removal"
+  }
+]

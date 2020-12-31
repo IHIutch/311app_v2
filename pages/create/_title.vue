@@ -22,11 +22,11 @@
           </div>
           <div>
             <div>
-              <span class="text-white text-sm">{{ group }}</span>
+              <span class="text-white text-sm">{{ reportType.group }}</span>
             </div>
             <div>
               <span class="text-white text-2xl">
-                {{ type }}
+                {{ reportType.title }}
               </span>
             </div>
           </div>
@@ -216,8 +216,12 @@ export default {
     MailIcon,
   },
   props: {
-    group: { type: String, default: '' },
-    type: { type: String, default: '' },
+    reportType: {
+      type: Object,
+      default: () => {
+        return { title: '', group: '', id: '' }
+      },
+    },
     location: { type: Object, default: () => {} },
     email: { type: String, default: '' },
     images: { type: Array, default: () => [] },
@@ -321,7 +325,7 @@ export default {
       ).then(() => {
         this.$axios
           .$post('api/v1/reports', {
-            reportTypeId: this.reportTypeId || null,
+            reportTypeId: this.reportType.id,
             email: this.email,
             description: this.description,
             lat: this.location.lat,
