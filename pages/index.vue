@@ -74,13 +74,13 @@ import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
   name: 'Dashboard',
-  layout: 'PublicLayout',
   components: { DashboardMap },
   filters: {
     date(value) {
       return dayjs(value).format('MM/DD/YY')
     },
   },
+  layout: 'PublicLayout',
   asyncData({ $axios, error }) {
     return $axios
       .$get('api/v1/reports/')

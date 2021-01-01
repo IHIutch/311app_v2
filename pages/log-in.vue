@@ -67,6 +67,20 @@ export default {
   methods: {
     signIn() {
       this.busy = true
+      this.$auth
+        .loginWith('local', {
+          data: {
+            ...this.form,
+          },
+        })
+        .then((res) => {
+          this.busy = false
+          return res
+        })
+        .catch((err) => {
+          this.busy = false
+          console.log('test', err)
+        })
     },
   },
 }

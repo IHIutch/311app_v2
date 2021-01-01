@@ -78,12 +78,9 @@ export default {
   methods: {
     register() {
       this.busy = true
-      const { email, password, neighborhood } = this.form
       this.$axios
         .$post('api/v1/users', {
-          email,
-          password,
-          neighborhood,
+          ...this.form,
           type: userType.USER,
         })
         .then((data) => {

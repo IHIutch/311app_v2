@@ -223,7 +223,6 @@ import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
   name: 'ReportPage',
-  layout: 'PublicLayout',
   components: {
     AlertTriangleIcon,
   },
@@ -235,6 +234,7 @@ export default {
       return value.toFixed(3)
     },
   },
+  layout: 'PublicLayout',
   asyncData({ $axios, route, error, $config }) {
     const reportId = route.params.reportId
     return $axios
@@ -278,12 +278,6 @@ export default {
       },
     }
   },
-  methods: {
-    showZoomImageModal(imageUrl) {
-      this.imageZoomUrl = imageUrl
-      this.$refs.imageZoomModal.show()
-    },
-  },
   head() {
     const reportId = this.report.id
     const reportTitle = `Buffalo 311 · Report #${reportId}`
@@ -300,6 +294,12 @@ export default {
       description: reportDesc,
       image: reportImage,
     })
+  },
+  methods: {
+    showZoomImageModal(imageUrl) {
+      this.imageZoomUrl = imageUrl
+      this.$refs.imageZoomModal.show()
+    },
   },
 }
 </script>

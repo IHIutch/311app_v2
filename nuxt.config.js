@@ -137,7 +137,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxtjs/sentry',
     '@nuxtjs/axios',
-    // "@nuxtjs/auth",
+    '@nuxtjs/auth',
     // '@nuxtjs/onesignal',
     '@nuxtjs/pwa',
     'nuxt-leaflet',
@@ -159,27 +159,30 @@ export default {
       pathRewrite: { '^/aws': '' },
     },
   },
-  // auth: {
-  //   redirect: {
-  //     login: "/login", // default
-  //     logout: "/", // default
-  //     home: "/admin"
-  //   },
-  //   strategies: {
-  //     local: {
-  //       endpoints: {
-  //         login: {
-  //           url: "/auth/login",
-  //           method: "post",
-  //           propertyName: "token"
-  //         },
-  //         logout: false,
-  //         user: { url: "/auth/user", method: "get", propertyName: "user" }
-  //       }
-  //     },
-  //     tokenType: "bearer"
-  //   }
-  // },
+  auth: {
+    redirect: {
+      login: '/log-in', // default
+      logout: '/', // default
+      home: '/account',
+    },
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: '/api/v1/auth/login',
+            method: 'post',
+            propertyName: 'token',
+          },
+          logout: false,
+          user: {
+            url: '/api/v1/auth/user',
+            method: 'get',
+            propertyName: 'user',
+          },
+        },
+      },
+    },
+  },
   /*
    ** Build configuration
    */
