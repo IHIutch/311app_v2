@@ -54,6 +54,10 @@
 export default {
   name: 'LoginPage',
   layout: 'PublicLayout',
+  // Redirect user back to /account when navigating to this page and already logged in
+  middleware: 'auth',
+  auth: 'guest',
+  //
   data() {
     return {
       form: {
@@ -75,11 +79,10 @@ export default {
         })
         .then((res) => {
           this.busy = false
-          return res
         })
         .catch((err) => {
           this.busy = false
-          console.log('test', err)
+          console.log(err)
         })
     },
   },

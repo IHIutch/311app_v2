@@ -171,13 +171,13 @@ export default {
           login: {
             url: '/api/v1/auth/login',
             method: 'post',
-            propertyName: 'token',
+            property: 'token',
           },
           logout: false,
           user: {
             url: '/api/v1/auth/user',
             method: 'get',
-            propertyName: 'user',
+            property: 'user',
           },
         },
       },
@@ -193,6 +193,15 @@ export default {
     }),
     // Will register file from project api directory to handle /api/* requires
     { path: '/api/v1', handler: '~/api/v1/index' },
+    // {
+    //   path: '/log-in',
+    //   handler(req, res) {
+    //     if ($auth.loggedIn) {
+    //       res.writeHead(301, { Location: '/account' })
+    //       res.end()
+    //     }
+    //   },
+    // },
   ],
   oneSignal: {
     init: {

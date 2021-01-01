@@ -13,7 +13,7 @@ export default {
       .then((res) => {
         if (res) {
           return {
-            profile: res,
+            ...res,
           }
         } else {
           throw new Error(error)
