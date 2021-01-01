@@ -8,10 +8,15 @@
             <div class="d-flex mb-2">
               <span class="text-muted small">#{{ popup.id }}</span>
             </div>
-            <div>
+            <div class="mb-2">
               <span class="font-weight-bold small">
                 {{ popup.title }} - {{ popup.group }}
               </span>
+            </div>
+            <div>
+              <router-link :to="`/reports/${popup.id}`"
+                >See Details</router-link
+              >
             </div>
           </l-popup>
         </l-feature-group>
@@ -19,7 +24,7 @@
           <l-circle-marker
             :key="idx"
             :lat-lng="[point.lat, point.lng]"
-            :radius="4"
+            :radius="6"
             :fill-opacity="1"
             :weight="10"
             :color="point.markerColor + '40'"
