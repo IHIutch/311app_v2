@@ -1,5 +1,4 @@
 import express from 'express'
-import { Op } from 'sequelize'
 import { sendMail } from '../functions'
 import { Alert, User } from '../models/index'
 

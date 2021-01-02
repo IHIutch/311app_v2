@@ -1,7 +1,7 @@
 import express from 'express'
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import { User, Report } from '../models/index'
+import { User } from '../models/index'
 
 const router = express.Router()
 

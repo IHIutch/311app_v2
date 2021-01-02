@@ -28,11 +28,11 @@ export default {
   methods: {
     getAddressValues(autocomplete) {
       const place = autocomplete.getPlace()
-      const obj = {}
-      place.address_components.map((component) => {
+      const obj = place.address_components.reduce((acc, component) => {
         const key = component.types[0]
-        obj[key] = component.long_name
-      })
+        acc[key] = component.long_name
+        return acc
+      }, {})
       obj.lat = place.geometry.location.lat()
       obj.lng = place.geometry.location.lng()
       this.$emit('update:location', obj)
