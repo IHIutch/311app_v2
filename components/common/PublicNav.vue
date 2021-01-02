@@ -7,6 +7,8 @@
     </b-navbar-nav>
     <b-navbar-nav class="ml-auto">
       <template v-if="$auth.loggedIn">
+        <b-nav-item to="/account" class="mr-2">My Reports</b-nav-item>
+        <b-nav-item to="/account/alerts" class="mr-2">My Alerts</b-nav-item>
         <b-nav-item class="mr-2" @click="logOut()">Log Out</b-nav-item>
       </template>
       <template v-else>

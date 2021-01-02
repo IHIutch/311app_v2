@@ -48,12 +48,12 @@ import AlertStatusBadge from '~/components/common/AlertStatusBadge.vue'
 export default {
   name: 'AlertPage',
   components: { AlertStatusBadge },
-  layout: 'PublicLayout',
   filters: {
     date(value) {
       return dayjs(value).format('MM/DD/YY')
     },
   },
+  layout: 'PublicLayout',
   asyncData({ $axios, route, error, $config }) {
     const alertId = route.params.alertId
     return $axios

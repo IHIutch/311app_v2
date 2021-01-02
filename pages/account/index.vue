@@ -74,7 +74,7 @@ import dayjs from 'dayjs'
 import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
-  name: 'AccountPage',
+  name: 'MyAccountPage',
   filters: {
     date(value) {
       return dayjs(value).format('MM/DD/YY')
@@ -82,7 +82,7 @@ export default {
   },
   layout: 'PublicLayout',
   middleware: 'auth',
-  asyncData({ $axios, route, error, $config }) {
+  asyncData({ $axios, error }) {
     return $axios
       .$get(`api/v1/users/account`)
       .then((res) => {
@@ -99,9 +99,7 @@ export default {
             })
             return { ...type, ...r }
           })
-          return {
-            ...res,
-          }
+          return res
         } else {
           throw new Error(error)
         }

@@ -1,8 +1,9 @@
 import express from 'express'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { Op } from 'sequelize'
 import { sendMail } from '../functions'
-import { User, Report } from '../models/index'
+import { User, Report, Alert } from '../models/index'
 
 const router = express.Router()
 
@@ -65,7 +66,6 @@ router.post('/', (req, res) => {
 })
 
 router.get('/account', (req, res) => {
-  // const { email } = req.body
   const bearerHeader = req.headers.authorization
   const bearer = bearerHeader.split(' ')
   const token = bearer[1]
@@ -94,6 +94,45 @@ router.get('/account', (req, res) => {
       Promise.all([user, reports])
         .then((data) => {
           res.json({ user: data[0], reports: data[1] })
+        })
+        .catch((err) => {
+          throw new Error(err)
+        })
+    }
+  })
+})
+
+router.get('/alerts', (req, res) => {
+  const bearerHeader = req.headers.authorization
+  const bearer = bearerHeader.split(' ')
+  const token = bearer[1]
+
+  jwt.verify(token, 'secret', (err, data) => {
+    if (err) {
+      return res.status(400).json({
+        error: 'Must be logged in to see this information',
+      })
+    } else {
+      const { id } = data
+      const user = User.findOne({
+        where: {
+          id,
+        },
+        attributes: [
+          'id',
+          'firstName',
+          'lastName',
+          'email',
+          'neighborhood',
+          'type',
+        ],
+      })
+      const alerts = Alert.findAll({
+        where: { neighborhoods: { [Op.contains]: 'Fillmore-Leroy' } },
+      })
+      Promise.all([user, alerts])
+        .then((data) => {
+          res.json({ user: data[0], alerts: data[1] })
         })
         .catch((err) => {
           throw new Error(err)

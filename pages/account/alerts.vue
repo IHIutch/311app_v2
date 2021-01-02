@@ -6,7 +6,7 @@
           <div class="py-12">
             <div class="bg-white rounded border p-4">
               <div>
-                <h1>Alerts</h1>
+                <h1>My Alerts</h1>
               </div>
               <b-table
                 class="mb-0"
@@ -59,7 +59,7 @@ import dayjs from 'dayjs'
 import AlertStatusBadge from '@/components/common/AlertStatusBadge.vue'
 
 export default {
-  name: 'AlertsPage',
+  name: 'MyAlertsPage',
   components: { AlertStatusBadge },
   filters: {
     date(value) {
@@ -69,18 +69,18 @@ export default {
   layout: 'PublicLayout',
   asyncData({ $axios, error }) {
     return $axios
-      .$get('api/v1/alerts/')
+      .$get(`api/v1/users/alerts`)
       .then((res) => {
         if (res) {
-          return {
-            alerts: res,
-          }
+          return res
         } else {
           throw new Error(error)
         }
       })
       .catch((err) => {
-        error({ statusCode: 404, message: err })
+        if (err) {
+          error({ statusCode: 404, error: 'You must log in to see this page.' })
+        }
       })
   },
   data() {
