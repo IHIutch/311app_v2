@@ -67,6 +67,7 @@ export default {
     },
   },
   layout: 'PublicLayout',
+  middleware: 'auth',
   asyncData({ $axios, error }) {
     return $axios
       .$get(`api/v1/users/alerts`)

@@ -63,6 +63,10 @@ import { userType } from '@/constants'
 export default {
   name: 'CreateAccountPage',
   layout: 'PublicLayout',
+  // Redirect user back to /account when navigating to this page and already logged in
+  middleware: 'auth',
+  auth: 'guest',
+  //
   data() {
     return {
       form: {
