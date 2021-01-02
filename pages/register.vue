@@ -84,9 +84,11 @@ export default {
           type: userType.USER,
         })
         .then((data) => {
+          this.$router.replace('/account')
           this.busy = false
         })
         .catch((err) => {
+          this.busy = false
           throw new Error(err)
         })
     },

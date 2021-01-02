@@ -167,17 +167,21 @@ export default {
     },
     strategies: {
       local: {
+        token: {
+          property: 'token',
+        },
+        user: {
+          property: 'user',
+        },
         endpoints: {
           login: {
             url: '/api/v1/auth/login',
             method: 'post',
-            property: 'token',
           },
           logout: false,
           user: {
             url: '/api/v1/auth/user',
             method: 'get',
-            property: 'user',
           },
         },
       },

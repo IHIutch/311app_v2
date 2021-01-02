@@ -7,9 +7,9 @@ export default {
   name: 'AccountPage',
   layout: 'PublicLayout',
   middleware: 'auth',
-  asyncData({ $axios, route, error, $config }) {
+  asyncData({ $axios, route, error, $config, $auth }) {
     return $axios
-      .$get(`api/v1/auth/user`)
+      .$get(`api/v1/users/account`)
       .then((res) => {
         if (res) {
           return {

@@ -60,28 +60,7 @@ router.get('/user', (req, res) => {
       if (err) {
         res.json({ user: false })
       } else {
-        const { email } = data
-        const user = User.findOne({
-          where: {
-            email,
-          },
-          attributes: [
-            'id',
-            'firstName',
-            'lastName',
-            'email',
-            'neighborhood',
-            'type',
-          ],
-        })
-        const reports = Report.findAll({ where: { email } })
-        Promise.all([user, reports])
-          .then((data) => {
-            res.json({ user: data[0], reports: data[1] })
-          })
-          .catch((err) => {
-            throw new Error(err)
-          })
+        res.json({ user: data })
       }
     })
   } else {
