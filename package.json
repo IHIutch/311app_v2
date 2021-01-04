@@ -35,7 +35,7 @@
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.6.5",
-    "dayjs": "^1.8.32",
+    "dayjs": "^1.10.1",
     "geolib": "^3.3.1",
     "html-to-text": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
