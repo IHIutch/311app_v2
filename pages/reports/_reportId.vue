@@ -121,7 +121,9 @@
                           <div class="mt-n1 mb-1">
                             <span
                               class="small text-muted"
-                              :title="comment.createdAt | date('MM/DD/YY')"
+                              :title="
+                                comment.createdAt | date('MMMM D, YYYY h:mma')
+                              "
                             >
                               Commented {{ comment.createdAt | fromNow }}
                             </span>
