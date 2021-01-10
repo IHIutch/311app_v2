@@ -57,9 +57,20 @@ router.post('/', (req, res) => {
 router.get('/:reportId/', (req, res) => {
   const { reportId } = req.params
 
-  Report.findByPk(reportId)
-    .then((report) => {
-      res.json(report)
+  const report = Report.findByPk(reportId)
+  const comments = Comment.findAll({
+    where: {
+      objectType: 'report',
+      objectId: reportId,
+    },
+  })
+
+  Promise.all([report, comments])
+    .then(([reportRes, commentsRes]) => {
+      res.json({
+        report: reportRes,
+        comments: commentsRes,
+      })
     })
     .catch((err) => {
       throw new Error(err)

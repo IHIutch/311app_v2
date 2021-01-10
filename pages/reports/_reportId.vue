@@ -9,7 +9,7 @@
                 <div
                   class="w-14 h-14 rounded-sm bg-primary mb-1 mr-4 d-flex align-items-center justify-content-center"
                 >
-                  <alert-triangle-icon size="32" class="text-white" />
+                  <AlertTriangleIcon size="32" class="text-white" />
                 </div>
               </div>
               <div class="flex-grow-1">
@@ -99,6 +99,39 @@
                     <div class="mb-3">
                       <h4 class="font-weight-bold mb-0">Activity</h4>
                     </div>
+                    <div>
+                      <div
+                        v-for="(comment, idx) in comments"
+                        :key="idx"
+                        class="d-flex mb-4"
+                      >
+                        <div class="flex-shrink-0 mr-4">
+                          <div
+                            class="rounded-circle bg-secondary h-8 w-8 d-flex align-items-center justify-content-center"
+                          >
+                            <MessageCircleIcon size="20" class="text-white" />
+                          </div>
+                        </div>
+                        <div>
+                          <div>
+                            <span class="font-weight-bold leading-none mr-2"
+                              >Someone</span
+                            >
+                          </div>
+                          <div class="mt-n1 mb-1">
+                            <span
+                              class="small text-muted"
+                              :title="comment.createdAt | date"
+                            >
+                              Commented {{ comment.createdAt | fromNow }}
+                            </span>
+                          </div>
+                          <p>
+                            {{ comment.content }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                     <div class="d-flex">
                       <div class="flex-shrink-0 mr-4">
                         <div
@@ -133,8 +166,13 @@
                               type="submit"
                               variant="primary"
                               class="ml-auto"
+                              :disabled="form.isBusy"
                             >
-                              Comment
+                              <span v-if="form.isBusy">
+                                <b-spinner small />
+                                Submitting...
+                              </span>
+                              <span v-else>Comment</span>
                             </b-button>
                           </div>
                         </b-form>
@@ -246,18 +284,25 @@
 
 <script>
 import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
 import { getMeta } from '@/functions/index'
-import { AlertTriangleIcon } from 'vue-feather-icons'
+import { AlertTriangleIcon, MessageCircleIcon } from 'vue-feather-icons'
 import reportTypesJSON from '@/data/reportTypes.json'
+
+dayjs.extend(relativeTime)
 
 export default {
   name: 'ReportPage',
   components: {
     AlertTriangleIcon,
+    MessageCircleIcon,
   },
   filters: {
     date(value) {
       return dayjs(value).format('MM/DD/YY')
+    },
+    fromNow(val) {
+      return dayjs(val).fromNow()
     },
     fixed3(value) {
       return value.toFixed(3)
@@ -270,6 +315,7 @@ export default {
       .$get(`api/v1/reports/${reportId}`)
       .then((res) => {
         if (res) {
+          const { report, comments } = res
           const type = reportTypesJSON
             .map((t, idx) => {
               return {
@@ -278,11 +324,12 @@ export default {
               }
             })
             .find((t) => {
-              return t.id === res.reportTypeId
+              return t.id === report.reportTypeId
             })
           return {
-            report: { ...type, ...res },
             currentRoute: $config.baseURL + route.path,
+            report: { ...type, ...report },
+            comments,
           }
         } else {
           throw new Error(error)
@@ -296,9 +343,9 @@ export default {
     return {
       imageZoomUrl: null,
       form: {
+        isBusy: false,
         comment: '',
       },
-      comments: [],
     }
   },
   head() {
@@ -323,14 +370,14 @@ export default {
       this.$refs.imageZoomModal.show()
     },
     submitComment() {
-      this.busy = true
+      this.form.isBusy = true
       this.$axios
         .$post('api/v1/reports/comment', {
           reportId: this.report.id,
           content: this.form.comment,
         })
         .then((data) => {
-          this.busy = false
+          this.form.isBusy = false
           this.form.comment = ''
           this.comments.push(data)
         })
