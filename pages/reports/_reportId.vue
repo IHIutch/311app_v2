@@ -323,13 +323,16 @@ export default {
       this.$refs.imageZoomModal.show()
     },
     submitComment() {
+      this.busy = true
       this.$axios
         .$post('api/v1/reports/comment', {
           reportId: this.report.id,
           content: this.form.comment,
         })
         .then((data) => {
-          console.log(data)
+          this.busy = false
+          this.form.comment = ''
+          this.comments.push(data)
         })
         .catch((err) => {
           throw new Error(err)

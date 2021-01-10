@@ -8,10 +8,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      text: {
+      author: {
+        type: Sequelize.INTEGER,
+      },
+      content: {
+        type: Sequelize.TEXT,
+      },
+      objectType: {
         type: Sequelize.STRING,
       },
-      parentCommentId: {
+      objectId: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Comment.init(
     {
-      text: DataTypes.STRING,
-      parentCommentId: DataTypes.INTEGER,
+      author: DataTypes.INTEGER,
+      content: DataTypes.TEXT,
+      objectType: DataTypes.STRING,
+      objectId: DataTypes.INTEGER,
     },
     {
       sequelize,

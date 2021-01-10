@@ -80,7 +80,12 @@ router.post('/comment', (req, res) => {
       const { id } = data
       const { content, reportId } = req.body
 
-      Comment.create({ userId: id, content, reportId })
+      Comment.create({
+        author: id,
+        content,
+        objectType: 'report',
+        objectId: reportId,
+      })
         .then((data) => {
           res.status(201).json(data)
         })
