@@ -68,18 +68,12 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
 import DashboardMap from '@/components/dashboard/DashboardMap'
 import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
   name: 'Dashboard',
   components: { DashboardMap },
-  filters: {
-    date(val, format) {
-      return dayjs(val).format(format)
-    },
-  },
   layout: 'PublicLayout',
   asyncData({ $axios, error }) {
     return $axios

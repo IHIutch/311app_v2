@@ -55,17 +55,11 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
 import AlertStatusBadge from '@/components/common/AlertStatusBadge.vue'
 
 export default {
   name: 'MyAlertsPage',
   components: { AlertStatusBadge },
-  filters: {
-    date(val, format) {
-      return dayjs(val).format(format)
-    },
-  },
   layout: 'PublicLayout',
   middleware: 'auth',
   asyncData({ $axios, error }) {

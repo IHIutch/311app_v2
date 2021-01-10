@@ -298,9 +298,6 @@ export default {
     MessageCircleIcon,
   },
   filters: {
-    date(val, format) {
-      return dayjs(val).format(format)
-    },
     fromNow(val) {
       return dayjs(val).fromNow()
     },

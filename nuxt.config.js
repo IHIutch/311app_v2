@@ -124,7 +124,10 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/vue-unicons', mode: 'client' }],
+  plugins: [
+    { src: '~/plugins/filters.js' },
+    { src: '~/plugins/vue-unicons', mode: 'client' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */

@@ -70,16 +70,10 @@
 </template>
 
 <script>
-import dayjs from 'dayjs'
 import reportTypesJSON from '@/data/reportTypes.json'
 
 export default {
   name: 'MyAccountPage',
-  filters: {
-    date(val, format) {
-      return dayjs(val).format(format)
-    },
-  },
   layout: 'PublicLayout',
   middleware: 'auth',
   asyncData({ $axios, error }) {
