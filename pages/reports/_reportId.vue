@@ -17,7 +17,7 @@
                   <div class="px-2 py-1 border rounded-sm d-inline-flex">
                     <span class="text-sm text-muted">
                       Report #{{ report.id }} • Opened on
-                      {{ report.createdAt | date }}
+                      {{ report.createdAt | date('MM/DD/YY') }}
                     </span>
                   </div>
                 </div>
@@ -121,7 +121,7 @@
                           <div class="mt-n1 mb-1">
                             <span
                               class="small text-muted"
-                              :title="comment.createdAt | date"
+                              :title="comment.createdAt | date('MM/DD/YY')"
                             >
                               Commented {{ comment.createdAt | fromNow }}
                             </span>
@@ -196,8 +196,8 @@
                       </div>
                       <div>
                         <span class="text-sm text-muted">
-                          {{ report.lat | fixed3 }},
-                          {{ report.lng | fixed3 }}
+                          {{ report.lat.toFixed(3) }},
+                          {{ report.lng.toFixed(3) }}
                         </span>
                       </div>
                     </div>
@@ -216,7 +216,7 @@
                         Date Created
                       </span>
                     </div>
-                    <span>{{ report.dateCreated | date }}</span>
+                    <span>{{ report.dateCreated | date('MM/DD/YY') }}</span>
                   </div>
                   <div class="mb-5">
                     <div>
@@ -225,7 +225,7 @@
                       </span>
                     </div>
                     <template v-if="report.dateAssigned">
-                      <span>{{ report.dateAssigned | date }}</span>
+                      <span>{{ report.dateAssigned | date('MM/DD/YY') }}</span>
                     </template>
                     <template v-else>
                       <span class="text-muted small"><i>Not Assigned</i></span>
@@ -238,7 +238,7 @@
                       </span>
                     </div>
                     <template v-if="report.dateScheduled">
-                      <span>{{ report.dateScheduled | date }}</span>
+                      <span>{{ report.dateScheduled | date('MM/DD/YY') }}</span>
                     </template>
                     <template v-else>
                       <span class="text-muted small"><i>Not scheduled</i></span>
@@ -251,7 +251,7 @@
                       </span>
                     </div>
                     <template v-if="report.closeDate">
-                      <span>{{ report.closeDate | date }}</span>
+                      <span>{{ report.closeDate | date('MM/DD/YY') }}</span>
                     </template>
                     <template v-else>
                       <span class="text-muted small"><i>Not Closed</i></span>
@@ -298,14 +298,11 @@ export default {
     MessageCircleIcon,
   },
   filters: {
-    date(value) {
-      return dayjs(value).format('MM/DD/YY')
+    date(val, format) {
+      return dayjs(val).format(format)
     },
     fromNow(val) {
       return dayjs(val).fromNow()
-    },
-    fixed3(value) {
-      return value.toFixed(3)
     },
   },
   layout: 'PublicLayout',

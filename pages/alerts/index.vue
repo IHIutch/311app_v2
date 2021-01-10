@@ -29,16 +29,16 @@
                   />
                 </template>
                 <template #cell(startDate)="data">
-                  {{ data.item.startDate | date }}
+                  {{ data.item.startDate | date('MM/DD/YY') }}
                 </template>
                 <template #cell(endDate)="data">
-                  {{ data.item.endDate | date }}
+                  {{ data.item.endDate | date('MM/DD/YY') }}
                 </template>
                 <template #cell(neighborhoods)="data">
                   {{ data.item.neighborhoods.length }}
                 </template>
                 <template #cell(createdAt)="data">
-                  {{ data.item.createdAt | date }}
+                  {{ data.item.createdAt | date('MM/DD/YY') }}
                 </template>
                 <template #cell(link)="data">
                   <router-link :to="`/alerts/${data.item.id}`"
@@ -62,8 +62,8 @@ export default {
   name: 'AlertsPage',
   components: { AlertStatusBadge },
   filters: {
-    date(value) {
-      return dayjs(value).format('MM/DD/YY')
+    date(val, format) {
+      return dayjs(val).format(format)
     },
   },
   layout: 'PublicLayout',

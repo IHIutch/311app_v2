@@ -19,11 +19,11 @@
           </div>
           <div class="mb-4">
             <div><span class="font-weight-bold">Start Date</span></div>
-            <span>{{ alert.startDate | date }}</span>
+            <span>{{ alert.startDate | date('MM/DD/YY') }}</span>
           </div>
           <div class="mb-4">
             <div><span class="font-weight-bold">End Date</span></div>
-            <span>{{ alert.endDate | date }}</span>
+            <span>{{ alert.endDate | date('MM/DD/YY') }}</span>
           </div>
           <div>
             <div><span class="font-weight-bold">Neighborhoods</span></div>
@@ -49,8 +49,8 @@ export default {
   name: 'AlertPage',
   components: { AlertStatusBadge },
   filters: {
-    date(value) {
-      return dayjs(value).format('MM/DD/YY')
+    date(val, format) {
+      return dayjs(val).format(format)
     },
   },
   layout: 'PublicLayout',

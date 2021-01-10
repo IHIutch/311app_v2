@@ -48,7 +48,7 @@
                     <div class="d-flex">
                       <span class="text-sm text-muted">
                         #{{ report.id }} • Opened on
-                        {{ report.createdAt | date }}
+                        {{ report.createdAt | date('MM/DD/YY') }}
                       </span>
                     </div>
                   </b-list-group-item>
@@ -76,8 +76,8 @@ import reportTypesJSON from '@/data/reportTypes.json'
 export default {
   name: 'MyAccountPage',
   filters: {
-    date(value) {
-      return dayjs(value).format('MM/DD/YY')
+    date(val, format) {
+      return dayjs(val).format(format)
     },
   },
   layout: 'PublicLayout',
