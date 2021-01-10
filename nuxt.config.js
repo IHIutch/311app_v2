@@ -197,15 +197,6 @@ export default {
     }),
     // Will register file from project api directory to handle /api/* requires
     { path: '/api/v1', handler: '~/api/v1/index' },
-    // {
-    //   path: '/log-in',
-    //   handler(req, res) {
-    //     if ($auth.loggedIn) {
-    //       res.writeHead(301, { Location: '/account' })
-    //       res.end()
-    //     }
-    //   },
-    // },
   ],
   oneSignal: {
     init: {
