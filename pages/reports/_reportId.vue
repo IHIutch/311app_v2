@@ -153,20 +153,20 @@
                               type="text"
                               rows="4"
                               :placeholder="
-                                $auth.loggedIn
+                                canComment
                                   ? 'Leave a comment'
                                   : 'Must be logged in to comment'
                               "
                               required
-                              :disabled="!$auth.loggedIn"
+                              :disabled="!canComment"
                             />
                           </b-form-group>
-                          <div v-if="$auth.loggedIn" class="d-flex">
+                          <div v-if="canComment" class="d-flex">
                             <b-button
                               type="submit"
                               variant="primary"
                               class="ml-auto"
-                              :disabled="form.isBusy"
+                              :disabled="!form.comment || form.isBusy"
                             >
                               <span v-if="form.isBusy">
                                 <b-spinner small />
@@ -363,6 +363,17 @@ export default {
       description,
       image,
     })
+  },
+  computed: {
+    canComment() {
+      // Must be logged in and the creator of the report to comment
+      return (
+        this.$auth.loggedIn &&
+        this.$auth.user &&
+        (this.$auth.user.email === this.report.email ||
+          this.$auth.user.id === this.report.userId)
+      )
+    },
   },
   methods: {
     showZoomImageModal(imageUrl) {
