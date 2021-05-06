@@ -1339,28 +1339,28 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
-"@sendgrid/client@^7.4.1":
-  version "7.4.1"
-  resolved "https://registry.yarnpkg.com/@sendgrid/client/-/client-7.4.1.tgz#6b319712120e098928acd7de70872e2720cf90a4"
-  integrity sha512-L7Js+5J3AFwbU27YlzKpLe4gG2avH+sSYTEg1+dW77Yai+UrkVtibvSkSSGfaIDSSKba/NA5DBUrQxr3GNZ4DQ==
+"@sendgrid/client@^7.4.3":
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/@sendgrid/client/-/client-7.4.3.tgz#bc71aae05de2cd9aa607f4eb1d886711d09f9595"
+  integrity sha512-tTaHx893w5iqG0sVtUnMyRchuwYF95k4UOkmov1MouMIeMUbNvbalITo7cG7YSXUTY9rT2t4eBY6HcEBCVeqfg==
   dependencies:
-    "@sendgrid/helpers" "^7.4.0"
+    "@sendgrid/helpers" "^7.4.3"
     axios "^0.21.1"
 
-"@sendgrid/helpers@^7.4.0":
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/@sendgrid/helpers/-/helpers-7.4.0.tgz#be98730c89c190c8873e2f25d868a13d26b75b25"
-  integrity sha512-IQI2vemiJB0+X6bEp4HRG+0/wrzR2RDGnB5rwfq1CsPDrUFdJfxbE2zbGx//1GnlNwAtbHyc93ejU1m0KZr86w==
+"@sendgrid/helpers@^7.4.3":
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/@sendgrid/helpers/-/helpers-7.4.3.tgz#231a4405266cfa291054df8b668fe3a4dc9387aa"
+  integrity sha512-Wt+68g1sVEM5UspJh34O/cxtv6BBbtAIk7U9B3PB2ySOtPs9e6hI1QkgYVwpNmkt7k2p86muUNyma/Aig25agg==
   dependencies:
     deepmerge "^4.2.2"
 
-"@sendgrid/mail@^7.4.1":
-  version "7.4.1"
-  resolved "https://registry.yarnpkg.com/@sendgrid/mail/-/mail-7.4.1.tgz#203944a8dfb978c8063cd0037e3dc9c025413e36"
-  integrity sha512-3KVzYnbSFx6+6SVxjV1IUq+nx1sbhY7PGRshYOypkGnAHFEXpFWJqWYiM3+Dj75ZS6r0rIRnZ+O4mCRDdpkfFg==
+"@sendgrid/mail@^7.4.4":
+  version "7.4.4"
+  resolved "https://registry.yarnpkg.com/@sendgrid/mail/-/mail-7.4.4.tgz#cc31915342d0233592baa6e80b74beaf32e0bf2b"
+  integrity sha512-9+dyArajxbPY7eJJAd2eps7MVsXW9E4Y294gWeMYku0/Id/qAivexidjstvkkVlZdlrHbEsGDlnMEcw2eXOiFg==
   dependencies:
-    "@sendgrid/client" "^7.4.1"
-    "@sendgrid/helpers" "^7.4.0"
+    "@sendgrid/client" "^7.4.3"
+    "@sendgrid/helpers" "^7.4.3"
 
 "@sentry/browser@^5.27.3":
   version "5.29.2"
