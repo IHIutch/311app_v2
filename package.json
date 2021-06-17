@@ -29,7 +29,7 @@
     "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/pwa": "^3.3.4",
     "@nuxtjs/sentry": "^4.3.4",
-    "@sendgrid/mail": "^7.4.1",
+    "@sendgrid/mail": "^7.4.5",
     "aws-sdk": "^2.824.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.2",
